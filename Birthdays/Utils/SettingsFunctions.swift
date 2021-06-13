@@ -42,7 +42,7 @@ class SettingsFunctions {
     
     class func changeThemeByUserDefaults(){
         var theme:UIUserInterfaceStyle
-        switch getThemeByUserDefaults() {
+        switch Storage.shared.currentThemeID {
         case 0:
             theme = .unspecified
         case 1:
@@ -56,10 +56,6 @@ class SettingsFunctions {
         UIApplication.shared.windows.forEach { window in
             window.overrideUserInterfaceStyle = theme
         }
-    }
-    
-    class func getThemeByUserDefaults() -> Int{
-        return UserDefaults.standard.integer(forKey: GlobalConstants.themeKeyUserDefaults)
     }
     
     class func getAgeByUserDefaults() -> AgeSettingsEnum{
@@ -81,22 +77,12 @@ class SettingsFunctions {
         default:
             save = 0
         }
-        UserDefaults.standard.set(save, forKey: GlobalConstants.themeKeyUserDefaults)
+        
+        Storage.shared.currentThemeID = save
     }
     
     class func setAgeByUserDefaults(age: AgeSettingsEnum){
         UserDefaults.standard.set(age.rawValue, forKey: GlobalConstants.ageKeyUserDefaults)
-    }
-    
-    class func getNotificationTimeByUserDefaults()->String{
-        guard let res = UserDefaults.standard.value(forKey: GlobalConstants.notificationTimeKeyUserDefaults) as? String else {
-            return "10:00"
-        }
-        return res
-    }
-    
-    class func setNotificationTimeByUserDefaults(_ time: String){
-        UserDefaults.standard.set(time, forKey: GlobalConstants.notificationTimeKeyUserDefaults)
     }
     
     class func getNotificationTimeEventByUserDefaults(id: Int) -> TimeEvent {

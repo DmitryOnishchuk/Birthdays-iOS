@@ -60,7 +60,7 @@ class MainSettingsTableVC: UITableViewController {
     }
     
     func setCurrentThemeLabel(){
-        let ud = SettingsFunctions.getThemeByUserDefaults()
+        let ud = Storage.shared.currentThemeID
         switch ud {
         case 0:
             currentThemeLabel.text = "SETTINGS_THEME_SYSTEM_DEFAULT".localized
@@ -108,7 +108,7 @@ class MainSettingsTableVC: UITableViewController {
     }
     
     func setCurrentNotificationTimeLabel(){
-        let notificationTimeString = SettingsFunctions.getNotificationTimeByUserDefaults()
+        let notificationTimeString = Storage().notificationTime
         currentNotificationTimeLabel.text = notificationTimeString
     }
     
@@ -127,7 +127,7 @@ class MainSettingsTableVC: UITableViewController {
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm"
-        let date = dateFormatter.date(from: SettingsFunctions.getNotificationTimeByUserDefaults())
+        let date = dateFormatter.date(from: Storage().notificationTime)
         datePickerNotificationTime!.date = date!
         
         
@@ -150,7 +150,7 @@ class MainSettingsTableVC: UITableViewController {
         formatter.dateFormat = "HH:mm"
 
         let time = formatter.string(from: datePickerNotificationTime!.date)
-        SettingsFunctions.setNotificationTimeByUserDefaults(time)
+        Storage.shared.notificationTime = time
         setCurrentNotificationTimeLabel()
         
         self.view.endEditing(true)
