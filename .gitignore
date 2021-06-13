@@ -33,7 +33,6 @@ Manifest.lock
 ## AppCode
 .idea/
 
-
 ### Xcode user data ###
 *xcworkspace/xcuserdata/*
 *.xcuserstate
