@@ -1,0 +1,48 @@
+main_age = "Возраст";
+main_turns = "Будет";
+after = "Через";
+day = "день";
+day2 = "дня";
+days = "дней";
+
+today = "Сегодня";
+tomorrow = "Завтра";
+
+delete_birthday="Удалить День Рождения?";
+cancel="Отмена";
+done="Готово";
+updated="Обновлено";
+delete="Удалить";
+deleted="Удалено";
+fail="Ошибка";
+next="Далее";
+name="Имя";
+select_birthday="Выберите день рождения";
+new_contact="Новый контакт";
+added="Добавлено";
+fail="Ошибка";
+
+settings = "Настройки";
+settings_title_main = "ОСНОВНОЕ";
+settings_language = "Язык";
+
+settings_theme="Тема";
+settings_theme_system_default="Системные настройки";
+settings_theme_light="Светлая";
+settings_theme_dark="Темная";
+
+settings_contact_age="Возраст контакта";
+settings_contact_age_upcoming="Предстоящий";
+settings_contact_age_current="Текущий";
+
+settings_notification_title="УВЕДОМЛЕНИЯ";
+settings_notification_time_remind="Время напоминаний";
+
+
+
+
+english="English";
+russian="Русский";
+ukrainian="Українська";
+germany="Deutsch";
+polish="Polski";
