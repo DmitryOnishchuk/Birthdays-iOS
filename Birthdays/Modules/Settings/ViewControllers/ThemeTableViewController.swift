@@ -13,10 +13,10 @@ class ThemeTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "settings_theme".localized
-        systemDefaultLabel.text = "settings_theme_system_default".localized
-        lightLabel.text = "settings_theme_light".localized
-        darkLabel.text = "settings_theme_dark".localized
+        self.title = "SETTINGS_THEME".localized
+        systemDefaultLabel.text = "SETTINGS_THEME_SYSTEM_DEFAULT".localized
+        lightLabel.text = "SETTINGS_THEME_LIGHT".localized
+        darkLabel.text = "SETTINGS_THEME_DARK".localized
         setThemeCheckmark()
         self.themeTableView.contentInset = UIEdgeInsets(top: -35, left: 0, bottom: 0, right: 0);
     }

@@ -77,9 +77,9 @@ class DateFunctions {
     }
     
     static func getDayAdditional(num: Int) -> String{
-        let daysArr: [String] = [NSLocalizedString("day", comment: ""),
-                                 NSLocalizedString("day2", comment: ""),
-                                 NSLocalizedString("days", comment: "")]
+        let daysArr: [String] = [NSLocalizedString("COMMON_DAY", comment: ""),
+                                 NSLocalizedString("COMMON_DAY2", comment: ""),
+                                 NSLocalizedString("COMMON_DAYS", comment: "")]
         
         var langStr = Locale.current.languageCode
         if langStr == nil{
@@ -107,20 +107,20 @@ class DateFunctions {
         
     }
     
-    static func formatDaysToBirthday(days:Int, shortName:Bool)->String{
+    static func formatDaysToBirthday(days:Int, shortName:Bool) -> String{
         
         var dayString = NSLocalizedString("days", comment: "")
         dayString = getDayAdditional(num: days)
         
         var after = "";
         if (!shortName) {
-            after = NSLocalizedString("after", comment: "") + " ";
+            after = NSLocalizedString("COMMON_AFTER", comment: "") + " ";
         }
         var res = after + String(days) + " " + dayString;
         if (days == 0) {
-            res = NSLocalizedString("today", comment: "")
+            res = NSLocalizedString("COMMON_TODAY", comment: "")
         } else if (days == 1) {
-            res = NSLocalizedString("tomorrow", comment: "")
+            res = NSLocalizedString("COMMON_TOMORROW", comment: "")
         }
         return res;
     }

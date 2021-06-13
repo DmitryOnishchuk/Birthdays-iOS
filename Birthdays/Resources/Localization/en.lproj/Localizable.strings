@@ -1,0 +1,69 @@
+// MARK: - Common
+
+"OK" = "OK";
+"CANCEL" = "Cancel";
+"DONE" = "Done";
+"UPDATED" = "Updated";
+"DELETE" = "Delete";
+"DELETED" = "Deleted";
+"FAIL" = "Fail";
+"NEXT" = "Next";
+
+// MARK: - Common Main
+
+"COMMON_AFTER" = "In";
+"COMMON_DAY" = "day";
+"COMMON_DAY2" = "days";
+"COMMON_DAYS" = "days";
+
+"COMMON_TODAY" = "Today";
+"COMMON_TOMORROW" = "Tomorrow";
+
+// MARK: - Main Screen
+
+"MAIN_AGE" = "Age";
+"MAIN_TURNS" = "Turns";
+
+// MARK: - Edit Screen
+
+"EDIT_ADDED" = "Added";
+"EDIT_NAME" = "Name";
+
+"EDIT_DELETE_BIRTHDAY" = "Delete Birthday?";
+"EDIT_SELECT_BIRTHDAY" = "Select birthday";
+"EDIT_NEW_CONTACT_TITLE" = "New contact";
+
+// MARK: - Settings Main
+
+"SETTINGS_SETTINGS" = "Settings";
+"SETTINGS_TITLE_MAIN" = "MAIN";
+
+// MARK: - Settings Language
+
+"SETTINGS_LANGUAGE" = "Language";
+
+// MARK: - Settings Theme
+
+"SETTINGS_THEME" = "Theme";
+"SETTINGS_THEME_SYSTEM_DEFAULT" = "System default";
+"SETTINGS_THEME_LIGHT" = "Light";
+"SETTINGS_THEME_DARK" = "Dark";
+
+// MARK: - Settings Contact
+
+"SETTINGS_CONTACT_AGE" = "Contact age";
+"SETTINGS_CONTACT_AGE_UPCOMING" = "Upcoming";
+"SETTINGS_CONTACT_AGE_CURENT" = "Current";
+
+// MARK: - Settings Notification
+
+"SETTINGS_NOTIFICATION_TITLE" = "NOTIFICATIONS";
+"SETTINGS_NOTIFICATION_TIME_REMIND" = "Time to remind";
+
+// MARK: - Languages
+
+"ENGLISH" = "English";
+"RUSSIAN" = "Русский";
+"UKRAINIAN" = "Українська";
+"GERMANY" = "Deutsch";
+"POLISH" = "Polski";

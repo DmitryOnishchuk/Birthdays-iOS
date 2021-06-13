@@ -112,17 +112,17 @@ extension MainViewController: UITabBarDelegate, UITableViewDataSource{
             
             let currengAge = (SettingsFunctions.getAgeByUserDefaults() == AgeSettingsEnum.current)
             if currengAge {
-                cell.ageStringLabelView.text = "main_age".localized
+                cell.ageStringLabelView.text = "MAIN_AGE".localized
                 cell.ageLabelView.text = DateFunctions.getAgeString(age: contact.getCurrentAge())
             }else{
-                cell.ageStringLabelView.text = "main_turns".localized
+                cell.ageStringLabelView.text = "MAIN_TURNS".localized
                 cell.ageLabelView.text = DateFunctions.getAgeString(age: futureAge)
             }
             
             if (futureAge <= 0) {
                 cell.ageStringLabelView.text = ""
             } else if (contact.daysToBirthday == 0) {
-                cell.ageStringLabelView.text = "main_age".localized
+                cell.ageStringLabelView.text = "MAIN_AGE".localized
             }
             
             

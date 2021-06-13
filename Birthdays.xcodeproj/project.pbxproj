@@ -60,9 +60,9 @@
 		3242189725B45431008BA4DA /* AnyLanguageBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyLanguageBundle.swift; sourceTree = "<group>"; };
 		3242D9A325A09C41003BC5EE /* ContactFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactFunctions.swift; sourceTree = "<group>"; };
 		32536C4625A4701F00B75EB3 /* MainSettingsTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSettingsTableVC.swift; sourceTree = "<group>"; };
-		32536C4925A499DC00B75EB3 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		32536C4925A499DC00B75EB3 /* ru */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		32536C4B25A4A0BF00B75EB3 /* LanguageSettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSettingsTableViewController.swift; sourceTree = "<group>"; };
-		325734EE25A3521700993D61 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		325734EE25A3521700993D61 /* en */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		326F960E25B982E900A015F2 /* ModelContactEdit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelContactEdit.swift; sourceTree = "<group>"; };
 		326F961125B9839D00A015F2 /* ContactEditTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactEditTableViewCell.swift; sourceTree = "<group>"; };
 		326F961525B9852600A015F2 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
@@ -113,9 +113,9 @@
 		323367A2262830EB00F073F2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				327ABFCD26763C07005B02FB /* Localization */,
 				32D3067C259C7565000D7D9A /* LaunchScreen.storyboard */,
 				32D3067A259C7564000D7D9A /* Assets.xcassets */,
-				325734EC25A3520F00993D61 /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -225,6 +225,14 @@
 				323367B62628346200F073F2 /* ViewControllers */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		327ABFCD26763C07005B02FB /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				325734EC25A3520F00993D61 /* Localizable.strings */,
+			);
+			path = Localization;
 			sourceTree = "<group>";
 		};
 		327B41A02675EA3400A42967 /* MainSettings */ = {

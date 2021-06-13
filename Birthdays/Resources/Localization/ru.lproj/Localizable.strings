@@ -1,0 +1,69 @@
+// MARK: - Common
+
+"OK" = "OK";
+"CANCEL" = "Отмена";
+"DONE" = "Готово";
+"UPDATED" = "Обновлено";
+"DELETE" = "Удалить";
+"DELETED" = "Удалено";
+"FAIL" = "Ошибка";
+"NEXT" = "Далее";
+
+// MARK: - Common Main
+
+"COMMON_AFTER" = "Через";
+"COMMON_DAY" = "день";
+"COMMON_DAY2" = "дня";
+"COMMON_DAYS" = "дней";
+
+"COMMON_TODAY" = "Сегодня";
+"COMMON_TOMORROW" = "Завтра";
+
+// MARK: - Main Screen
+
+"MAIN_AGE" = "Возраст";
+"MAIN_TURNS" = "Будет";
+
+// MARK: - Edit Screen
+
+"EDIT_ADDED" = "Добавлено";
+"EDIT_NAME" = "Имя";
+
+"EDIT_DELETE_BIRTHDAY" = "Удалить День Рождения?";
+"EDIT_SELECT_BIRTHDAY" = "Выберите день рождения";
+"EDIT_NEW_CONTACT_TITLE" = "Новый контакт";
+
+// MARK: - Settings Main
+
+"SETTINGS_SETTINGS" = "Настройки";
+"SETTINGS_TITLE_MAIN" = "ОСНОВНОЕ";
+
+// MARK: - Settings Language
+
+"SETTINGS_LANGUAGE" = "Язык";
+
+// MARK: - Settings Theme
+
+"SETTINGS_THEME" = "Тема";
+"SETTINGS_THEME_SYSTEM_DEFAULT" = "Системные настройки";
+"SETTINGS_THEME_LIGHT" = "Светлая";
+"SETTINGS_THEME_DARK" = "Темная";
+
+// MARK: - Settings Contact
+
+"SETTINGS_CONTACT_AGE" = "Возраст контакта";
+"SETTINGS_CONTACT_UPCOMING" = "Предстоящий";
+"SETTINGS_CONTACT_AGE_CURENT" = "Текущий";
+
+// MARK: - Settings Notification
+
+"SETTINGS_NOTIFICATION_TITLE" = "УВЕДОМЛЕНИЯ";
+"SETTINGS_NOTIFICATION_TIME_REMIND" = "Время напоминаний";
+
+// MARK: - Languages
+
+"ENGLIS" = "English";
+"RUSSIAN" = "Русский";
+"UKRAINIAN" = "Українська";
+"GERMANY" = "Deutsch";
+"POLSKI" = "Polski";

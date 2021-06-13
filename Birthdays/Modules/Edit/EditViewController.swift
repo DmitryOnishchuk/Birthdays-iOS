@@ -81,22 +81,22 @@ class EditViewController: UIViewController, UITableViewDelegate, UITextFieldDele
 
 
     func setNameDialog(){
-        let alert = UIAlertController(title:"new_contact".localized, message: "", preferredStyle: .alert)
+        let alert = UIAlertController(title:"EDIT_NEW_CONTACT_TITLE".localized, message: "", preferredStyle: .alert)
         
         alert.addTextField { (textField : UITextField!) in
-            textField.placeholder = "name".localized
+            textField.placeholder = "EDIT_NAME".localized
             textField.delegate = self
             textField.clearButtonMode = .whileEditing
             textField.addTarget(self, action: #selector(self.textFieldDidChangeName(_:)), for: .editingChanged)
         }
 
-        nextActionName = UIAlertAction(title: "next".localized, style: .default, handler: { saveAction -> Void in
+        nextActionName = UIAlertAction(title: "NEXT".localized, style: .default, handler: { saveAction -> Void in
             let textField = alert.textFields![0] as UITextField
             self.newContact!.name = textField.text!
             self.setBirthdayDialog()
         })
         nextActionName.isEnabled = false
-        let cancel = UIAlertAction(title: "cancel".localized, style: .cancel, handler: {
+        let cancel = UIAlertAction(title: "CANCEL".localized, style: .cancel, handler: {
                                     (action : UIAlertAction!) -> Void in })
         
         
@@ -114,7 +114,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITextFieldDele
         newContactBirthdayPickerView.delegate = newContactBirthdayPickerView
         newContactBirthdayPickerView.dataSource = newContactBirthdayPickerView
         
-        newContactAlertBirthday = UIAlertController(title:"select_birthday".localized, message: "", preferredStyle: .alert)
+        newContactAlertBirthday = UIAlertController(title:"EDIT_SELECT_BIRTHDAY".localized, message: "", preferredStyle: .alert)
         
         
         let cons:NSLayoutConstraint = NSLayoutConstraint(item: newContactAlertBirthday.view, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.greaterThanOrEqual, toItem: newContactBirthdayPickerView, attribute: NSLayoutConstraint.Attribute.height, multiplier: 1.00, constant: 130)
@@ -129,7 +129,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITextFieldDele
         newContactAlertBirthday.view.addSubview(newContactBirthdayPickerView)
         
         //        newContactAlertBirthday.addTextField {(textField : UITextField!) in
-        //            textField.placeholder = "select_birthday".localized
+        //            textField.placeholder = "EDIT_SELECT_BIRTHDAY".localized
         //            textField.delegate = self
         //            textField.inputView = self.newContactBirthdayPickerView
         //
@@ -138,24 +138,24 @@ class EditViewController: UIViewController, UITableViewDelegate, UITextFieldDele
         //
         //            let toolbar = UIToolbar();
         //            toolbar.sizeToFit()
-        //            let doneButton = UIBarButtonItem(title: "done".localized, style: .plain, target: self, action: #selector(self.doneAlertDatePicker))
+        //            let doneButton = UIBarButtonItem(title: "DONE".localized, style: .plain, target: self, action: #selector(self.doneAlertDatePicker))
         //            let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         //            toolbar.setItems([spaceButton,doneButton], animated: true)
         //            textField!.inputAccessoryView = toolbar
         //            textField!.becomeFirstResponder()
         //        }
         
-        nextActionBirthday = UIAlertAction(title: "next".localized, style: .default, handler: { saveAction -> Void in
+        nextActionBirthday = UIAlertAction(title: "NEXT".localized, style: .default, handler: { saveAction -> Void in
             self.newContact!.birthday = self.newContactBirthdayPickerView.date
             let resAdd = ContactFunctions.createContact(self.newContact!)
-            let msg = (resAdd) ? self.newContact!.name + " " + "added".localized : "fail".localized
+            let msg = (resAdd) ? self.newContact!.name + " " + "EDIT_ADDED".localized : "FAIL".localized
             self.showToast(message: msg, font: .systemFont(ofSize: 12.0))
   
             
             self.updateTable()
         })
         //nextActionBirthday.isEnabled = false
-        let cancel = UIAlertAction(title: "cancel".localized, style: .cancel, handler: {
+        let cancel = UIAlertAction(title: "CANCEL".localized, style: .cancel, handler: {
                                     (action : UIAlertAction!) -> Void in })
     
 
@@ -237,9 +237,9 @@ extension EditViewController: UITabBarDelegate, UITableViewDataSource{
         
         let toolbar = UIToolbar();
         toolbar.sizeToFit()
-        let doneButton = UIBarButtonItem(title: "done".localized, style: .plain, target: self, action: #selector(doneDatePicker))
-        let removeButton = UIBarButtonItem(title: "delete".localized, style: .plain, target: nil, action: #selector(deleteDatePicker))
-        let cancelButton = UIBarButtonItem(title: "cancel".localized, style: .plain, target: self, action:
+        let doneButton = UIBarButtonItem(title: "DONE".localized, style: .plain, target: self, action: #selector(doneDatePicker))
+        let removeButton = UIBarButtonItem(title: "DELETE".localized, style: .plain, target: nil, action: #selector(deleteDatePicker))
+        let cancelButton = UIBarButtonItem(title: "CANCEL".localized, style: .plain, target: self, action:
                                             #selector(cancelDatePicker))
         let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         
@@ -264,10 +264,10 @@ extension EditViewController: UITabBarDelegate, UITableViewDataSource{
         self.view.endEditing(true)
         if birthdayPickerView.date != currentContact?.birthday {
             if ContactFunctions.updateBirthdayByContactID(currentContact!.id, birthdayPickerView.date) {
-                self.showToast(message: "updated".localized, font: .systemFont(ofSize: 12.0))
+                self.showToast(message: "UPDATED".localized, font: .systemFont(ofSize: 12.0))
                 updateTable()
             }else{
-                self.showToast(message: "fail".localized, font: .systemFont(ofSize: 12.0))
+                self.showToast(message: "FAIL".localized, font: .systemFont(ofSize: 12.0))
             }
         }
     }
@@ -275,13 +275,13 @@ extension EditViewController: UITabBarDelegate, UITableViewDataSource{
     @objc func deleteDatePicker(){
         self.view.endEditing(true)
         
-        let alert = UIAlertController(title: "delete_birthday".localized, message: currentContact?.name, preferredStyle: .alert)
-        let action = UIAlertAction(title: "OK", style: .default, handler: { [self] action in
+        let alert = UIAlertController(title: "EDIT_DELETE_BIRTHDAY".localized, message: currentContact?.name, preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK".localized, style: .default, handler: { [self] action in
             if action.style == .default{
                 deleteCurrentContactBirthday()
             }
         })
-        let cancel = UIAlertAction(title: "cancel".localized, style: .cancel, handler: { action in })
+        let cancel = UIAlertAction(title: "CANCEL".localized, style: .cancel, handler: { action in })
         alert.addAction(action)
         alert.addAction(cancel)
         self.present(alert, animated: true, completion: nil)
@@ -289,10 +289,10 @@ extension EditViewController: UITabBarDelegate, UITableViewDataSource{
     
     func deleteCurrentContactBirthday(){
         if ContactFunctions.deleteBirthdayByContactID(currentContact!.id) {
-            self.showToast(message: "deleted".localized, font: .systemFont(ofSize: 12.0))
+            self.showToast(message: "DELETED".localized, font: .systemFont(ofSize: 12.0))
             updateTable()
         }else{
-            self.showToast(message: "fail".localized, font: .systemFont(ofSize: 12.0))
+            self.showToast(message: "FAIL".localized, font: .systemFont(ofSize: 12.0))
         }
     }
     

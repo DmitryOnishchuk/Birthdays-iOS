@@ -29,11 +29,11 @@ class MainSettingsTableVC: UITableViewController {
     }
     
     func onLoad(){
-        self.title = "settings".localized
-        languageLabel.text = "settings_language".localized
-        themeLabel.text = "settings_theme".localized
-        ageLabel.text = "settings_contact_age".localized
-        notificationTimeLabel.text = "settings_notification_time_remind".localized
+        self.title = "SETTINGS_SETTINGS".localized
+        languageLabel.text = "SETTINGS_LANGUAGE".localized
+        themeLabel.text = "SETTINGS_THEME".localized
+        ageLabel.text = "SETTINGS_CONTACT_AGE".localized
+        notificationTimeLabel.text = "SETTINGS_NOTIFICATION_TIME_REMIND".localized
         
         setCurrentLanuageLabel()
         setCurrentThemeLabel()
@@ -51,8 +51,8 @@ class MainSettingsTableVC: UITableViewController {
     
     override func tableView(_ tableView : UITableView,  titleForHeaderInSection section: Int)->String {
         switch(section) {
-        case 0: return "settings_title_main".localized
-        case 1: return "settings_notification_title".localized
+        case 0: return "SETTINGS_TITLE_MAIN".localized
+        case 1: return "SETTINGS_NOTIFICATION_TITLE".localized
             
         default :return ""
             
@@ -63,16 +63,16 @@ class MainSettingsTableVC: UITableViewController {
         let ud = SettingsFunctions.getThemeByUserDefaults()
         switch ud {
         case 0:
-            currentThemeLabel.text = "settings_theme_system_default".localized
+            currentThemeLabel.text = "SETTINGS_THEME_SYSTEM_DEFAULT".localized
             break
         case 1:
-            currentThemeLabel.text = "settings_theme_light".localized
+            currentThemeLabel.text = "SETTINGS_THEME_LIGHT".localized
             break
         case 2:
-            currentThemeLabel.text = "settings_theme_dark".localized
+            currentThemeLabel.text = "SETTINGS_THEME_DARK".localized
             break
         default:
-            currentThemeLabel.text = "settings_theme_system_default".localized
+            currentThemeLabel.text = "SETTINGS_THEME_SYSTEM_DEFAULT".localized
             break
         }
     }
@@ -81,17 +81,17 @@ class MainSettingsTableVC: UITableViewController {
         let langStr = SettingsFunctions.getCurrentLanguage()
         switch langStr {
         case "en":
-            currentLanuageLabel.text = "english".localized
+            currentLanuageLabel.text = "ENGLISH".localized
         case "de":
-            currentLanuageLabel.text = "germany".localized
+            currentLanuageLabel.text = "GERMANY".localized
         case "ru":
-            currentLanuageLabel.text = "russian".localized
+            currentLanuageLabel.text = "RUSSIAN".localized
         case "pl":
-            currentLanuageLabel.text = "polish".localized
+            currentLanuageLabel.text = "POLISH".localized
         case "uk":
-            currentLanuageLabel.text = "ukrainian".localized
+            currentLanuageLabel.text = "UKRAINIAN".localized
         default:
-            currentLanuageLabel.text = "english".localized
+            currentLanuageLabel.text = "ENGLISH".localized
         }
     }
     
@@ -99,11 +99,11 @@ class MainSettingsTableVC: UITableViewController {
         let ageSetting = SettingsFunctions.getAgeByUserDefaults()
         switch ageSetting {
         case AgeSettingsEnum.upcoming:
-            currentAgeLabel.text = "settings_contact_age_upcoming".localized
+            currentAgeLabel.text = "SETTINGS_CONTACT_AGE_UPCOMING".localized
         case AgeSettingsEnum.current:
-            currentAgeLabel.text = "settings_contact_age_current".localized
+            currentAgeLabel.text = "SETTINGS_CONTACT_AGE_CURENT".localized
         default:
-            currentAgeLabel.text = "settings_contact_age_upcoming".localized
+            currentAgeLabel.text = "SETTINGS_CONTACT_AGE_UPCOMING".localized
         }
     }
     
@@ -126,7 +126,7 @@ class MainSettingsTableVC: UITableViewController {
         
         
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat =  "HH:mm"
+        dateFormatter.dateFormat = "HH:mm"
         let date = dateFormatter.date(from: SettingsFunctions.getNotificationTimeByUserDefaults())
         datePickerNotificationTime!.date = date!
         
@@ -135,9 +135,9 @@ class MainSettingsTableVC: UITableViewController {
         datePickerNotificationTime?.locale = Locale(identifier: localeID!)
         let toolbar = UIToolbar();
         toolbar.sizeToFit()
-        let doneButton = UIBarButtonItem(title: "done".localized, style: .plain, target: self, action: #selector(donedatePicker))
+        let doneButton = UIBarButtonItem(title: "DONE".localized, style: .plain, target: self, action: #selector(donedatePicker))
         let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        let cancelButton = UIBarButtonItem(title: "cancel".localized, style: .plain, target: self, action: #selector(cancelDatePicker));
+        let cancelButton = UIBarButtonItem(title: "CANCEL".localized, style: .plain, target: self, action: #selector(cancelDatePicker));
         
         toolbar.setItems([cancelButton, spaceButton, doneButton], animated: true)
         

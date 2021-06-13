@@ -41,7 +41,7 @@ class NotificationTableViewController: UITableViewController {
         
         let toolbar = UIToolbar();
         toolbar.sizeToFit()
-        let doneButton = UIBarButtonItem(title: "done".localized, style: .plain, target: self, action: #selector(doneDatePicker))
+        let doneButton = UIBarButtonItem(title: "DONE".localized, style: .plain, target: self, action: #selector(doneDatePicker))
         let cancelButton = UIBarButtonItem(title: "cancel".localized, style: .plain, target: self, action:
                                             #selector(cancelDatePicker))
         let centerLabel = ToolBarTitleItem(text: "Уведомление " + String(currentNotifyEvent+1), font: .systemFont(ofSize: 16), color: .darkText)

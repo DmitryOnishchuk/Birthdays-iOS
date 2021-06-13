@@ -10,7 +10,7 @@ class LanguageSettingsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "settings_language".localized
+        self.title = "SETTINGS_LANGUAGE".localized
         setLanguageCheckmark()
     }
     
