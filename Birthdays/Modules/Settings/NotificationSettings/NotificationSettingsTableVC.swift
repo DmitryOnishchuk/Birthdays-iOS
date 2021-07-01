@@ -1,6 +1,6 @@
 import UIKit
 
-class NotificationTableViewController: UITableViewController {
+class NotificationSettingsTableVC: UITableViewController {
     
     
     var notificationPickerView: NotificationPickerView!
@@ -42,9 +42,9 @@ class NotificationTableViewController: UITableViewController {
         let toolbar = UIToolbar();
         toolbar.sizeToFit()
         let doneButton = UIBarButtonItem(title: "DONE".localized, style: .plain, target: self, action: #selector(doneDatePicker))
-        let cancelButton = UIBarButtonItem(title: "cancel".localized, style: .plain, target: self, action:
+        let cancelButton = UIBarButtonItem(title: "CANCEL".localized, style: .plain, target: self, action:
                                             #selector(cancelDatePicker))
-        let centerLabel = ToolBarTitleItem(text: "Уведомление " + String(currentNotifyEvent+1), font: .systemFont(ofSize: 16), color: .darkText)
+        let centerLabel = ToolBarTitleItem(text: "SETTINGS_NOTIFICATION_TOOLBAR_TITLE".localized + " " + String(currentNotifyEvent+1), font: .systemFont(ofSize: 16), color: .darkText)
         let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         
         toolbar.setItems([cancelButton, spaceButton,centerLabel,spaceButton,doneButton], animated: true)

@@ -30,7 +30,7 @@
 "EDIT_NAME" = "Имя";
 
 "EDIT_DELETE_BIRTHDAY" = "Удалить День Рождения?";
-"EDIT_SELECT_BIRTHDAY" = "Выберите день рождения";
+"EDIT_SELECT_BIRTHDAY" = "Выберите День Рождения";
 "EDIT_NEW_CONTACT_TITLE" = "Новый контакт";
 
 // MARK: - Settings Main
@@ -51,14 +51,15 @@
 
 // MARK: - Settings Contact
 
-"SETTINGS_CONTACT_AGE" = "Возраст контакта";
-"SETTINGS_CONTACT_UPCOMING" = "Предстоящий";
-"SETTINGS_CONTACT_AGE_CURENT" = "Текущий";
+"SETTINGS_CONTACT_AGE_TYPE" = "Возраст контакта";
+"SETTINGS_CONTACT_AGE_TYPE_UPCOMING" = "Предстоящий";
+"SETTINGS_CONTACT_AGE_TYPE_CURRENT" = "Текущий";
 
 // MARK: - Settings Notification
 
 "SETTINGS_NOTIFICATION_TITLE" = "УВЕДОМЛЕНИЯ";
 "SETTINGS_NOTIFICATION_TIME_REMIND" = "Время напоминаний";
+"SETTINGS_NOTIFICATION_TOOLBAR_TITLE" = "Уведомление";
 
 // MARK: - Languages
 

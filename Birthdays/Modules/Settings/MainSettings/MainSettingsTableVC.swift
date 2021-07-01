@@ -2,6 +2,9 @@ import UIKit
 
 class MainSettingsTableVC: UITableViewController {
     
+    
+    
+    
     @IBOutlet var settingsTabelView: UITableView!
     @IBOutlet weak var languageLabel: UILabel!
     @IBOutlet weak var themeLabel: UILabel!
@@ -32,7 +35,7 @@ class MainSettingsTableVC: UITableViewController {
         self.title = "SETTINGS_SETTINGS".localized
         languageLabel.text = "SETTINGS_LANGUAGE".localized
         themeLabel.text = "SETTINGS_THEME".localized
-        ageLabel.text = "SETTINGS_CONTACT_AGE".localized
+        ageLabel.text = "SETTINGS_CONTACT_AGE_TYPE".localized
         notificationTimeLabel.text = "SETTINGS_NOTIFICATION_TIME_REMIND".localized
         
         setCurrentLanuageLabel()
@@ -43,6 +46,18 @@ class MainSettingsTableVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath {
+        case [0, 0]:
+            let languageSettingsVC = LanguageSettingsModuleBuilder().create()
+            self.navigationController?.pushViewController(languageSettingsVC, animated: true)
+        case [0, 1]:
+            let themeSettingsVC = ThemeSettingsModuleBuilder().create()
+            self.navigationController?.pushViewController(themeSettingsVC, animated: true)
+        case [0, 2]:
+            let ageTypeSettingsVC = AgeTypeSettingsModuleBuilder().create()
+            self.navigationController?.pushViewController(ageTypeSettingsVC, animated: true)
+        case [0, 3]:
+            let notificationSettingsVC = NotificationSettingsModuleBuilder().create()
+            self.navigationController?.pushViewController(notificationSettingsVC, animated: true)
         case [1, 0]:
             changeNotificationTime()
         default: break
@@ -99,11 +114,11 @@ class MainSettingsTableVC: UITableViewController {
         let ageSetting = AgeSettingsEnum(rawValue: Storage.shared.ageType) ?? .upcoming
         switch ageSetting {
         case AgeSettingsEnum.upcoming:
-            currentAgeLabel.text = "SETTINGS_CONTACT_AGE_UPCOMING".localized
+            currentAgeLabel.text = "SETTINGS_CONTACT_AGE_TYPE_UPCOMING".localized
         case AgeSettingsEnum.current:
-            currentAgeLabel.text = "SETTINGS_CONTACT_AGE_CURENT".localized
+            currentAgeLabel.text = "SETTINGS_CONTACT_AGE_TYPE_CURRENT".localized
         default:
-            currentAgeLabel.text = "SETTINGS_CONTACT_AGE_UPCOMING".localized
+            currentAgeLabel.text = "SETTINGS_CONTACT_AGE_TYPE_UPCOMING".localized
         }
     }
     

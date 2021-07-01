@@ -82,7 +82,7 @@ class SettingsFunctions {
         switch id {
         case 0:
             key = GlobalConstants.notificationTimeEventKeyUserDefaults0
-            defaultValue =  TimeEvent(day: 0, time: "10:00")
+            defaultValue = TimeEvent(day: 0, time: "10:00")
         case 1:
             key = GlobalConstants.notificationTimeEventKeyUserDefaults1
             defaultValue = TimeEvent(day: 3, time: "10:00")

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AgeTableViewController: UITableViewController {
+class AgeTypeSettingsTableVC: UITableViewController {
 
     @IBOutlet var ageTabelView: UITableView!
     @IBOutlet weak var upcomingLabel: UILabel!
@@ -17,9 +17,9 @@ class AgeTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = NSLocalizedString("settings_contact_age", comment: "")
-        upcomingLabel.text = NSLocalizedString("settings_contact_age_upcoming", comment: "")
-        currentLabel.text = NSLocalizedString("settings_contact_age_current", comment: "")
+        self.title = NSLocalizedString("SETTINGS_CONTACT_AGE_TYPE", comment: "")
+        upcomingLabel.text = NSLocalizedString("SETTINGS_CONTACT_AGE_TYPE_UPCOMING", comment: "")
+        currentLabel.text = NSLocalizedString("SETTINGS_CONTACT_AGE_TYPE_CURRENT", comment: "")
         self.ageTabelView.contentInset = UIEdgeInsets(top: -35, left: 0, bottom: 0, right: 0);
         setAgeCheckmark()
     }
@@ -59,9 +59,6 @@ class AgeTableViewController: UITableViewController {
             break
         case AgeSettingsEnum.current:
             currentTableViewCell.accessoryType = .checkmark
-            break
-        default:
-            upcomingTableViewCell.accessoryType = .checkmark
             break
         }
     }

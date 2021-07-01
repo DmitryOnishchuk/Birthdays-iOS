@@ -1,6 +1,6 @@
 import UIKit
 
-class LanguageSettingsTableViewController: UITableViewController {
+class LanguageSettingsTableVC: UITableViewController {
     
     @IBOutlet weak var englishTableViewCell: UITableViewCell!
     @IBOutlet weak var deutschTableViewCell: UITableViewCell!

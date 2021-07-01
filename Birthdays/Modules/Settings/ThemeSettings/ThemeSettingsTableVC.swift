@@ -1,6 +1,6 @@
 import UIKit
 
-class ThemeTableViewController: UITableViewController {
+class ThemeSettingsTableVC: UITableViewController {
     
     @IBOutlet var themeTableView: UITableView!
     @IBOutlet weak var systemTableViewCell: UITableViewCell!

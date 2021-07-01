@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Уведомления-->
+        <scene sceneID="cQl-Eh-RYJ">
+            <objects>
+                <tableViewController storyboardIdentifier="NotificationSettingsTableVC" title="Уведомления" id="RuX-Up-j6S" customClass="NotificationSettingsTableVC" customModule="Birthdays" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="OB1-aw-IZG">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <sections>
+                            <tableViewSection id="LCp-0h-LE5">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="M3b-7M-cQl">
+                                        <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="M3b-7M-cQl" id="qjG-Ch-VXu">
+                                            <rect key="frame" x="0.0" y="0.0" width="384.5" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="age" translatesAutoresizingMaskIntoConstraints="NO" id="sm1-PB-n1h">
+                                                    <rect key="frame" x="20" y="8" width="28" height="28"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="28" id="XGe-Tx-Pa4"/>
+                                                        <constraint firstAttribute="height" constant="28" id="eBR-EY-OCH"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Уведомление 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ta-Ta-DdH">
+                                                    <rect key="frame" x="64" y="11" width="120" height="22"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="В ДР в 10:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R0i-2N-gSw">
+                                                    <rect key="frame" x="276" y="11.5" width="98.5" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="2ta-Ta-DdH" firstAttribute="centerY" secondItem="qjG-Ch-VXu" secondAttribute="centerY" id="0EG-i8-bab"/>
+                                                <constraint firstItem="sm1-PB-n1h" firstAttribute="centerY" secondItem="qjG-Ch-VXu" secondAttribute="centerY" id="NXt-pc-FlI"/>
+                                                <constraint firstAttribute="trailing" secondItem="R0i-2N-gSw" secondAttribute="trailing" constant="10" id="OvB-Sp-YkY"/>
+                                                <constraint firstItem="sm1-PB-n1h" firstAttribute="leading" secondItem="qjG-Ch-VXu" secondAttribute="leading" constant="20" symbolic="YES" id="TXc-2r-Cjw"/>
+                                                <constraint firstItem="R0i-2N-gSw" firstAttribute="centerY" secondItem="qjG-Ch-VXu" secondAttribute="centerY" id="ZPi-Jr-3rb"/>
+                                                <constraint firstItem="2ta-Ta-DdH" firstAttribute="leading" secondItem="sm1-PB-n1h" secondAttribute="trailing" constant="16" id="eAr-1n-stj"/>
+                                                <constraint firstItem="2ta-Ta-DdH" firstAttribute="top" secondItem="qjG-Ch-VXu" secondAttribute="topMargin" id="moP-a2-8uu"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="nSm-t6-otd">
+                                        <rect key="frame" x="0.0" y="68" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nSm-t6-otd" id="HdI-xm-eUs">
+                                            <rect key="frame" x="0.0" y="0.0" width="384.5" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="age" translatesAutoresizingMaskIntoConstraints="NO" id="mZR-jL-j3P">
+                                                    <rect key="frame" x="20" y="8" width="28" height="28"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="28" id="JCh-PY-zsj"/>
+                                                        <constraint firstAttribute="width" constant="28" id="uLy-rh-QT3"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Уведомление 2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3pd-aL-AaU">
+                                                    <rect key="frame" x="64" y="11" width="122.5" height="22"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="В ДР в 10:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1LC-78-yDD">
+                                                    <rect key="frame" x="276" y="11.5" width="98.5" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="1LC-78-yDD" secondAttribute="trailing" constant="10" id="Gkp-Rf-fk1"/>
+                                                <constraint firstItem="mZR-jL-j3P" firstAttribute="centerY" secondItem="HdI-xm-eUs" secondAttribute="centerY" id="HCB-Uv-uL9"/>
+                                                <constraint firstItem="3pd-aL-AaU" firstAttribute="top" secondItem="HdI-xm-eUs" secondAttribute="topMargin" id="JFa-sY-5Ut"/>
+                                                <constraint firstItem="1LC-78-yDD" firstAttribute="centerY" secondItem="HdI-xm-eUs" secondAttribute="centerY" id="TRZ-ig-39t"/>
+                                                <constraint firstItem="mZR-jL-j3P" firstAttribute="leading" secondItem="HdI-xm-eUs" secondAttribute="leading" constant="20" symbolic="YES" id="UiH-UT-kZt"/>
+                                                <constraint firstItem="3pd-aL-AaU" firstAttribute="centerY" secondItem="HdI-xm-eUs" secondAttribute="centerY" id="jZs-aT-lf9"/>
+                                                <constraint firstItem="3pd-aL-AaU" firstAttribute="leading" secondItem="mZR-jL-j3P" secondAttribute="trailing" constant="16" id="r9h-4F-OE9"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="oEF-YV-fDv">
+                                        <rect key="frame" x="0.0" y="111.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oEF-YV-fDv" id="77f-GK-R70">
+                                            <rect key="frame" x="0.0" y="0.0" width="384.5" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="age" translatesAutoresizingMaskIntoConstraints="NO" id="Q2e-3v-2nA">
+                                                    <rect key="frame" x="20" y="8" width="28" height="28"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="28" id="NeA-Dg-r8f"/>
+                                                        <constraint firstAttribute="width" constant="28" id="oDR-bf-g6u"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Уведомление 3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KPP-TB-Pxi">
+                                                    <rect key="frame" x="64" y="11" width="123" height="22"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="В ДР в 10:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sQc-FL-NQP">
+                                                    <rect key="frame" x="276" y="11.5" width="98.5" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="sQc-FL-NQP" firstAttribute="centerY" secondItem="77f-GK-R70" secondAttribute="centerY" id="7gQ-lY-lol"/>
+                                                <constraint firstItem="KPP-TB-Pxi" firstAttribute="leading" secondItem="Q2e-3v-2nA" secondAttribute="trailing" constant="16" id="8WW-df-dWx"/>
+                                                <constraint firstItem="Q2e-3v-2nA" firstAttribute="centerY" secondItem="77f-GK-R70" secondAttribute="centerY" id="IQv-UU-4bQ"/>
+                                                <constraint firstItem="Q2e-3v-2nA" firstAttribute="leading" secondItem="77f-GK-R70" secondAttribute="leading" constant="20" symbolic="YES" id="eHX-gb-vah"/>
+                                                <constraint firstItem="KPP-TB-Pxi" firstAttribute="centerY" secondItem="77f-GK-R70" secondAttribute="centerY" id="l0c-sR-bvI"/>
+                                                <constraint firstAttribute="trailing" secondItem="sQc-FL-NQP" secondAttribute="trailing" constant="10" id="qwo-sT-flj"/>
+                                                <constraint firstItem="KPP-TB-Pxi" firstAttribute="top" secondItem="77f-GK-R70" secondAttribute="topMargin" id="y5d-LV-1tz"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="RuX-Up-j6S" id="zrx-NO-TRg"/>
+                            <outlet property="delegate" destination="RuX-Up-j6S" id="s2Q-RZ-cud"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="fKe-wY-OiD"/>
+                    <connections>
+                        <outlet property="notifyEventLabel0" destination="R0i-2N-gSw" id="ZY3-mK-EnQ"/>
+                        <outlet property="notifyEventLabel1" destination="1LC-78-yDD" id="MAA-ey-Z2p"/>
+                        <outlet property="notifyEventLabel2" destination="sQc-FL-NQP" id="fuY-Jc-62v"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Laa-fI-OOt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1845" y="129"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="age" width="416" height="416"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -30,7 +30,7 @@
 "EDIT_NAME" = "Name";
 
 "EDIT_DELETE_BIRTHDAY" = "Delete Birthday?";
-"EDIT_SELECT_BIRTHDAY" = "Select birthday";
+"EDIT_SELECT_BIRTHDAY" = "Select Birthday";
 "EDIT_NEW_CONTACT_TITLE" = "New contact";
 
 // MARK: - Settings Main
@@ -51,14 +51,15 @@
 
 // MARK: - Settings Contact
 
-"SETTINGS_CONTACT_AGE" = "Contact age";
-"SETTINGS_CONTACT_AGE_UPCOMING" = "Upcoming";
-"SETTINGS_CONTACT_AGE_CURENT" = "Current";
+"SETTINGS_CONTACT_AGE_TYPE" = "Contact age";
+"SETTINGS_CONTACT_AGE_TYPE_UPCOMING" = "Upcoming";
+"SETTINGS_CONTACT_AGE_TYPE_CURRENT" = "Current";
 
 // MARK: - Settings Notification
 
 "SETTINGS_NOTIFICATION_TITLE" = "NOTIFICATIONS";
 "SETTINGS_NOTIFICATION_TIME_REMIND" = "Time to remind";
+"SETTINGS_NOTIFICATION_TOOLBAR_TITLE" = "Notification";
 
 // MARK: - Languages
 
