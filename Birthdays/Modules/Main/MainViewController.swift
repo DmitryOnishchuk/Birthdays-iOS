@@ -110,7 +110,8 @@ extension MainViewController: UITabBarDelegate, UITableViewDataSource{
         
         if let futureAge = contact.futureAge{
             
-            let currengAge = (SettingsFunctions.getAgeByUserDefaults() == AgeSettingsEnum.current)
+            let cs = AgeSettingsEnum(rawValue: Storage.shared.ageType) ?? .upcoming
+            let currengAge = (cs == AgeSettingsEnum.current)
             if currengAge {
                 cell.ageStringLabelView.text = "MAIN_AGE".localized
                 cell.ageLabelView.text = DateFunctions.getAgeString(age: contact.getCurrentAge())

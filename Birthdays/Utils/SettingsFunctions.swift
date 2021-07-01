@@ -58,13 +58,6 @@ class SettingsFunctions {
         }
     }
     
-    class func getAgeByUserDefaults() -> AgeSettingsEnum{
-        guard let res = UserDefaults.standard.value(forKey: GlobalConstants.ageKeyUserDefaults) as? String else {
-            return AgeSettingsEnum.upcoming
-        }
-        return AgeSettingsEnum(rawValue: res)!
-    }
-    
     class func setThemeByUserDefaults(_ theme: UIUserInterfaceStyle){
         var save:Int = 0
         switch theme {
@@ -79,10 +72,6 @@ class SettingsFunctions {
         }
         
         Storage.shared.currentThemeID = save
-    }
-    
-    class func setAgeByUserDefaults(age: AgeSettingsEnum){
-        UserDefaults.standard.set(age.rawValue, forKey: GlobalConstants.ageKeyUserDefaults)
     }
     
     class func getNotificationTimeEventByUserDefaults(id: Int) -> TimeEvent {

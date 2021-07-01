@@ -96,7 +96,7 @@ class MainSettingsTableVC: UITableViewController {
     }
     
     func setCurrentAgeLabel(){
-        let ageSetting = SettingsFunctions.getAgeByUserDefaults()
+        let ageSetting = AgeSettingsEnum(rawValue: Storage.shared.ageType) ?? .upcoming
         switch ageSetting {
         case AgeSettingsEnum.upcoming:
             currentAgeLabel.text = "SETTINGS_CONTACT_AGE_UPCOMING".localized

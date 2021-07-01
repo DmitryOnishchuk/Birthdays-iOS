@@ -18,6 +18,9 @@ struct Storage {
     @UserDefault(.notificationTime, defaultValue: "10:00")
     var notificationTime: String
    
+    @UserDefault(.ageType, defaultValue: AgeSettingsEnum.upcoming.rawValue)
+    var ageType: String
+    
     @UserDefault(.currentThemeID, defaultValue: 0)
     var currentThemeID: Int
     
