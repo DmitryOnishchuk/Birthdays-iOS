@@ -15,9 +15,8 @@ class LanguageSettingsTableVC: UITableViewController {
     }
     
     func setLanguageCheckmark(){
-        let langStr = SettingsFunctions.getCurrentLanguage()
         
-        switch langStr {
+        switch Storage.shared.currentLanguage {
         case "en":
             englishTableViewCell.accessoryType = .checkmark
             break

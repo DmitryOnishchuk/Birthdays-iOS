@@ -135,7 +135,7 @@ class DateFunctions {
     
     static func getMonthName(_ month: Int)-> String{
         let formatter = DateFormatter()
-        formatter.locale = Locale(identifier: SettingsFunctions.getCurrentLanguage())
+        formatter.locale = Locale(identifier: Storage.shared.currentLanguage)
         return formatter.monthSymbols[month - 1]
     }
     

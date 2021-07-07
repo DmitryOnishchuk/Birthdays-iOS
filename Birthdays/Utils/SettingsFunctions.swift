@@ -11,35 +11,12 @@ class SettingsFunctions {
     
     class func changeLanguageOfApp(language:String){
         
-        if getCurrentLanguage() != language {
-            UserDefaults.standard.set([language], forKey: "AppleLanguages")
-            UserDefaults.standard.synchronize()
-            Bundle.setLanguage(language)
-            //AppDelegate.shared.loadWindows()
-            
-            let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
-            let keyWindow = UIApplication.shared.connectedScenes
-                .filter({$0.activationState == .foregroundActive})
-                .map({$0 as? UIWindowScene})
-                .compactMap({$0})
-                .first?.windows
-                .filter({$0.isKeyWindow}).first
-            keyWindow?.rootViewController = storyboard.instantiateInitialViewController()
+        if Storage.shared.currentLanguage != language {
+            Storage.shared.currentLanguage = language
+            AppDelegate.shared.loadView()
         }
     }
-    
-    class func getCurrentLanguage()->String{
-        let lng = UserDefaults.standard.stringArray(forKey: "AppleLanguages")?.first ?? ""
-        let lngArr = lng.components(separatedBy: "-")
-        var res = lngArr[0]
-        
-        if res.isEmpty {
-            res = Locale.current.languageCode!
-        }
-        return res
-    }
-    
-    
+
     class func changeThemeByUserDefaults(){
         var theme:UIUserInterfaceStyle
         switch Storage.shared.currentThemeID {

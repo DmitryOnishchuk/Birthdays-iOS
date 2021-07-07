@@ -1,7 +1,7 @@
 import UIKit
 import ContactsUI
 
-class MainViewController: UIViewController, CNContactViewControllerDelegate, UITableViewDelegate{
+class MainVC: UIViewController, CNContactViewControllerDelegate, UITableViewDelegate{
     
     
     @IBOutlet weak var tableView: UITableView!
@@ -80,7 +80,7 @@ class MainViewController: UIViewController, CNContactViewControllerDelegate, UIT
 }
 
 
-extension MainViewController: UITabBarDelegate, UITableViewDataSource{
+extension MainVC: UITabBarDelegate, UITableViewDataSource{
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isSearch() {
@@ -157,11 +157,11 @@ extension MainViewController: UITabBarDelegate, UITableViewDataSource{
     
     
     @IBAction func buttonAction(_ sender: Any) {
-        AppDelegate.shared.sendNotifications(title: "Title", body: "Body")
+       // AppDelegate.shared.sendNotifications(title: "Title", body: "Body")
     }
     
 }
-extension MainViewController:UISearchResultsUpdating{
+extension MainVC:UISearchResultsUpdating{
     func updateSearchResults(for searchController: UISearchController) {
         filterSearchContacts(searchController.searchBar.text!)
     }

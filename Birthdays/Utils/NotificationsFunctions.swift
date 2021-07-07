@@ -14,13 +14,9 @@ class NotificationsFunctions {
             
             let notificationId = contact.id + "test"
             
-            var date = getDateNotification(date: contact.birthdayNear!, timeEvent: TimeEvent(day: 0, time: "16:31"))
-            
+            let date = getDateNotification(date: contact.birthdayNear!, timeEvent: TimeEvent(day: 0, time: "16:31"))
             createNotification(notificationId: notificationId, title: contact.name, body: "Birthday", time: date)
-            
         }
-        
-        
         
     }
     

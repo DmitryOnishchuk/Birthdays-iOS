@@ -74,8 +74,8 @@ class NotificationPickerView: UIPickerView, UIPickerViewDataSource, UIPickerView
     
     public func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
         let currentDay = pickerView.selectedRow(inComponent: 0)
-        var currentHour = hours[pickerView.selectedRow(inComponent: 1)]
-        var currentMinute = minutes[pickerView.selectedRow(inComponent: 2)]
+        let currentHour = hours[pickerView.selectedRow(inComponent: 1)]
+        let currentMinute = minutes[pickerView.selectedRow(inComponent: 2)]
         
         switch currentDay {
         case 0:

@@ -93,8 +93,7 @@ class MainSettingsTableVC: UITableViewController {
     }
     
     func setCurrentLanuageLabel(){
-        let langStr = SettingsFunctions.getCurrentLanguage()
-        switch langStr {
+        switch Storage.shared.currentLanguage {
         case "en":
             currentLanuageLabel.text = "ENGLISH".localized
         case "de":
@@ -117,8 +116,6 @@ class MainSettingsTableVC: UITableViewController {
             currentAgeLabel.text = "SETTINGS_CONTACT_AGE_TYPE_UPCOMING".localized
         case AgeSettingsEnum.current:
             currentAgeLabel.text = "SETTINGS_CONTACT_AGE_TYPE_CURRENT".localized
-        default:
-            currentAgeLabel.text = "SETTINGS_CONTACT_AGE_TYPE_UPCOMING".localized
         }
     }
     

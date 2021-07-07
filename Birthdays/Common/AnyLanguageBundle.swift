@@ -17,3 +17,14 @@ class AnyLanguageBundle: Bundle {
         return bundle.localizedString(forKey: key, value: value, table: tableName)
     }
 }
+
+
+extension Bundle {
+
+  class func setLanguage(_ language: String) {
+    defer {
+        object_setClass(Bundle.main, AnyLanguageBundle.self)
+    }
+    objc_setAssociatedObject(Bundle.main, &bundleKey, Bundle.main.path(forResource: language, ofType: "lproj"), .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+  }
+}
