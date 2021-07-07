@@ -17,6 +17,7 @@ class SettingsFunctions {
         }
     }
 
+    @available(iOS 13.0, *)
     class func changeThemeByUserDefaults(){
         var theme:UIUserInterfaceStyle
         switch Storage.shared.currentThemeID {
@@ -35,6 +36,7 @@ class SettingsFunctions {
         }
     }
     
+    @available(iOS 12.0, *)
     class func setThemeByUserDefaults(_ theme: UIUserInterfaceStyle){
         var save:Int = 0
         switch theme {

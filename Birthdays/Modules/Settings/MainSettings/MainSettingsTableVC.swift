@@ -2,9 +2,6 @@ import UIKit
 
 class MainSettingsTableVC: UITableViewController {
     
-    
-    
-    
     @IBOutlet var settingsTabelView: UITableView!
     @IBOutlet weak var languageLabel: UILabel!
     @IBOutlet weak var themeLabel: UILabel!
@@ -22,8 +19,7 @@ class MainSettingsTableVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // print(self.settingsTabelView.sectionHeaderHeight)
-        self.settingsTabelView.contentInset = UIEdgeInsets(top: -18, left: 0, bottom: 0, right: 0);
-
+        //self.settingsTabelView.contentInset = UIEdgeInsets(top: -18, left: 0, bottom: 0, right: 0);
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -50,8 +46,13 @@ class MainSettingsTableVC: UITableViewController {
             let languageSettingsVC = LanguageSettingsModuleBuilder().create()
             self.navigationController?.pushViewController(languageSettingsVC, animated: true)
         case [0, 1]:
-            let themeSettingsVC = ThemeSettingsModuleBuilder().create()
-            self.navigationController?.pushViewController(themeSettingsVC, animated: true)
+            if #available(iOS 13.0, *) {
+                let themeSettingsVC = ThemeSettingsModuleBuilder().create()
+                self.navigationController?.pushViewController(themeSettingsVC, animated: true)
+            } else {
+                // Fallback on earlier versions
+            }
+            
         case [0, 2]:
             let ageTypeSettingsVC = AgeTypeSettingsModuleBuilder().create()
             self.navigationController?.pushViewController(ageTypeSettingsVC, animated: true)

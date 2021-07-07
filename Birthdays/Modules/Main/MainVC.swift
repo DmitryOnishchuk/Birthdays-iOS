@@ -21,10 +21,16 @@ class MainVC: UIViewController, CNContactViewControllerDelegate, UITableViewDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        SettingsFunctions.changeThemeByUserDefaults()
+        
+        if #available(iOS 13.0, *) {
+            SettingsFunctions.changeThemeByUserDefaults()
+        }
         //self.tableView.contentInset = UIEdgeInsets(top: -35, left: 0, bottom: 0, right: 0)
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        
+        self.tableView.tableFooterView = UIView(frame: CGRect.zero)
+        self.tableView.sectionFooterHeight = 0.0
         
         
         search = UISearchController(searchResultsController: nil)
@@ -74,7 +80,7 @@ class MainVC: UIViewController, CNContactViewControllerDelegate, UITableViewDele
     func createActivityIndicator(){
         activityIndicator.center = view.center
         activityIndicator.hidesWhenStopped = true
-        activityIndicator.style = .large
+        //activityIndicator.style = .large
         view.addSubview(activityIndicator)
     }
 }

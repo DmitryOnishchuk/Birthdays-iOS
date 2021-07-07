@@ -12,16 +12,15 @@
         <!--MainVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="MainVC" id="BYZ-38-t0r" customClass="MainVC" customModule="Birthdays" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainVC" automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="MainVC" customModule="Birthdays" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="77" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="Hp2-U9-PHk">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="77" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Hp2-U9-PHk">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
-                                <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Lqe-73-RD4">
-                                    <rect key="frame" x="0.0" y="134.5" width="414" height="44"/>
+                                    <rect key="frame" x="0.0" y="133.00000034679067" width="414" height="44"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" title="Button"/>
                                     <connections>
@@ -30,7 +29,7 @@
                                 </button>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ContactMainTableViewCell" rowHeight="84" id="6q4-2b-i3i" customClass="ContactMainTableViewCell" customModule="Birthdays" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="49.5" width="414" height="84"/>
+                                        <rect key="frame" x="0.0" y="24.5" width="414" height="84"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6q4-2b-i3i" id="25p-AW-HYW">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="84"/>
@@ -131,7 +130,7 @@
                                     <action selector="settingsButtonAction:" destination="BYZ-38-t0r" id="FUE-RY-Ptx"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem title="Item" image="plus" catalog="system" id="io7-Lb-QnX">
+                            <barButtonItem title="Item" image="ic_add" id="io7-Lb-QnX">
                                 <connections>
                                     <segue destination="hca-o6-YaC" kind="show" id="Cut-k6-9t1"/>
                                 </connections>
@@ -149,17 +148,16 @@
         <!--Edit View Controller-->
         <scene sceneID="BF6-Bs-NhM">
             <objects>
-                <viewController storyboardIdentifier="EditViewController" id="hca-o6-YaC" customClass="EditViewController" customModule="Birthdays" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EditViewController" automaticallyAdjustsScrollViewInsets="NO" id="hca-o6-YaC" customClass="EditViewController" customModule="Birthdays" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kfR-1z-G7r">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="77" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="wb1-o8-r2A">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="77" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wb1-o8-r2A">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ContactEditTableViewCell" rowHeight="84" id="Gux-TP-sD5" customClass="ContactEditTableViewCell" customModule="Birthdays" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="49.5" width="414" height="84"/>
+                                        <rect key="frame" x="0.0" y="24.5" width="414" height="84"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Gux-TP-sD5" id="OzE-aj-fBQ">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="84"/>
@@ -222,7 +220,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="LVp-es-G4m">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="kcX-va-bqu">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="ic_add" id="kcX-va-bqu">
                             <connections>
                                 <action selector="addContact:" destination="hca-o6-YaC" id="roA-qm-uVA"/>
                             </connections>
@@ -256,7 +254,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="ic_add" width="22" height="22"/>
         <image name="settings" width="24" height="24"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

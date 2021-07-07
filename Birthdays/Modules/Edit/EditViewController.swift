@@ -70,7 +70,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITextFieldDele
     func createActivityIndicator(){
         activityIndicator.center = view.center
         activityIndicator.hidesWhenStopped = true
-        activityIndicator.style = .large
+        //activityIndicator.style = .large
         view.addSubview(activityIndicator)
     }
     

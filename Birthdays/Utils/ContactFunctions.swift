@@ -143,14 +143,14 @@ class ContactFunctions {
             //completionHandler(false)
         })
         
-        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
-        let keyWindow = UIApplication.shared.connectedScenes
-            .filter({$0.activationState == .foregroundActive})
-            .map({$0 as? UIWindowScene})
-            .compactMap({$0})
-            .first?.windows
-            .filter({$0.isKeyWindow}).first
-        keyWindow?.rootViewController?.present(alert, animated: true)
+//        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+//        let keyWindow = UIApplication.shared.connectedScenes
+//            .filter({$0.activationState == .foregroundActive})
+//            .map({$0 as? UIWindowScene})
+//            .compactMap({$0})
+//            .first?.windows
+//            .filter({$0.isKeyWindow}).first
+//        keyWindow?.rootViewController?.present(alert, animated: true)
         
     }
     
