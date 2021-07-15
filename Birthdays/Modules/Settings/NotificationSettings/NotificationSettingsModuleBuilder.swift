@@ -11,7 +11,7 @@ import UIKit
 struct NotificationSettingsModuleBuilder {
     
     func create() -> UITableViewController {
-        let notificationSettings = UIStoryboard(name: "NotificationSettings", bundle: nil).instantiateViewController(withIdentifier: "NotificationSettingsTableVC") as! NotificationSettingsTableVC
+        let notificationSettings = UIStoryboard(name: "NotificationSettings", bundle: nil).instantiateViewController(withIdentifier: String(describing: NotificationSettingsTableVC.self)) as! NotificationSettingsTableVC
         return notificationSettings
     }
     

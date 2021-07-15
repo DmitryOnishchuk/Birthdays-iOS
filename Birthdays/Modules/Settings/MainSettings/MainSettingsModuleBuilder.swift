@@ -10,7 +10,7 @@ import UIKit
 struct MainSettingsModuleBuilder {
     
     func create() -> UITableViewController {
-        let mainSettings = UIStoryboard(name: "MainSettings", bundle: nil).instantiateViewController(withIdentifier: "MainSettingsTableVC") as! MainSettingsTableVC
+        let mainSettings = UIStoryboard(name: "MainSettings", bundle: nil).instantiateViewController(withIdentifier: String(describing: MainSettingsTableVC.self)) as! MainSettingsTableVC
         return mainSettings
     }
     

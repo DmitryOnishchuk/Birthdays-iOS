@@ -57,7 +57,7 @@ class ThemeSettingsTableVC: UITableViewController {
         lightTableViewCell.accessoryType = .none
         darkTableViewCell.accessoryType = .none
         
-        let ud = Storage.shared.currentThemeID
+        let ud = UserDefaultsManager.shared.currentThemeID
         switch ud {
         case 0:
             systemTableViewCell.accessoryType = .checkmark

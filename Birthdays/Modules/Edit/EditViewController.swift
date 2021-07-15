@@ -45,7 +45,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITextFieldDele
         //    activityIndicator.startAnimating()
         //    ModelContactEdit.shared.clearAll()
         //    self.tableView.reloadData()
-       // }
+        // }
         
         let queue = DispatchQueue.global(qos: .userInteractive)
         queue.async {
@@ -78,8 +78,8 @@ class EditViewController: UIViewController, UITableViewDelegate, UITextFieldDele
         newContact = Contact(id: "new", name: "nil", birthday: nil, birthdayNear: nil, daysToBirthday: -1, futureAge: -1, photo: UIImage())
         setNameDialog()
     }
-
-
+    
+    
     func setNameDialog(){
         let alert = UIAlertController(title:"EDIT_NEW_CONTACT_TITLE".localized, message: "", preferredStyle: .alert)
         
@@ -89,7 +89,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITextFieldDele
             textField.clearButtonMode = .whileEditing
             textField.addTarget(self, action: #selector(self.textFieldDidChangeName(_:)), for: .editingChanged)
         }
-
+        
         nextActionName = UIAlertAction(title: "NEXT".localized, style: .default, handler: { saveAction -> Void in
             let textField = alert.textFields![0] as UITextField
             self.newContact!.name = textField.text!
@@ -107,9 +107,9 @@ class EditViewController: UIViewController, UITableViewDelegate, UITextFieldDele
     }
     
     func setBirthdayDialog(){
-    
+        
         let containerFrame = CGRect(x:10, y: 70, width: 270, height: 200)
-
+        
         newContactBirthdayPickerView = BirthdayPickerView(frame: containerFrame)
         newContactBirthdayPickerView.delegate = newContactBirthdayPickerView
         newContactBirthdayPickerView.dataSource = newContactBirthdayPickerView
@@ -150,15 +150,15 @@ class EditViewController: UIViewController, UITableViewDelegate, UITextFieldDele
             let resAdd = ContactFunctions.createContact(self.newContact!)
             let msg = (resAdd) ? self.newContact!.name + " " + "EDIT_ADDED".localized : "FAIL".localized
             self.showToast(message: msg, font: .systemFont(ofSize: 12.0))
-  
+            
             
             self.updateTable()
         })
         //nextActionBirthday.isEnabled = false
         let cancel = UIAlertAction(title: "CANCEL".localized, style: .cancel, handler: {
                                     (action : UIAlertAction!) -> Void in })
-    
-
+        
+        
         newContactAlertBirthday.addAction(cancel)
         newContactAlertBirthday.addAction(nextActionBirthday)
         
@@ -238,13 +238,14 @@ extension EditViewController: UITabBarDelegate, UITableViewDataSource{
         let toolbar = UIToolbar();
         toolbar.sizeToFit()
         let doneButton = UIBarButtonItem(title: "DONE".localized, style: .plain, target: self, action: #selector(doneDatePicker))
+        let centerLabel = ToolBarTitleItem(text: contact.name, font: .systemFont(ofSize: 16), color: .darkText)
         let removeButton = UIBarButtonItem(title: "DELETE".localized, style: .plain, target: nil, action: #selector(deleteDatePicker))
         let cancelButton = UIBarButtonItem(title: "CANCEL".localized, style: .plain, target: self, action:
                                             #selector(cancelDatePicker))
         let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         
         if contactBirthday == nil {
-            toolbar.setItems([cancelButton, spaceButton,doneButton], animated: true)
+            toolbar.setItems([cancelButton, spaceButton,centerLabel, spaceButton,doneButton], animated: true)
         }else{
             toolbar.setItems([cancelButton, spaceButton,removeButton, spaceButton,doneButton], animated: true)
         }

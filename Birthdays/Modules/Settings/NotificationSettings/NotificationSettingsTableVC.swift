@@ -47,7 +47,7 @@ class NotificationSettingsTableVC: UITableViewController {
         let centerLabel = ToolBarTitleItem(text: "SETTINGS_NOTIFICATION_TOOLBAR_TITLE".localized + " " + String(currentNotifyEvent+1), font: .systemFont(ofSize: 16), color: .darkText)
         let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         
-        toolbar.setItems([cancelButton, spaceButton,centerLabel,spaceButton,doneButton], animated: true)
+        toolbar.setItems([cancelButton, spaceButton, centerLabel, spaceButton, doneButton], animated: true)
         
         dummyTextField!.inputAccessoryView = toolbar
         dummyTextField!.becomeFirstResponder()

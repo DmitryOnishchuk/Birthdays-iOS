@@ -3,7 +3,7 @@ import UIKit
 
 class ModelContactMain{
     
-    static let shared = ModelContactMain()
+    static var shared = ModelContactMain()
     
     var contacts = [Contact]()
     var contactsFiltered = [Contact]()

@@ -11,7 +11,7 @@ import UIKit
 struct LanguageSettingsModuleBuilder {
     
     func create() -> UITableViewController {
-        let languageSettings = UIStoryboard(name: "LanguageSettings", bundle: nil).instantiateViewController(withIdentifier: "LanguageSettingsTableVC") as! LanguageSettingsTableVC
+        let languageSettings = UIStoryboard(name: "LanguageSettings", bundle: nil).instantiateViewController(withIdentifier: String(describing: LanguageSettingsTableVC.self)) as! LanguageSettingsTableVC
         return languageSettings
     }
     

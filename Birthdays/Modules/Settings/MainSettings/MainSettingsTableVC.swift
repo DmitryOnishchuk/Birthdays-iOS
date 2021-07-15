@@ -76,7 +76,7 @@ class MainSettingsTableVC: UITableViewController {
     }
     
     func setCurrentThemeLabel(){
-        let ud = Storage.shared.currentThemeID
+        let ud = UserDefaultsManager.shared.currentThemeID
         switch ud {
         case 0:
             currentThemeLabel.text = "SETTINGS_THEME_SYSTEM_DEFAULT".localized
@@ -94,7 +94,7 @@ class MainSettingsTableVC: UITableViewController {
     }
     
     func setCurrentLanuageLabel(){
-        switch Storage.shared.currentLanguage {
+        switch UserDefaultsManager.shared.currentLanguage {
         case "en":
             currentLanuageLabel.text = "ENGLISH".localized
         case "de":
@@ -111,7 +111,7 @@ class MainSettingsTableVC: UITableViewController {
     }
     
     func setCurrentAgeLabel(){
-        let ageSetting = AgeSettingsEnum(rawValue: Storage.shared.ageType) ?? .upcoming
+        let ageSetting = AgeSettingsEnum(rawValue: UserDefaultsManager.shared.ageType) ?? .upcoming
         switch ageSetting {
         case AgeSettingsEnum.upcoming:
             currentAgeLabel.text = "SETTINGS_CONTACT_AGE_TYPE_UPCOMING".localized
@@ -121,7 +121,7 @@ class MainSettingsTableVC: UITableViewController {
     }
     
     func setCurrentNotificationTimeLabel(){
-        let notificationTimeString = Storage().notificationTime
+        let notificationTimeString = UserDefaultsManager.shared.notificationTime
         currentNotificationTimeLabel.text = notificationTimeString
     }
     
@@ -140,7 +140,7 @@ class MainSettingsTableVC: UITableViewController {
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm"
-        let date = dateFormatter.date(from: Storage().notificationTime)
+        let date = dateFormatter.date(from: UserDefaultsManager.shared.notificationTime)
         datePickerNotificationTime!.date = date!
         
         
@@ -163,7 +163,7 @@ class MainSettingsTableVC: UITableViewController {
         formatter.dateFormat = "HH:mm"
 
         let time = formatter.string(from: datePickerNotificationTime!.date)
-        Storage.shared.notificationTime = time
+        UserDefaultsManager.shared.notificationTime = time
         setCurrentNotificationTimeLabel()
         
         self.view.endEditing(true)

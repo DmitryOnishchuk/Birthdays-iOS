@@ -8,16 +8,18 @@
 
 import Foundation
 
-struct Storage {
+class UserDefaultsManager {
     
-    static var shared = Storage()
+    static var shared = UserDefaultsManager()
+    
+    private init() {}
     
     @UserDefault(.currentLanguage, defaultValue: getDefaultLanguage())
     var currentLanguage: String
     
     @UserDefault(.notificationTime, defaultValue: "10:00")
     var notificationTime: String
-   
+    
     @UserDefault(.ageType, defaultValue: AgeSettingsEnum.upcoming.rawValue)
     var ageType: String
     
@@ -25,7 +27,6 @@ struct Storage {
     var currentThemeID: Int
     
 }
-
 
 
 

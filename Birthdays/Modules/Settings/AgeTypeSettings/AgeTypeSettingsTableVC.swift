@@ -28,14 +28,14 @@ class AgeTypeSettingsTableVC: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath {
         case [0,0]:
-            Storage.shared.ageType = AgeSettingsEnum.upcoming.rawValue
+            UserDefaultsManager.shared.ageType = AgeSettingsEnum.upcoming.rawValue
             setAgeCheckmark()
             if let navController = self.navigationController {
                 navController.popViewController(animated: true)
             }
             break
         case [0,1]:
-            Storage.shared.ageType = AgeSettingsEnum.current.rawValue
+            UserDefaultsManager.shared.ageType = AgeSettingsEnum.current.rawValue
             setAgeCheckmark()
             if let navController = self.navigationController {
                 navController.popViewController(animated: true)
@@ -52,7 +52,7 @@ class AgeTypeSettingsTableVC: UITableViewController {
         currentTableViewCell.accessoryType = .none
         
        // let ud = SettingsFunctions.getAgeTypeByUserDefaults()
-        let ud = AgeSettingsEnum(rawValue: Storage.shared.ageType) ?? .upcoming
+        let ud = AgeSettingsEnum(rawValue: UserDefaultsManager.shared.ageType) ?? .upcoming
         switch ud {
         case AgeSettingsEnum.upcoming:
             upcomingTableViewCell.accessoryType = .checkmark

@@ -3,11 +3,11 @@ import UIKit
 
 class ModelContactEdit{
     
-    static let shared = ModelContactEdit()
+    static var shared = ModelContactEdit()
     
     var contacts = [Contact]()
     var contactsFiltered = [Contact]()
- 
+    
     func addAll(items: [Contact]){
         contacts.removeAll()
         contacts.append(contentsOf: items)
@@ -31,7 +31,7 @@ class ModelContactEdit{
         })
     }
     
-   private init() {
+    private init() {
         setup()
     }
     

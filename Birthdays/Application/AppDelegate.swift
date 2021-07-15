@@ -44,7 +44,7 @@ extension AppDelegate {
     }
     
     func loadView() {
-        Bundle.setLanguage(Storage().currentLanguage)
+        Bundle.setLanguage(UserDefaultsManager.shared.currentLanguage)
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = MainModuleBuilder().create()
         window?.makeKeyAndVisible()

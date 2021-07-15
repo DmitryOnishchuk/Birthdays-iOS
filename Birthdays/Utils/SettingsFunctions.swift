@@ -11,8 +11,8 @@ class SettingsFunctions {
     
     class func changeLanguageOfApp(language:String){
         
-        if Storage.shared.currentLanguage != language {
-            Storage.shared.currentLanguage = language
+        if UserDefaultsManager.shared.currentLanguage != language {
+            UserDefaultsManager.shared.currentLanguage = language
             AppDelegate.shared.loadView()
         }
     }
@@ -20,7 +20,7 @@ class SettingsFunctions {
     @available(iOS 13.0, *)
     class func changeThemeByUserDefaults(){
         var theme:UIUserInterfaceStyle
-        switch Storage.shared.currentThemeID {
+        switch UserDefaultsManager.shared.currentThemeID {
         case 0:
             theme = .unspecified
         case 1:
@@ -50,7 +50,7 @@ class SettingsFunctions {
             save = 0
         }
         
-        Storage.shared.currentThemeID = save
+        UserDefaultsManager.shared.currentThemeID = save
     }
     
     class func getNotificationTimeEventByUserDefaults(id: Int) -> TimeEvent {

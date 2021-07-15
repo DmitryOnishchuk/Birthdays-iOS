@@ -12,7 +12,7 @@ import UIKit
 struct ThemeSettingsModuleBuilder {
     
     func create() -> UITableViewController {
-        let themeSettings = UIStoryboard(name: "ThemeSettings", bundle: nil).instantiateViewController(withIdentifier: "ThemeSettingsTableVC") as! ThemeSettingsTableVC
+        let themeSettings = UIStoryboard(name: "ThemeSettings", bundle: nil).instantiateViewController(withIdentifier: String(describing: ThemeSettingsTableVC.self)) as! ThemeSettingsTableVC
         return themeSettings
     }
     

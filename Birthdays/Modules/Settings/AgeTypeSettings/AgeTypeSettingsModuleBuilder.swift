@@ -12,7 +12,7 @@ import UIKit
 struct AgeTypeSettingsModuleBuilder {
     
     func create() -> UITableViewController {
-        let mainSettings = UIStoryboard(name: "AgeTypeSettings", bundle: nil).instantiateViewController(withIdentifier: "AgeTypeSettingsTableVC") as! AgeTypeSettingsTableVC
+        let mainSettings = UIStoryboard(name: "AgeTypeSettings", bundle: nil).instantiateViewController(withIdentifier: String(describing: AgeTypeSettingsTableVC.self)) as! AgeTypeSettingsTableVC
         return mainSettings
     }
     
