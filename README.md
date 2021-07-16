@@ -1,4 +1,4 @@
-# Birthdays Swift Project
+# Birthdays Swift Project (Alpha preview)
 
 ----
 
