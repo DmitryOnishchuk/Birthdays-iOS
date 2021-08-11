@@ -1,0 +1,9 @@
+/* 
+  InfoPlist.strings
+  Birthdays
+
+  Created by Dmitry Onishchuk on 11.08.2021.
+  Copyright © 2021 Dmitry Onishchuk. All rights reserved.
+*/
+
+"CFBundleName" = "Дни Рождения";
