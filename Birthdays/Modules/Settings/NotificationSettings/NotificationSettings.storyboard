@@ -26,8 +26,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="384.5" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="age" translatesAutoresizingMaskIntoConstraints="NO" id="sm1-PB-n1h">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_notification_add_alert" translatesAutoresizingMaskIntoConstraints="NO" id="sm1-PB-n1h">
                                                     <rect key="frame" x="20" y="8" width="28" height="28"/>
+                                                    <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="28" id="XGe-Tx-Pa4"/>
                                                         <constraint firstAttribute="height" constant="28" id="eBR-EY-OCH"/>
@@ -64,8 +65,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="384.5" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="age" translatesAutoresizingMaskIntoConstraints="NO" id="mZR-jL-j3P">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_notification_add_alert" translatesAutoresizingMaskIntoConstraints="NO" id="mZR-jL-j3P">
                                                     <rect key="frame" x="20" y="8" width="28" height="28"/>
+                                                    <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="28" id="JCh-PY-zsj"/>
                                                         <constraint firstAttribute="width" constant="28" id="uLy-rh-QT3"/>
@@ -102,8 +104,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="384.5" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="age" translatesAutoresizingMaskIntoConstraints="NO" id="Q2e-3v-2nA">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_notification_add_alert" translatesAutoresizingMaskIntoConstraints="NO" id="Q2e-3v-2nA">
                                                     <rect key="frame" x="20" y="8" width="28" height="28"/>
+                                                    <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="28" id="NeA-Dg-r8f"/>
                                                         <constraint firstAttribute="width" constant="28" id="oDR-bf-g6u"/>
@@ -154,7 +157,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="age" width="416" height="416"/>
+        <image name="ic_notification_add_alert" width="48" height="48"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

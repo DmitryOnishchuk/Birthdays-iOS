@@ -42,9 +42,11 @@ class MainSettingsTableVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath {
+        // Язык
         case [0, 0]:
             let languageSettingsVC = LanguageSettingsModuleBuilder().create()
             self.navigationController?.pushViewController(languageSettingsVC, animated: true)
+        // Тема
         case [0, 1]:
             if #available(iOS 13.0, *) {
                 let themeSettingsVC = ThemeSettingsModuleBuilder().create()
@@ -52,14 +54,18 @@ class MainSettingsTableVC: UITableViewController {
             } else {
                 // Fallback on earlier versions
             }
-            
+        // Возраст контакта
         case [0, 2]:
             let ageTypeSettingsVC = AgeTypeSettingsModuleBuilder().create()
             self.navigationController?.pushViewController(ageTypeSettingsVC, animated: true)
-        case [0, 3]:
+        // Уведомления вкд/выкл
+        case [1, 0]:
+            break
+        // Уведомления
+        case [1, 1]:
             let notificationSettingsVC = NotificationSettingsModuleBuilder().create()
             self.navigationController?.pushViewController(notificationSettingsVC, animated: true)
-        case [1, 0]:
+        case [1, 2]:
             changeNotificationTime()
         default: break
         }
