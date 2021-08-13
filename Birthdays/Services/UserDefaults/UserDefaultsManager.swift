@@ -17,8 +17,12 @@ class UserDefaultsManager {
     @UserDefault(.currentLanguage, defaultValue: getDefaultLanguage())
     var currentLanguage: String
     
-    @UserDefault(.notificationTime, defaultValue: "10:00")
-    var notificationTime: String
+   // @UserDefault(.notificationTime, defaultValue: "10:00")
+   // var notificationTime: String
+    
+    
+    @UserDefault(.notificationEnabled, defaultValue: true)
+    var notificationEnabled: Bool
     
     @UserDefault(.ageType, defaultValue: AgeSettingsEnum.upcoming.rawValue)
     var ageType: String

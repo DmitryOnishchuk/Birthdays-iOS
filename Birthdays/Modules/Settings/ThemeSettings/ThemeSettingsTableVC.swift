@@ -19,7 +19,7 @@ class ThemeSettingsTableVC: UITableViewController {
         lightLabel.text = "SETTINGS_THEME_LIGHT".localized
         darkLabel.text = "SETTINGS_THEME_DARK".localized
         setThemeCheckmark()
-        self.themeTableView.contentInset = UIEdgeInsets(top: -35, left: 0, bottom: 0, right: 0);
+        //self.themeTableView.contentInset = UIEdgeInsets(top: -35, left: 0, bottom: 0, right: 0);
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

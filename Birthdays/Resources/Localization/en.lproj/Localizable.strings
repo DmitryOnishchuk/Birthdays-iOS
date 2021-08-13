@@ -8,6 +8,7 @@
 "DELETED" = "Deleted";
 "FAIL" = "Fail";
 "NEXT" = "Next";
+"ENABLE" = "Enable";
 
 // MARK: - Common Main
 
@@ -37,6 +38,7 @@
 
 "SETTINGS_SETTINGS" = "Settings";
 "SETTINGS_TITLE_MAIN" = "MAIN";
+"SETTINGS_ABOUT_APPLICATION_TITLE" = "ABOUT APPLICATION";
 
 // MARK: - Settings Language
 
@@ -58,8 +60,35 @@
 // MARK: - Settings Notification
 
 "SETTINGS_NOTIFICATION_TITLE" = "NOTIFICATIONS";
+"SETTINGS_NOTIFICATION_REMINDERS" = "Reminders";
+"SETTINGS_NOTIFICATION_REMINDERS_TITLE" = "Reminders";
 "SETTINGS_NOTIFICATION_TIME_REMIND" = "Time to remind";
-"SETTINGS_NOTIFICATION_TOOLBAR_TITLE" = "Notification";
+"SETTINGS_NOTIFICATION_TOOLBAR_TITLE" = "Reminder";
+"SETTINGS_NOTIFICATION_REMINDER_1" = "Remin. 1";
+"SETTINGS_NOTIFICATION_REMINDER_2" = "Remin. 2";
+"SETTINGS_NOTIFICATION_REMINDER_3" = "Remin. 3";
+
+// MARK: - Settings About
+"SETTINGS_ABOUT_HELP_TRANSLATE" = "Help translate";
+"SETTINGS_ABOUT_FEEDBACK" = "Feedback";
+"SETTINGS_ABOUT_SHARE" = "Share";
+"SETTINGS_ABOUT_ABOUT" = "About...";
+"SETTINGS_ABOUT_VERSION" = "Version";
+
+// MARK: - TimeEvent Picker
+"EVENT_PICKER_AT" = "at";
+"EVENT_PICKER_TURN_OFF" = "Turn off";
+"EVENT_PICKER_IN_BIRTHDAY" = "On birthday";
+"EVENT_PICKER_1_DAY_BEFORE" = "1 day before";
+"EVENT_PICKER_2_DAY_BEFORE" = "2 day before";
+"EVENT_PICKER_3_DAY_BEFORE" = "3 day before";
+"EVENT_PICKER_4_DAY_BEFORE" = "4 day before";
+"EVENT_PICKER_5_DAY_BEFORE" = "5 day before";
+"EVENT_PICKER_6_DAY_BEFORE" = "6 day before";
+"EVENT_PICKER_7_DAY_BEFORE" = "7 day before";
+"EVENT_PICKER_8_DAY_BEFORE" = "8 day before";
+
+
 
 // MARK: - Languages
 

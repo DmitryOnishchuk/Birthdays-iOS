@@ -8,6 +8,7 @@
 "DELETED" = "Удалено";
 "FAIL" = "Ошибка";
 "NEXT" = "Далее";
+"ENABLE" = "Включить";
 
 // MARK: - Common Main
 
@@ -37,6 +38,7 @@
 
 "SETTINGS_SETTINGS" = "Настройки";
 "SETTINGS_TITLE_MAIN" = "ОСНОВНОЕ";
+"SETTINGS_ABOUT_APPLICATION_TITLE" = "О ПРИЛОЖЕНИИ";
 
 // MARK: - Settings Language
 
@@ -58,8 +60,30 @@
 // MARK: - Settings Notification
 
 "SETTINGS_NOTIFICATION_TITLE" = "УВЕДОМЛЕНИЯ";
+"SETTINGS_NOTIFICATION_REMINDERS" = "Напоминания";
+"SETTINGS_NOTIFICATION_REMINDERS_TITLE" = "Напоминания";
 "SETTINGS_NOTIFICATION_TIME_REMIND" = "Время напоминаний";
 "SETTINGS_NOTIFICATION_TOOLBAR_TITLE" = "Уведомление";
+
+// MARK: - Settings About
+"SETTINGS_ABOUT_HELP_TRANSLATE" = "Помощь в переводе";
+"SETTINGS_ABOUT_FEEDBACK" = "Обратная связь";
+"SETTINGS_ABOUT_SHARE" = "Поделиться";
+"SETTINGS_ABOUT_ABOUT" = "Про программу...";
+"SETTINGS_ABOUT_VERSION" = "Версия";
+
+// MARK: - TimeEvent Picker
+"EVENT_PICKER_AT" = "в";
+"EVENT_PICKER_TURN_OFF" = "Выкл.";
+"EVENT_PICKER_IN_BIRTHDAY" = "В день рождения";
+"EVENT_PICKER_1_DAY_BEFORE" = "За 1 день";
+"EVENT_PICKER_2_DAY_BEFORE" = "За 2 дня";
+"EVENT_PICKER_3_DAY_BEFORE" = "За 3 дня";
+"EVENT_PICKER_4_DAY_BEFORE" = "За 4 дня";
+"EVENT_PICKER_5_DAY_BEFORE" = "За 5 дней";
+"EVENT_PICKER_6_DAY_BEFORE" = "За 6 дней";
+"EVENT_PICKER_7_DAY_BEFORE" = "За 7 дней";
+"EVENT_PICKER_8_DAY_BEFORE" = "За 8 дней";
 
 // MARK: - Languages
 

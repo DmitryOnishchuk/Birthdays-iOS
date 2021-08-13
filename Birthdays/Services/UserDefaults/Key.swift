@@ -23,4 +23,5 @@ extension Key {
     static let notificationTime: Key            = "NOTIFICATION_TIME_KEY"
     static let ageType: Key                     = "AGE_TYPE_KEY"
     static let currentThemeID: Key              = "THEME_KEY"
+    static let notificationEnabled: Key         = "NOTIFICATION_ENABLED"
 }

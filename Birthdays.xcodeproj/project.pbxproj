@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		32306FC126C67640004C4773 /* UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32306FC026C6763F004C4773 /* UITableViewCell.swift */; };
 		323367AA2628329A00F073F2 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323367A92628329A00F073F2 /* UIViewController.swift */; };
 		323367AE262832DB00F073F2 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323367AD262832DB00F073F2 /* String.swift */; };
 		323367B12628330A00F073F2 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323367B02628330A00F073F2 /* Date.swift */; };
@@ -48,6 +49,8 @@
 		32B0F98F25DD11C5002C0461 /* NotificationSettingsTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B0F98E25DD11C5002C0461 /* NotificationSettingsTableVC.swift */; };
 		32B0F99325DD15FC002C0461 /* NotificationPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B0F99225DD15FC002C0461 /* NotificationPickerView.swift */; };
 		32B0F99625DD2985002C0461 /* TimeEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B0F99525DD2985002C0461 /* TimeEvent.swift */; };
+		32B5164A26C5578900CFE545 /* URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B5164926C5578900CFE545 /* URLs.swift */; };
+		32B5164C26C5581700CFE545 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B5164B26C5581700CFE545 /* Utils.swift */; };
 		32D30672259C7564000D7D9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D30671259C7564000D7D9A /* AppDelegate.swift */; };
 		32D30679259C7564000D7D9A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32D30677259C7564000D7D9A /* Main.storyboard */; };
 		32D3067B259C7564000D7D9A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32D3067A259C7564000D7D9A /* Assets.xcassets */; };
@@ -60,6 +63,7 @@
 
 /* Begin PBXFileReference section */
 		2F42EBF9ACDDBE9AC659BEB1 /* Pods-Birthdays.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Birthdays.debug.xcconfig"; path = "Target Support Files/Pods-Birthdays/Pods-Birthdays.debug.xcconfig"; sourceTree = "<group>"; };
+		32306FC026C6763F004C4773 /* UITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCell.swift; sourceTree = "<group>"; };
 		323367A92628329A00F073F2 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		323367AD262832DB00F073F2 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		323367B02628330A00F073F2 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
@@ -103,6 +107,8 @@
 		32B0F98E25DD11C5002C0461 /* NotificationSettingsTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingsTableVC.swift; sourceTree = "<group>"; };
 		32B0F99225DD15FC002C0461 /* NotificationPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationPickerView.swift; sourceTree = "<group>"; };
 		32B0F99525DD2985002C0461 /* TimeEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeEvent.swift; sourceTree = "<group>"; };
+		32B5164926C5578900CFE545 /* URLs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLs.swift; sourceTree = "<group>"; };
+		32B5164B26C5581700CFE545 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		32D3066E259C7564000D7D9A /* Birthdays.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Birthdays.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32D30671259C7564000D7D9A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		32D30678259C7564000D7D9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -131,8 +137,8 @@
 		323367A1262830C700F073F2 /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				32D3067F259C7565000D7D9A /* Info.plist */,
 				32D30671259C7564000D7D9A /* AppDelegate.swift */,
+				32D3067F259C7565000D7D9A /* Info.plist */,
 				32A9F47B26C3BD4500EC8E8A /* InfoPlist.strings */,
 			);
 			path = Application;
@@ -194,6 +200,7 @@
 				323367A92628329A00F073F2 /* UIViewController.swift */,
 				323367AD262832DB00F073F2 /* String.swift */,
 				323367B02628330A00F073F2 /* Date.swift */,
+				32306FC026C6763F004C4773 /* UITableViewCell.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -232,6 +239,7 @@
 				32413C8A259DC311002B93C5 /* DateFunctions.swift */,
 				3242D9A325A09C41003BC5EE /* ContactFunctions.swift */,
 				323BEDC225DAB2520054E7D4 /* NotificationsFunctions.swift */,
+				32B5164B26C5581700CFE545 /* Utils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -331,6 +339,7 @@
 				3242189725B45431008BA4DA /* AnyLanguageBundle.swift */,
 				32B0F99525DD2985002C0461 /* TimeEvent.swift */,
 				3288F1112695E20200BB176C /* Colors.swift */,
+				32B5164926C5578900CFE545 /* URLs.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -514,6 +523,7 @@
 				323367AA2628329A00F073F2 /* UIViewController.swift in Sources */,
 				32D30672259C7564000D7D9A /* AppDelegate.swift in Sources */,
 				327B41A42675EB7400A42967 /* MainSettingsModuleBuilder.swift in Sources */,
+				32B5164C26C5581700CFE545 /* Utils.swift in Sources */,
 				32793477268DE6C6001C8EF1 /* AgeTypeSettingsModuleBuilder.swift in Sources */,
 				323367B12628330A00F073F2 /* Date.swift in Sources */,
 				323BEDC325DAB2520054E7D4 /* NotificationsFunctions.swift in Sources */,
@@ -526,12 +536,14 @@
 				32D30692259C7A9C000D7D9A /* Contact.swift in Sources */,
 				328C8356267640F7004F7E9C /* UserDefault.swift in Sources */,
 				327A40842695D83A008334FC /* MainModuleBuilder.swift in Sources */,
+				32B5164A26C5578900CFE545 /* URLs.swift in Sources */,
 				327B9E8D259CB68C00E95196 /* ContactMainTableViewCell.swift in Sources */,
 				328C8354267640D8004F7E9C /* PropertyListValue.swift in Sources */,
 				323BB08D25A9B78A00E43588 /* AgeTypeSettingsTableVC.swift in Sources */,
 				3279347C268DEB4D001C8EF1 /* LanguageSettingsModuleBuilder.swift in Sources */,
 				323FEC2025A5EDD400397E29 /* GlobalConstants.swift in Sources */,
 				3242189825B45431008BA4DA /* AnyLanguageBundle.swift in Sources */,
+				32306FC126C67640004C4773 /* UITableViewCell.swift in Sources */,
 				323367AE262832DB00F073F2 /* String.swift in Sources */,
 				328C835826764113004F7E9C /* UserDefaultsManager.swift in Sources */,
 				32D3068B259C794F000D7D9A /* MainVC.swift in Sources */,

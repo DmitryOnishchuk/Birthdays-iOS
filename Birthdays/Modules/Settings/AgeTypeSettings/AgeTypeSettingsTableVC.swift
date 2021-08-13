@@ -20,7 +20,7 @@ class AgeTypeSettingsTableVC: UITableViewController {
         self.title = NSLocalizedString("SETTINGS_CONTACT_AGE_TYPE", comment: "")
         upcomingLabel.text = NSLocalizedString("SETTINGS_CONTACT_AGE_TYPE_UPCOMING", comment: "")
         currentLabel.text = NSLocalizedString("SETTINGS_CONTACT_AGE_TYPE_CURRENT", comment: "")
-        self.ageTabelView.contentInset = UIEdgeInsets(top: -35, left: 0, bottom: 0, right: 0);
+        //self.ageTabelView.contentInset = UIEdgeInsets(top: -35, left: 0, bottom: 0, right: 0);
         setAgeCheckmark()
     }
     

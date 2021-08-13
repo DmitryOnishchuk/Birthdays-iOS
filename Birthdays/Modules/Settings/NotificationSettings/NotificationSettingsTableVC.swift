@@ -6,7 +6,10 @@ class NotificationSettingsTableVC: UITableViewController {
     var notificationPickerView: NotificationPickerView!
     var dummyTextField: UITextField?
     
-
+    @IBOutlet weak var remindLabel1: UILabel!
+    @IBOutlet weak var remindLabel2: UILabel!
+    @IBOutlet weak var remindLabel3: UILabel!
+    
     @IBOutlet weak var notifyEventLabel0: UILabel!
     @IBOutlet weak var notifyEventLabel1: UILabel!
     @IBOutlet weak var notifyEventLabel2: UILabel!
@@ -14,7 +17,10 @@ class NotificationSettingsTableVC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = NSLocalizedString("SETTINGS_NOTIFICATION_REMINDERS_TITLE", comment: "")
+        
         setNotificationCheckmark()
+        setText()
     }
     
     func setNotificationCheckmark(){
@@ -26,6 +32,11 @@ class NotificationSettingsTableVC: UITableViewController {
         notifyEventLabel2.text = ud2.text
     }
     
+    func setText(){
+        remindLabel1.text = "SETTINGS_NOTIFICATION_REMINDER_1".localized
+        remindLabel2.text = "SETTINGS_NOTIFICATION_REMINDER_2".localized
+        remindLabel3.text = "SETTINGS_NOTIFICATION_REMINDER_3".localized
+    }
     
     func changeNotificationEvent(){
         

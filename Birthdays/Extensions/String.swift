@@ -16,4 +16,9 @@ extension String {
         let dateFormatter = ISO8601DateFormatter()
         return dateFormatter.date(from: self)
     }
+    
+    func toURL() -> URL? {
+        return URL(string: self)
+    }
+    
 }

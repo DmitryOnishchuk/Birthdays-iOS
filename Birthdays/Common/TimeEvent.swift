@@ -7,45 +7,45 @@ struct TimeEvent{
     
     var text: String{
         get{
-            return getTextByDay() + " в " + time
+            return getTextByDay() + " " + "EVENT_PICKER_AT".localized + " " + time
         }
     }
     
     func getTextByDay() -> String {
-        var text = "Выкл."
+        var text = "EVENT_PICKER_TURN_OFF".localized
         switch day {
         case -1:
-            text =  "Выкл."
+            text = "EVENT_PICKER_TURN_OFF".localized
             break
         case 0:
-            text =  "В сам ДР"
+            text = "EVENT_PICKER_IN_BIRTHDAY".localized
             break
         case 1:
-            text =  "За 1 день"
+            text = "EVENT_PICKER_1_DAY_BEFORE".localized
             break
         case 2:
-            text =  "За 2 дня"
+            text = "EVENT_PICKER_2_DAY_BEFORE".localized
             break
         case 3:
-            text =  "За 3 дня"
+            text = "EVENT_PICKER_3_DAY_BEFORE".localized
             break
         case 4:
-            text =  "За 4 дня"
+            text = "EVENT_PICKER_4_DAY_BEFORE".localized
             break
         case 5:
-            text =  "За 5 дней"
+            text = "EVENT_PICKER_5_DAY_BEFORE".localized
             break
         case 6:
-            text =  "За 6 дней"
+            text = "EVENT_PICKER_6_DAY_BEFORE".localized
             break
         case 7:
-            text =  "За 7 дней"
+            text = "EVENT_PICKER_7_DAY_BEFORE".localized
             break
         case 8:
-            text =  "За 8 дней"
+            text = "EVENT_PICKER_8_DAY_BEFORE".localized
             break
         default:
-            text =  "Выкл."
+            text = "EVENT_PICKER_TURN_OFF".localized
         }
         return text
         
