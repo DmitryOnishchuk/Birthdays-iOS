@@ -18,7 +18,6 @@ class NotificationsFunctions {
             
             
             for contact in contacts {
-                var daysToBirthday = contact.daysToBirthday
                 let age = contact.futureAge
                 
                 var ageString = ""
@@ -31,14 +30,15 @@ class NotificationsFunctions {
                 }
                 for timeEvent in events {
                     if let date = getDateNotification(date: contact.birthdayNear!, timeEvent: timeEvent){
-                        let when = daysToBirthday + timeEvent.day
 
-                        var text = "COMMON_BIRTHDAY".localized + " " + DateFunctions.formatDaysToBirthdayNotification(timeEvent: timeEvent) + ageString
-                        let notificationId = contact.id + "_birthdays"
+                        let notificationId = contact.id + "_" + String(timeEvent.day) + "_birthday"
+                        let title = contact.name
+                        let text = "COMMON_BIRTHDAY".localized + " " + DateFunctions.formatDaysToBirthdayNotification(timeEvent: timeEvent) + ageString
                         
-                        createNotification(notificationId: notificationId, title: contact.name, body: text, time: date)
+                        createNotification(notificationId: notificationId, title: title, body: text, time: date)
                         print(contact.name)
                         print(text)
+                        print(date)
                     }
                 }
             }

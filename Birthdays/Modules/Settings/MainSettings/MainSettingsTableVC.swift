@@ -30,17 +30,18 @@ class MainSettingsTableVC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        onLoad()
         // print(self.settingsTabelView.sectionHeaderHeight)
         //self.settingsTabelView.contentInset = UIEdgeInsets(top: -18, left: 0, bottom: 0, right: 0);
-        notificationEnableSwitch.addTarget(self, action: #selector(notificationEnableSwitchChanged), for: .valueChanged)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        onLoad()
     }
     
     func onLoad(){
+        notificationEnableSwitch.addTarget(self, action: #selector(notificationEnableSwitchChanged), for: .valueChanged)
+        
         self.title = "SETTINGS_SETTINGS".localized
         languageLabel.text = "SETTINGS_LANGUAGE".localized
         themeLabel.text = "SETTINGS_THEME".localized
