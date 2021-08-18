@@ -11,6 +11,8 @@ class MainVC: UIViewController, CNContactViewControllerDelegate, UITableViewDele
     var refreshControl = UIRefreshControl()
     var search = UISearchController()
     
+    let userDefaultsManager = UserDefaultsManager.shared
+    
     @IBAction func buttonAct(_ sender: UIButton) {
         NotificationsFunctions.updateNotificationPool()
     }
@@ -41,6 +43,12 @@ class MainVC: UIViewController, CNContactViewControllerDelegate, UITableViewDele
         //self.navigationItem.hidesSearchBarWhenScrolling = true
         tableView.refreshControl = refreshControl
         refreshControl.addTarget(self, action: #selector(updateTable), for: .valueChanged)
+        
+        if userDefaultsManager.isFirstStart{
+            userDefaultsManager.isFirstStart = false
+            NotificationsFunctions.updateNotificationPool()
+        }
+        
     }
     
     

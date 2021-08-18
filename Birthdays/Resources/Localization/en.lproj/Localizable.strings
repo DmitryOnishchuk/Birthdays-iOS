@@ -12,7 +12,9 @@
 
 // MARK: - Common Main
 
-"COMMON_AFTER" = "In";
+"COMMON_BIRTHDAY" = "Birthday";
+"COMMON_AFTER_UPPER" = "In";
+"COMMON_AFTER_LOW" = "in";
 "COMMON_DAY" = "day";
 "COMMON_DAY2" = "days";
 "COMMON_DAYS" = "days";
@@ -88,7 +90,11 @@
 "EVENT_PICKER_7_DAY_BEFORE" = "7 day before";
 "EVENT_PICKER_8_DAY_BEFORE" = "8 day before";
 
+// MARK: - Notifications
 
+"NOTIFICATIONS_YEAR_FULL" = "year old";
+"NOTIFICATIONS_YEARS_FULL" = "year years_full";
+"NOTIFICATIONS_YEARS2_FULL" = "years old";
 
 // MARK: - Languages
 

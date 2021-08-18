@@ -10,9 +10,11 @@
 "NEXT" = "Далее";
 "ENABLE" = "Включить";
 
-// MARK: - Common Main
+// MARK: - Main
 
-"COMMON_AFTER" = "Через";
+"COMMON_BIRTHDAY" = "День рождения";
+"COMMON_AFTER_UPPER" = "Через";
+"COMMON_AFTER_LOW" = "через";
 "COMMON_DAY" = "день";
 "COMMON_DAY2" = "дня";
 "COMMON_DAYS" = "дней";
@@ -64,6 +66,10 @@
 "SETTINGS_NOTIFICATION_REMINDERS_TITLE" = "Напоминания";
 "SETTINGS_NOTIFICATION_TIME_REMIND" = "Время напоминаний";
 "SETTINGS_NOTIFICATION_TOOLBAR_TITLE" = "Уведомление";
+"SETTINGS_NOTIFICATION_REMINDER_1" = "Напом. 1";
+"SETTINGS_NOTIFICATION_REMINDER_2" = "Напом. 2";
+"SETTINGS_NOTIFICATION_REMINDER_3" = "Напом. 3";
+
 
 // MARK: - Settings About
 "SETTINGS_ABOUT_HELP_TRANSLATE" = "Помощь в переводе";
@@ -84,6 +90,12 @@
 "EVENT_PICKER_6_DAY_BEFORE" = "За 6 дней";
 "EVENT_PICKER_7_DAY_BEFORE" = "За 7 дней";
 "EVENT_PICKER_8_DAY_BEFORE" = "За 8 дней";
+
+// MARK: - Notifications
+
+"NOTIFICATIONS_YEAR_FULL" = "год";
+"NOTIFICATIONS_YEARS_FULL" = "лет";
+"NOTIFICATIONS_YEARS2_FULL" = "года";
 
 // MARK: - Languages
 

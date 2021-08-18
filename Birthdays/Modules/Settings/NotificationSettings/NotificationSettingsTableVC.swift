@@ -84,6 +84,9 @@ class NotificationSettingsTableVC: UITableViewController {
         default:
             break
         }
+        
+        NotificationsFunctions.updateNotificationPool()
+        
     }
     
     @objc func cancelDatePicker(){

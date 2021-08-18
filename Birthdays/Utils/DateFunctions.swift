@@ -109,21 +109,42 @@ class DateFunctions {
     
     static func formatDaysToBirthday(days:Int, shortName:Bool) -> String{
         
-        var dayString = NSLocalizedString("days", comment: "")
+        var dayString = "COMMON_DAYS".localized
         dayString = getDayAdditional(num: days)
         
         var after = "";
         if (!shortName) {
-            after = NSLocalizedString("COMMON_AFTER", comment: "") + " ";
+            after = "COMMON_AFTER_UPPER".localized + " ";
         }
         var res = after + String(days) + " " + dayString;
         if (days == 0) {
-            res = NSLocalizedString("COMMON_TODAY", comment: "")
+            res = "COMMON_TODAY".localized
         } else if (days == 1) {
-            res = NSLocalizedString("COMMON_TOMORROW", comment: "")
+            res = "COMMON_TOMORROW".localized
         }
-        return res;
+        
+        return res
     }
+    
+    static func formatDaysToBirthdayNotification(timeEvent:TimeEvent) -> String{
+                
+        let days = timeEvent.day
+        
+        var dayString = "COMMON_DAYS".localized
+        dayString = getDayAdditional(num: days)
+        
+        var after = "COMMON_AFTER_UPPER".localized + " ";
+        
+        var res = after + String(days) + " " + dayString;
+        if (days == 0) {
+            res = "COMMON_TODAY".localized
+        } else if (days == 1) {
+            res = "COMMON_TOMORROW".localized
+        }
+
+        return res.lowercased()
+    }
+    
     
     static func getAgeString(age: Int)-> String{
         var res = ""
@@ -137,6 +158,66 @@ class DateFunctions {
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: UserDefaultsManager.shared.currentLanguage)
         return formatter.monthSymbols[month - 1]
+    }
+    
+    static func formatAge(_ age: Int)-> String{
+        return (age > 0) ? String(age) + " " + getPostfixYears(age) : ""
+    }
+    
+    static func getPostfixYears(_ age: Int)-> String{
+        
+        
+        
+        let currentLanguage = UserDefaultsManager.shared.currentLanguage
+        var res = "";
+        if currentLanguage == "ru" ||
+            currentLanguage == "uk" ||
+            currentLanguage == "uz" {
+            let ageLastNumber = age % 10;
+            let isExclusion = (age % 100 >= 11) && (age % 100 <= 14);
+
+            if ageLastNumber == 1{
+                res = "NOTIFICATIONS_YEAR_FULL".localized
+            } else if (ageLastNumber == 0 || ageLastNumber >= 5 && ageLastNumber <= 9){
+                res = "NOTIFICATIONS_YEARS_FULL".localized
+                
+            } else if (ageLastNumber >= 2 && ageLastNumber <= 4){
+                res = "NOTIFICATIONS_YEARS2_FULL".localized
+                
+            }
+            if isExclusion{
+                res = "NOTIFICATIONS_YEARS_FULL".localized
+            }
+            return res;
+        }
+
+        if (currentLanguage == "pl") {
+            let ageLastNumber = age % 10;
+            let isExclusion = (age % 100 >= 11) && (age % 100 <= 14)
+
+            if (age == 1){
+                res = "NOTIFICATIONS_YEAR_FULL".localized
+                
+            }else if (ageLastNumber == 0 || ageLastNumber == 1 || ageLastNumber >= 5 && ageLastNumber <= 9){
+                res = "NOTIFICATIONS_YEARS_FULL".localized
+                
+            } else if (ageLastNumber >= 2 && ageLastNumber <= 4){
+                res = "NOTIFICATIONS_YEARS2_FULL".localized
+                
+            }
+            if isExclusion{
+                res = "NOTIFICATIONS_YEARS_FULL".localized
+                
+            }
+            return res;
+        }
+
+        if age == 1 {
+            res = "NOTIFICATIONS_YEAR_FULL".localized
+        } else {
+            res = "NOTIFICATIONS_YEARS2_FULL".localized
+        }
+        return res
     }
     
 }

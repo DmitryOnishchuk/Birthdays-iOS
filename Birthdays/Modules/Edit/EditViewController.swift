@@ -267,6 +267,7 @@ extension EditViewController: UITabBarDelegate, UITableViewDataSource{
             if ContactFunctions.updateBirthdayByContactID(currentContact!.id, birthdayPickerView.date) {
                 self.showToast(message: "UPDATED".localized, font: .systemFont(ofSize: 12.0))
                 updateTable()
+                NotificationsFunctions.updateNotificationPool()
             }else{
                 self.showToast(message: "FAIL".localized, font: .systemFont(ofSize: 12.0))
             }
@@ -280,6 +281,7 @@ extension EditViewController: UITabBarDelegate, UITableViewDataSource{
         let action = UIAlertAction(title: "OK".localized, style: .default, handler: { [self] action in
             if action.style == .default{
                 deleteCurrentContactBirthday()
+                NotificationsFunctions.updateNotificationPool()
             }
         })
         let cancel = UIAlertAction(title: "CANCEL".localized, style: .cancel, handler: { action in })

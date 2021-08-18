@@ -55,28 +55,21 @@ class SettingsFunctions {
     
     class func getNotificationTimeEventByUserDefaults(id: Int) -> TimeEvent {
         
-        var defaultValue = TimeEvent(day: -1, time: "10:00")
-        var key = GlobalConstants.notificationTimeEventKeyUserDefaults0
+        var value = "0,10:00"
+        let userDefaults = UserDefaultsManager.shared
         
         switch id {
         case 0:
-            key = GlobalConstants.notificationTimeEventKeyUserDefaults0
-            defaultValue = TimeEvent(day: 0, time: "10:00")
+            value = userDefaults.notificationTimeEvent0
         case 1:
-            key = GlobalConstants.notificationTimeEventKeyUserDefaults1
-            defaultValue = TimeEvent(day: 3, time: "10:00")
+            value = userDefaults.notificationTimeEvent1
         case 2:
-            key = GlobalConstants.notificationTimeEventKeyUserDefaults2
-            defaultValue = TimeEvent(day: -1, time: "10:00")
+            value = userDefaults.notificationTimeEvent2
         default:
             break
         }
         
-        guard let resUD = UserDefaults.standard.value(forKey: key) as? String else {
-            return defaultValue
-        }
-        
-        let fullTimeEventArr = resUD.components(separatedBy: ",")
+        let fullTimeEventArr = value.components(separatedBy: ",")
         let day: Int = Int(fullTimeEventArr[0])!
         let time: String = fullTimeEventArr[1]
         
@@ -87,21 +80,28 @@ class SettingsFunctions {
     
     class func setNotificationTimeEventByUserDefaults(id: Int, timeEvent: TimeEvent){
         
-        var key = GlobalConstants.notificationTimeEventKeyUserDefaults0
+        let userDefaults = UserDefaultsManager.shared
+        let save = String(timeEvent.day) + "," + timeEvent.time
         
         switch id {
         case 0:
-            key = GlobalConstants.notificationTimeEventKeyUserDefaults0
+            userDefaults.notificationTimeEvent0 = save
         case 1:
-            key = GlobalConstants.notificationTimeEventKeyUserDefaults1
+            userDefaults.notificationTimeEvent1 = save
         case 2:
-            key = GlobalConstants.notificationTimeEventKeyUserDefaults2
+            userDefaults.notificationTimeEvent2 = save
         default:
             break
         }
+    }
+    
+    class func getAllTimeEvents() -> [TimeEvent]{
+        var res: [TimeEvent] = []
         
-        let save = String(timeEvent.day) + "," + timeEvent.time
-        UserDefaults.standard.set(save, forKey: key)
+        for i in 0...2 {
+            res.append(getNotificationTimeEventByUserDefaults(id: i))
+        }
+        return res
     }
     
 }

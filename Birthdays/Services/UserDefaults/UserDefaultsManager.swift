@@ -14,25 +14,30 @@ class UserDefaultsManager {
     
     private init() {}
     
+    @UserDefault(.isFirstStart, defaultValue: true)
+    var isFirstStart: Bool
+    
     @UserDefault(.currentLanguage, defaultValue: getDefaultLanguage())
     var currentLanguage: String
-    
-   // @UserDefault(.notificationTime, defaultValue: "10:00")
-   // var notificationTime: String
-    
-    
-    @UserDefault(.notificationEnabled, defaultValue: true)
-    var notificationEnabled: Bool
     
     @UserDefault(.ageType, defaultValue: AgeSettingsEnum.upcoming.rawValue)
     var ageType: String
     
     @UserDefault(.currentThemeID, defaultValue: 0)
     var currentThemeID: Int
+
+    @UserDefault(.notificationEnabled, defaultValue: true)
+    var notificationEnabled: Bool
     
+    @UserDefault(.notificationTimeEvent0, defaultValue: "0,10:00")
+    var notificationTimeEvent0: String
+    
+    @UserDefault(.notificationTimeEvent1, defaultValue: "3,10:00")
+    var notificationTimeEvent1: String
+    
+    @UserDefault(.notificationTimeEvent2, defaultValue: "-1,10:00")
+    var notificationTimeEvent2: String
 }
-
-
 
 private func getDefaultLanguage() -> String{
     

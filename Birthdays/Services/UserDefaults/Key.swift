@@ -19,9 +19,13 @@ extension Key: ExpressibleByStringLiteral {
 }
 
 extension Key {
-    static let currentLanguage: Key             = "current_language"
+    static let isFirstStart: Key                = "IS_FIRST_START"
+    static let currentLanguage: Key             = "CURRENT_LANGUAGE"
     static let notificationTime: Key            = "NOTIFICATION_TIME_KEY"
     static let ageType: Key                     = "AGE_TYPE_KEY"
     static let currentThemeID: Key              = "THEME_KEY"
     static let notificationEnabled: Key         = "NOTIFICATION_ENABLED"
+    static let notificationTimeEvent0: Key      = "NOTIFICATION_TIME_EVENT_KEY_0"
+    static let notificationTimeEvent1: Key      = "NOTIFICATION_TIME_EVENT_KEY_1"
+    static let notificationTimeEvent2: Key      = "NOTIFICATION_TIME_EVENT_KEY_2"
 }

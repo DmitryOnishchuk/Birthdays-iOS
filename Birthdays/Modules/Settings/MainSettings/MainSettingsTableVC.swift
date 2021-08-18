@@ -32,7 +32,7 @@ class MainSettingsTableVC: UITableViewController {
         super.viewDidLoad()
         // print(self.settingsTabelView.sectionHeaderHeight)
         //self.settingsTabelView.contentInset = UIEdgeInsets(top: -18, left: 0, bottom: 0, right: 0);
-        notificationEnableSwitch.addTarget(self, action: #selector(switchChanged), for: .valueChanged)
+        notificationEnableSwitch.addTarget(self, action: #selector(notificationEnableSwitchChanged), for: .valueChanged)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -89,7 +89,6 @@ class MainSettingsTableVC: UITableViewController {
             break
         // Уведомления
         case [1, 1]:
-            print("remindersTableViewCell.isUserInteractionEnabled " + String(remindersTableViewCell.isUserInteractionEnabled))
             if remindersTableViewCell.isUserInteractionEnabled {
                 let notificationSettingsVC = NotificationSettingsModuleBuilder().create()
                 self.navigationController?.pushViewController(notificationSettingsVC, animated: true)
@@ -181,18 +180,21 @@ class MainSettingsTableVC: UITableViewController {
         }
     }
     
-    @objc func switchChanged(mySwitch: UISwitch) {
-        userDefaultsManager.notificationEnabled = mySwitch.isOn
-        remindersTableViewCell.enable(on: mySwitch.isOn)
+    @objc func notificationEnableSwitchChanged(mySwitch: UISwitch) {
+        notificationEnabledChanged(status: mySwitch.isOn)
+        NotificationsFunctions.updateNotificationPool()
     }
     
     func setStatusNotificationEnableSwitch(){
         notificationEnableSwitch.setOn(userDefaultsManager.notificationEnabled, animated: true)
-        notificationEnableSwitch.sendActions(for: .valueChanged)
+        notificationEnabledChanged(status:notificationEnableSwitch.isOn)
         remindersTableViewCell.enable(on: userDefaultsManager.notificationEnabled)
     }
     
-
+    func notificationEnabledChanged(status:Bool){
+        userDefaultsManager.notificationEnabled = status
+        remindersTableViewCell.enable(on: status)
+    }
     
 //    func setCurrentNotificationTimeLabel(){
 //        let notificationTimeString = userDefaultsManager.notificationTime
