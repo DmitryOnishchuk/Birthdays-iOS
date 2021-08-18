@@ -58,6 +58,11 @@ class EditViewController: UIViewController, UITableViewDelegate, UITextFieldDele
             ContactFunctions.updateModelContactEdit()
             
             DispatchQueue.main.async {
+                
+                if self.isSearch(){
+                    ModelContactEdit.shared.filterContacts(text: self.search.searchBar.text!)
+                }
+                
                 self.tableView.reloadData()
                 self.refreshControl.endRefreshing()
                 self.activityIndicator.stopAnimating()

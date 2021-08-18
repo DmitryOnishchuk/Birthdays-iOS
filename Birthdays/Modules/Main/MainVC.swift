@@ -81,7 +81,7 @@ class MainVC: UIViewController, CNContactViewControllerDelegate, UITableViewDele
         if accessGranted {
             ContactFunctions.updateModelContactMain()
             
-            DispatchQueue.main.async {
+            DispatchQueue.main.async {                
                 self.tableView.reloadData()
                 self.refreshControl.endRefreshing()
                 self.activityIndicator.stopAnimating()
