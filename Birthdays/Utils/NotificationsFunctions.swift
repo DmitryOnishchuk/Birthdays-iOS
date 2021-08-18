@@ -36,9 +36,7 @@ class NotificationsFunctions {
                         let text = "COMMON_BIRTHDAY".localized + " " + DateFunctions.formatDaysToBirthdayNotification(timeEvent: timeEvent) + ageString
                         
                         createNotification(notificationId: notificationId, title: title, body: text, time: date)
-                        print(contact.name)
-                        print(text)
-                        print(date)
+                        userDefaults.lastNotificationPoolUpdateDateTime = Date()
                     }
                 }
             }

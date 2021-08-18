@@ -35,6 +35,5 @@ class Utils {
     
     static func getAppVersion() -> String {
         return Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
-    }
-    
+    }    
 }

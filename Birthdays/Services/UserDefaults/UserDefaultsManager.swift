@@ -37,6 +37,9 @@ class UserDefaultsManager {
     
     @UserDefault(.notificationTimeEvent2, defaultValue: "-1,10:00")
     var notificationTimeEvent2: String
+    
+    @UserDefault(.lastNotificationPoolUpdateDateTime, defaultValue: Date())
+    var lastNotificationPoolUpdateDateTime: Date
 }
 
 private func getDefaultLanguage() -> String{

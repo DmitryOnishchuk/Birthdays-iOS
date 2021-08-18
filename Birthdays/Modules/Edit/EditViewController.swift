@@ -149,7 +149,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITextFieldDele
             self.newContact!.birthday = self.newContactBirthdayPickerView.date
             let resAdd = ContactFunctions.createContact(self.newContact!)
             let msg = (resAdd) ? self.newContact!.name + " " + "EDIT_ADDED".localized : "FAIL".localized
-            self.showToast(message: msg, font: .systemFont(ofSize: 12.0))
+            self.showToast(message: msg)
             
             
             self.updateTable()
@@ -223,7 +223,13 @@ extension EditViewController: UITabBarDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //let cell = tableView.cellForRow(at: indexPath)
         
-        let contact = ModelContactEdit.shared.contacts[indexPath.row]
+        var contact:Contact
+        if isSearch(){
+            contact = ModelContactEdit.shared.contactsFiltered[indexPath.row]
+        }else{
+            contact = ModelContactEdit.shared.contacts[indexPath.row]
+        }
+
         currentContact = contact
         dummyTextField = UITextField()
         birthdayPickerView = BirthdayPickerView()
@@ -254,22 +260,15 @@ extension EditViewController: UITabBarDelegate, UITableViewDataSource{
         dummyTextField!.becomeFirstResponder()
     }
     
-    
-    
-    
-    
-    
-    
-    
     @objc func doneDatePicker(){
         self.view.endEditing(true)
         if birthdayPickerView.date != currentContact?.birthday {
             if ContactFunctions.updateBirthdayByContactID(currentContact!.id, birthdayPickerView.date) {
-                self.showToast(message: "UPDATED".localized, font: .systemFont(ofSize: 12.0))
+                self.showToast(message: "UPDATED".localized)
                 updateTable()
                 NotificationsFunctions.updateNotificationPool()
             }else{
-                self.showToast(message: "FAIL".localized, font: .systemFont(ofSize: 12.0))
+                self.showToast(message: "FAIL".localized)
             }
         }
     }
@@ -292,10 +291,10 @@ extension EditViewController: UITabBarDelegate, UITableViewDataSource{
     
     func deleteCurrentContactBirthday(){
         if ContactFunctions.deleteBirthdayByContactID(currentContact!.id) {
-            self.showToast(message: "DELETED".localized, font: .systemFont(ofSize: 12.0))
+            self.showToast(message: "DELETED".localized)
             updateTable()
         }else{
-            self.showToast(message: "FAIL".localized, font: .systemFont(ofSize: 12.0))
+            self.showToast(message: "FAIL".localized)
         }
     }
     

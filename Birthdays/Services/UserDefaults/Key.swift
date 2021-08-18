@@ -28,4 +28,5 @@ extension Key {
     static let notificationTimeEvent0: Key      = "NOTIFICATION_TIME_EVENT_KEY_0"
     static let notificationTimeEvent1: Key      = "NOTIFICATION_TIME_EVENT_KEY_1"
     static let notificationTimeEvent2: Key      = "NOTIFICATION_TIME_EVENT_KEY_2"
+    static let lastNotificationPoolUpdateDateTime: Key      = "NOTIFICATION_POOL_UPDATE_TIME"
 }

@@ -47,6 +47,12 @@ class MainVC: UIViewController, CNContactViewControllerDelegate, UITableViewDele
         if userDefaultsManager.isFirstStart{
             userDefaultsManager.isFirstStart = false
             NotificationsFunctions.updateNotificationPool()
+        }else{
+            let last = userDefaultsManager.lastNotificationPoolUpdateDateTime
+            
+            if DateFunctions.getDifferenceDays(firstDate: last, secondDate: Date()) >= 365 {
+                NotificationsFunctions.updateNotificationPool()
+            }
         }
         
     }
@@ -152,7 +158,14 @@ extension MainVC: UITabBarDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let contact = ModelContactMain.shared.contacts[indexPath.row]
+        
+        var contact:Contact
+        if isSearch(){
+            contact = ModelContactMain.shared.contactsFiltered[indexPath.row]
+        }else{
+            contact = ModelContactMain.shared.contacts[indexPath.row]
+        }
+        
         let vc = CNContactViewController(for: ContactFunctions.getContactFromIDfirEditing(contact.id)!)
         self.navigationController?.pushViewController(vc, animated: true)
     }

@@ -6,7 +6,7 @@ class MainSettingsTableVC: UITableViewController {
     @IBOutlet weak var languageLabel: UILabel!
     @IBOutlet weak var themeLabel: UILabel!
     @IBOutlet weak var ageLabel: UILabel!
-  //  @IBOutlet weak var notificationTimeLabel: UILabel!
+    //  @IBOutlet weak var notificationTimeLabel: UILabel!
     @IBOutlet weak var notificationEnableLabel: UILabel!
     @IBOutlet weak var remindersLabel: UILabel!
     @IBOutlet weak var helpTranslateLabel: UILabel!
@@ -14,7 +14,7 @@ class MainSettingsTableVC: UITableViewController {
     @IBOutlet weak var shareLabel: UILabel!
     @IBOutlet weak var aboutLabel: UILabel!
     @IBOutlet weak var versionLabel: UILabel!
-
+    
     @IBOutlet weak var currentLanguageLabel: UILabel!
     @IBOutlet weak var currentThemeLabel: UILabel!
     @IBOutlet weak var currentAgeLabel: UILabel!
@@ -23,10 +23,10 @@ class MainSettingsTableVC: UITableViewController {
     @IBOutlet weak var remindersTableViewCell: UITableViewCell!
     let userDefaultsManager = UserDefaultsManager.shared
     
-  //  @IBOutlet weak var currentNotificationTimeLabel: UILabel!
+    //  @IBOutlet weak var currentNotificationTimeLabel: UILabel!
     
-   // private var datePickerNotificationTime: UIDatePicker?
-   // private var dummyTextField: UITextField?
+    // private var datePickerNotificationTime: UIDatePicker?
+    // private var dummyTextField: UITextField?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +48,7 @@ class MainSettingsTableVC: UITableViewController {
         ageLabel.text = "SETTINGS_CONTACT_AGE_TYPE".localized
         notificationEnableLabel.text = "ENABLE".localized
         remindersLabel.text = "SETTINGS_NOTIFICATION_REMINDERS".localized
-      //  notificationTimeLabel.text = "SETTINGS_NOTIFICATION_TIME_REMIND".localized
+        //  notificationTimeLabel.text = "SETTINGS_NOTIFICATION_TIME_REMIND".localized
         helpTranslateLabel.text = "SETTINGS_ABOUT_HELP_TRANSLATE".localized
         feedbackLabel.text = "SETTINGS_ABOUT_FEEDBACK".localized
         shareLabel.text = "SETTINGS_ABOUT_SHARE".localized
@@ -99,6 +99,7 @@ class MainSettingsTableVC: UITableViewController {
             openTranslateLink()
         // Обратная связь
         case [2, 1]:
+            showToast(message: URLs.feedbackEmail)
             openEmail()
         case [2, 2]:
             share()
@@ -126,15 +127,19 @@ class MainSettingsTableVC: UITableViewController {
     
     func share(){
         let textToShare = [ Utils.getAppName() + " " + URLs.appStoreURL]
+        
         let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
-        activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
         
-        // exclude some activity types from the list (optional)
-        activityViewController.excludedActivityTypes = [ UIActivity.ActivityType.airDrop, UIActivity.ActivityType.postToFacebook ]
+        //avoiding to crash on iPad
+        if let popoverController = activityViewController.popoverPresentationController {
+            popoverController.sourceRect = CGRect(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height / 2, width: 0, height: 0)
+            popoverController.sourceView = self.view
+            popoverController.permittedArrowDirections = UIPopoverArrowDirection(rawValue: 0)
+        }
         
-        // present the view controller
         self.present(activityViewController, animated: true, completion: nil)
     }
+    
     
     func setCurrentThemeLabel(){
         let ud = userDefaultsManager.currentThemeID
@@ -197,10 +202,10 @@ class MainSettingsTableVC: UITableViewController {
         remindersTableViewCell.enable(on: status)
     }
     
-//    func setCurrentNotificationTimeLabel(){
-//        let notificationTimeString = userDefaultsManager.notificationTime
-//        currentNotificationTimeLabel.text = notificationTimeString
-//    }
+    //    func setCurrentNotificationTimeLabel(){
+    //        let notificationTimeString = userDefaultsManager.notificationTime
+    //        currentNotificationTimeLabel.text = notificationTimeString
+    //    }
     
     //    func changeNotificationTime(){
     //        dummyTextField = UITextField()
