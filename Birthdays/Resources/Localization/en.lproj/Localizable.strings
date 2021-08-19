@@ -96,6 +96,12 @@
 "NOTIFICATIONS_YEARS_FULL" = "year years_full";
 "NOTIFICATIONS_YEARS2_FULL" = "years old";
 
+// MARK: - About
+
+"ABOUT_VERSION" = "Version";
+"ABOUT_SHARE" = "SHARE";
+"ABOUT_CLOSE" = "CLOSE";
+
 // MARK: - Languages
 
 "ENGLISH" = "English";

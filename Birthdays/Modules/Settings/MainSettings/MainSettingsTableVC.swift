@@ -103,6 +103,8 @@ class MainSettingsTableVC: UITableViewController {
             openEmail()
         case [2, 2]:
             share()
+        case [2, 3]:
+            about()
         default: break
         }
     }
@@ -140,6 +142,10 @@ class MainSettingsTableVC: UITableViewController {
         self.present(activityViewController, animated: true, completion: nil)
     }
     
+    func about(){
+        let aboutVC = AboutModuleBuilder().create()
+        present(aboutVC, animated: true, completion: nil)
+    }
     
     func setCurrentThemeLabel(){
         let ud = userDefaultsManager.currentThemeID

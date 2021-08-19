@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AboutView" customModule="Birthdays" customModuleProvider="target">
+            <connections>
+                <outlet property="appNameLabel" destination="qlW-i6-BKE" id="J9x-gs-ijG"/>
+                <outlet property="mainContentView" destination="iN0-l3-epB" id="KFy-UH-qB5"/>
+                <outlet property="versionLabel" destination="IJo-ra-ymf" id="6zG-7r-Wqw"/>
+                <outlet property="windowLeadingConstraint" destination="SBV-1C-v7e" id="6A7-EA-i7W"/>
+                <outlet property="windowTrallingConstraint" destination="fow-nR-KEM" id="8Kt-Z5-Kef"/>
+                <outlet property="windowView" destination="U23-Im-8uY" id="CJk-LP-Znn"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U23-Im-8uY" userLabel="Window View">
+                    <rect key="frame" x="8" y="332" width="398" height="232.5"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="web_hi_res_512_icon" translatesAutoresizingMaskIntoConstraints="NO" id="MdN-Vh-Awp" userLabel="logo">
+                            <rect key="frame" x="136.5" y="16" width="125" height="100"/>
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="125" id="lHY-HP-0rN"/>
+                                <constraint firstAttribute="height" constant="100" id="zYq-8l-rqY"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Дни Рождения" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qlW-i6-BKE" userLabel="AppNameLabel">
+                            <rect key="frame" x="8" y="124" width="382" height="21.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Версия 1.0.0" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IJo-ra-ymf" userLabel="VersionLabel">
+                            <rect key="frame" x="8" y="153.5" width="382" height="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" systemColor="systemGrayColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zeB-pk-Z0z" userLabel="CloseButton">
+                            <rect key="frame" x="311" y="186.5" width="71" height="30"/>
+                            <state key="normal" title="ЗАКРЫТЬ"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="localizableTitle" value="ABOUT_CLOSE"/>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="closeButtonAction:" destination="-1" eventType="touchUpInside" id="IB4-kJ-3bR"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ga4-xb-Z6Y" userLabel="ShareButton">
+                            <rect key="frame" x="16" y="186.5" width="103" height="30"/>
+                            <state key="normal" title="ПОДЕЛИТЬСЯ"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="localizableTitle" value="ABOUT_SHARE"/>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="shareButtonAction:" destination="-1" eventType="touchUpInside" id="yBV-8f-A91"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="qlW-i6-BKE" firstAttribute="top" secondItem="MdN-Vh-Awp" secondAttribute="bottom" constant="8" id="3UD-lK-2mn"/>
+                        <constraint firstItem="IJo-ra-ymf" firstAttribute="leading" secondItem="U23-Im-8uY" secondAttribute="leading" constant="8" id="3W5-Lc-fZU"/>
+                        <constraint firstItem="Ga4-xb-Z6Y" firstAttribute="leading" secondItem="U23-Im-8uY" secondAttribute="leading" constant="16" id="4ag-3V-2ed"/>
+                        <constraint firstItem="IJo-ra-ymf" firstAttribute="top" secondItem="qlW-i6-BKE" secondAttribute="bottom" constant="8" id="7Si-xs-dsN"/>
+                        <constraint firstAttribute="bottom" secondItem="zeB-pk-Z0z" secondAttribute="bottom" constant="16" id="8sz-3l-TJQ"/>
+                        <constraint firstItem="qlW-i6-BKE" firstAttribute="leading" secondItem="U23-Im-8uY" secondAttribute="leading" constant="8" id="9yb-lj-XCV"/>
+                        <constraint firstItem="zeB-pk-Z0z" firstAttribute="top" secondItem="IJo-ra-ymf" secondAttribute="bottom" constant="16" id="Djx-AT-VYn"/>
+                        <constraint firstAttribute="trailing" secondItem="IJo-ra-ymf" secondAttribute="trailing" constant="8" id="XNI-gy-pcL"/>
+                        <constraint firstAttribute="bottom" secondItem="Ga4-xb-Z6Y" secondAttribute="bottom" constant="16" id="Z2k-4f-pDL"/>
+                        <constraint firstItem="MdN-Vh-Awp" firstAttribute="top" secondItem="U23-Im-8uY" secondAttribute="top" constant="16" id="mXa-xD-MQq"/>
+                        <constraint firstAttribute="trailing" secondItem="zeB-pk-Z0z" secondAttribute="trailing" constant="16" id="mku-PL-6RC"/>
+                        <constraint firstAttribute="trailing" secondItem="qlW-i6-BKE" secondAttribute="trailing" constant="8" id="qYj-Hz-bP9"/>
+                        <constraint firstItem="MdN-Vh-Awp" firstAttribute="centerX" secondItem="U23-Im-8uY" secondAttribute="centerX" id="xCL-k7-XbB"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="6"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="U23-Im-8uY" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="SBV-1C-v7e"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="U23-Im-8uY" secondAttribute="trailing" constant="8" id="fow-nR-KEM"/>
+                <constraint firstItem="U23-Im-8uY" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="k63-Zn-Qyt"/>
+                <constraint firstItem="U23-Im-8uY" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="o7F-I9-QKp"/>
+            </constraints>
+            <point key="canvasLocation" x="-305.625" y="68.75"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="web_hi_res_512_icon" width="512" height="512"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

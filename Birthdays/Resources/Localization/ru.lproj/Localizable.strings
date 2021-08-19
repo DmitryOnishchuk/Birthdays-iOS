@@ -97,6 +97,12 @@
 "NOTIFICATIONS_YEARS_FULL" = "лет";
 "NOTIFICATIONS_YEARS2_FULL" = "года";
 
+// MARK: - About
+
+"ABOUT_VERSION" = "Версия";
+"ABOUT_SHARE" = "ПОДЕЛИТЬСЯ";
+"ABOUT_CLOSE" = "ЗАКРЫТЬ";
+
 // MARK: - Languages
 
 "ENGLIS" = "English";
