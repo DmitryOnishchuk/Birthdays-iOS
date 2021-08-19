@@ -50,7 +50,8 @@ class MainVC: UIViewController, CNContactViewControllerDelegate, UITableViewDele
         }else{
             let last = userDefaultsManager.lastNotificationPoolUpdateDateTime
             
-            if DateFunctions.getDifferenceDays(firstDate: last, secondDate: Date()) >= 365 {
+            // Обновляем пул уведомления каждый год
+            if DateFunctions.getDifferenceDays(firstDate: last, secondDate: Date()) >= 364 {
                 NotificationsFunctions.updateNotificationPool()
             }
         }

@@ -18,19 +18,37 @@ class NotificationsFunctions {
             
             
             for contact in contacts {
-                let age = contact.futureAge
-                
-                var ageString = ""
-                if age != nil {
-                    ageString = DateFunctions.formatAge(age!)
-                }
-                if (ageString != "") {
-                    ageString = " (" + ageString + ")"
-                    
-                }
                 for timeEvent in events {
-                    if let date = getDateNotification(date: contact.birthdayNear!, timeEvent: timeEvent){
+                
+                    if var date = getDateNotification(date: contact.birthdayNear!, timeEvent: timeEvent){
 
+                        var age = contact.futureAge
+                        
+                        // Переносим дату на след год, если дата уведомление раньше текущей даты
+                        var d = Calendar.current.date(from: date)
+                        if d! < Date(){
+                            var dateComponent = DateComponents()
+                            dateComponent.year = 1
+                            d = Calendar.current.date(byAdding: dateComponent, to: d!)
+                            date = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: d!)
+                            
+                            // Добавляем 1 год к возрасту контакту
+                            if let a = age {
+                                age = a + 1
+                            }else{
+                                age = 1
+                            }
+                        }
+                        
+                        var ageString = ""
+                        if age != nil {
+                            ageString = DateFunctions.formatAge(age!)
+                        }
+                        if (ageString != "") {
+                            ageString = " (" + ageString + ")"
+                            
+                        }
+                        
                         let notificationId = contact.id + "_" + String(timeEvent.day) + "_birthday"
                         let title = contact.name
                         let text = "COMMON_BIRTHDAY".localized + " " + DateFunctions.formatDaysToBirthdayNotification(timeEvent: timeEvent) + ageString
@@ -47,19 +65,15 @@ class NotificationsFunctions {
     class func getDateNotification(date: Date, timeEvent: TimeEvent) -> DateComponents?{
         
         if timeEvent.day != -1 {
-            let calendar = Calendar.current
-            calendar.dateComponents([.year, .month, .day], from: date)
-            
             let dayToNotify = Calendar.current.date(byAdding: .day, value: -timeEvent.day, to: date)
             
             let fullTimeArr = timeEvent.time.components(separatedBy:":")
             let hour: Int = Int(fullTimeArr[0])!
             let minute: Int = Int(fullTimeArr[1])!
             
-            let dateToNotify = Calendar.current.date(bySettingHour: hour, minute: minute, second: 0, of: dayToNotify!)
+            // Устанавливаем время (часы, минуты, секунды)
+            var dateToNotify = Calendar.current.date(bySettingHour: hour, minute: minute, second: 0, of: dayToNotify!)
             let res = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: dateToNotify!)
-            
-            //print(res)
             
             return res
         }else{
