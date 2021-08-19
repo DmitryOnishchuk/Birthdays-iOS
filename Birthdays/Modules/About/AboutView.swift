@@ -51,6 +51,9 @@ class AboutView: UIView {
         
         windowView.shadow()
  
+        appNameLabel.text = Utils.getAppName()
+        versionLabel.text = "ABOUT_VERSION".localized + " " + Utils.getAppVersion()
+        
         let gesture = UITapGestureRecognizer(target: self, action:  #selector (self.mainContentViewTouched (_:)))
         let gesture2 = UITapGestureRecognizer(target: self, action:  #selector (self.windowViewTouched (_:)))
         self.mainContentView.addGestureRecognizer(gesture)

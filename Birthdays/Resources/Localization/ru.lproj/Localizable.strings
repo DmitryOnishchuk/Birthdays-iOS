@@ -72,13 +72,16 @@
 
 
 // MARK: - Settings About
+
 "SETTINGS_ABOUT_HELP_TRANSLATE" = "Помощь в переводе";
 "SETTINGS_ABOUT_FEEDBACK" = "Обратная связь";
 "SETTINGS_ABOUT_SHARE" = "Поделиться";
 "SETTINGS_ABOUT_ABOUT" = "Про программу...";
 "SETTINGS_ABOUT_VERSION" = "Версия";
+"SETTINGS_ABOUT_COPIED" = "скопировано в буфер";
 
 // MARK: - TimeEvent Picker
+
 "EVENT_PICKER_AT" = "в";
 "EVENT_PICKER_TURN_OFF" = "Выкл.";
 "EVENT_PICKER_IN_BIRTHDAY" = "В день рождения";

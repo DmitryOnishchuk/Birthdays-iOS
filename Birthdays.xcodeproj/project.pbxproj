@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3210552F26CE6E9E00392368 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3210552E26CE6E9E00392368 /* ErrorView.swift */; };
 		32306FC126C67640004C4773 /* UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32306FC026C6763F004C4773 /* UITableViewCell.swift */; };
 		323367AA2628329A00F073F2 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323367A92628329A00F073F2 /* UIViewController.swift */; };
 		323367AE262832DB00F073F2 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323367AD262832DB00F073F2 /* String.swift */; };
@@ -82,6 +83,7 @@
 
 /* Begin PBXFileReference section */
 		2F42EBF9ACDDBE9AC659BEB1 /* Pods-Birthdays.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Birthdays.debug.xcconfig"; path = "Target Support Files/Pods-Birthdays/Pods-Birthdays.debug.xcconfig"; sourceTree = "<group>"; };
+		3210552E26CE6E9E00392368 /* ErrorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		32306FC026C6763F004C4773 /* UITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCell.swift; sourceTree = "<group>"; };
 		323367A92628329A00F073F2 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		323367AD262832DB00F073F2 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
@@ -172,6 +174,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3210553026CE6EA100392368 /* UILayer */ = {
+			isa = PBXGroup;
+			children = (
+				3279776526CE3266003E13E0 /* AnimationControllers */,
+				3279775E26CE3226003E13E0 /* NiblessComponents */,
+				3279776C26CE3558003E13E0 /* VisualEffectView.swift */,
+				3279776A26CE3505003E13E0 /* UIViewEffectViewiOS14.swift */,
+				3210552E26CE6E9E00392368 /* ErrorView.swift */,
+			);
+			path = UILayer;
+			sourceTree = "<group>";
+		};
 		323367A1262830C700F073F2 /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -420,10 +434,7 @@
 		328C834C26763FFD004F7E9C /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				3279776526CE3266003E13E0 /* AnimationControllers */,
-				3279775E26CE3226003E13E0 /* NiblessComponents */,
-				3279776C26CE3558003E13E0 /* VisualEffectView.swift */,
-				3279776A26CE3505003E13E0 /* UIViewEffectViewiOS14.swift */,
+				3210553026CE6EA100392368 /* UILayer */,
 				32D30691259C7A9C000D7D9A /* Contact.swift */,
 				3242189725B45431008BA4DA /* AnyLanguageBundle.swift */,
 				32B0F99525DD2985002C0461 /* TimeEvent.swift */,
@@ -632,6 +643,7 @@
 				326F961225B9839D00A015F2 /* ContactEditTableViewCell.swift in Sources */,
 				3279776F26CE35A4003E13E0 /* UIView+AutoLayout.swift in Sources */,
 				32D30692259C7A9C000D7D9A /* Contact.swift in Sources */,
+				3210552F26CE6E9E00392368 /* ErrorView.swift in Sources */,
 				328C8356267640F7004F7E9C /* UserDefault.swift in Sources */,
 				327A40842695D83A008334FC /* MainModuleBuilder.swift in Sources */,
 				32B5164A26C5578900CFE545 /* URLs.swift in Sources */,

@@ -23,6 +23,8 @@ class MainSettingsTableVC: UITableViewController {
     @IBOutlet weak var remindersTableViewCell: UITableViewCell!
     let userDefaultsManager = UserDefaultsManager.shared
     
+    let infoView = ErrorView()
+    
     //  @IBOutlet weak var currentNotificationTimeLabel: UILabel!
     
     // private var datePickerNotificationTime: UIDatePicker?
@@ -60,6 +62,16 @@ class MainSettingsTableVC: UITableViewController {
         setStatusNotificationEnableSwitch()
         //setCurrentNotificationTimeLabel()
         setVersionInfo()
+        
+        
+        infoView.alpha = 0
+        self.view.addSubview(infoView)
+        infoView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([infoView.widthAnchor.constraint(equalToConstant: 310),
+                                     infoView.heightAnchor.constraint(equalToConstant: 41),
+                                     infoView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)])
+        
+        NSLayoutConstraint.activate([infoView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -80)])
         
     }
     
@@ -99,7 +111,6 @@ class MainSettingsTableVC: UITableViewController {
             openTranslateLink()
         // Обратная связь
         case [2, 1]:
-            showToast(message: URLs.feedbackEmail)
             openEmail()
         case [2, 2]:
             share()
@@ -124,6 +135,8 @@ class MainSettingsTableVC: UITableViewController {
     }
     
     func openEmail(){
+        infoView.show(with:  URLs.feedbackEmail + " " + "SETTINGS_ABOUT_COPIED".localized)
+        UIPasteboard.general.string = URLs.feedbackEmail
         Utils.openEmail(email: URLs.feedbackEmail)
     }
     

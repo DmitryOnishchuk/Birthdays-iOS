@@ -71,13 +71,16 @@
 "SETTINGS_NOTIFICATION_REMINDER_3" = "Remin. 3";
 
 // MARK: - Settings About
+
 "SETTINGS_ABOUT_HELP_TRANSLATE" = "Help translate";
 "SETTINGS_ABOUT_FEEDBACK" = "Feedback";
 "SETTINGS_ABOUT_SHARE" = "Share";
 "SETTINGS_ABOUT_ABOUT" = "About...";
 "SETTINGS_ABOUT_VERSION" = "Version";
+"SETTINGS_ABOUT_COPIED" = "copied to buffer";
 
 // MARK: - TimeEvent Picker
+
 "EVENT_PICKER_AT" = "at";
 "EVENT_PICKER_TURN_OFF" = "Turn off";
 "EVENT_PICKER_IN_BIRTHDAY" = "On birthday";
