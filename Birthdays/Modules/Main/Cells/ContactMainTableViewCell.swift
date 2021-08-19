@@ -9,12 +9,12 @@ import UIKit
 
 class ContactMainTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var nameLabelView: UILabel!
-    @IBOutlet weak var birthdayLabelView: UILabel!
-    @IBOutlet weak var daysToBirthdayLabelView: UILabel!
-    @IBOutlet weak var ageStringLabelView: UILabel!
-    @IBOutlet weak var ageLabelView: UILabel!
-    @IBOutlet weak var photoImageView: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var birthdayLabel: UILabel!
+    @IBOutlet weak var daysToBirthdayLabel: PaddingLabel!
+    @IBOutlet weak var ageStringLabel: UILabel!
+    @IBOutlet weak var ageLabel: UILabel!
+    @IBOutlet weak var photoImage: UIImageView!
 
     override func awakeFromNib() {
         super.awakeFromNib()

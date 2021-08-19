@@ -125,35 +125,50 @@ extension MainVC: UITabBarDelegate, UITableViewDataSource{
             contact = ModelContactMain.shared.contacts[indexPath.row]
         }
         
-        cell.nameLabelView.text = contact.name
-        cell.birthdayLabelView.text = DateFunctions.dateToHumanString(contact.birthday!)
-        cell.daysToBirthdayLabelView.text = DateFunctions.formatDaysToBirthday(days: contact.daysToBirthday, shortName: false)
+        cell.nameLabel.text = contact.name
+        cell.birthdayLabel.text = DateFunctions.dateToHumanString(contact.birthday!)
+        cell.daysToBirthdayLabel.text = DateFunctions.formatDaysToBirthday(days: contact.daysToBirthday, shortName: false)
+        
+        cell.daysToBirthdayLabel.layer.masksToBounds = true
+        cell.daysToBirthdayLabel.layer.cornerRadius = 8
+        
+        if contact.daysToBirthday != 0 && contact.daysToBirthday != 1 {
+            cell.daysToBirthdayLabel.leftInset = 0
+            cell.daysToBirthdayLabel.rightInset = 0
+            cell.daysToBirthdayLabel.textColor = UIColor.lightGray
+            cell.daysToBirthdayLabel.layer.backgroundColor = UIColor.clear.cgColor
+        }else{
+            cell.daysToBirthdayLabel.leftInset = 8
+            cell.daysToBirthdayLabel.rightInset = 8
+            cell.daysToBirthdayLabel.textColor = UIColor.white
+            cell.daysToBirthdayLabel.layer.backgroundColor = Colors.myAccentColor?.cgColor
+        }
         
         if let futureAge = contact.futureAge{
             
             let cs = AgeSettingsEnum(rawValue: UserDefaultsManager.shared.ageType) ?? .upcoming
             let currengAge = (cs == AgeSettingsEnum.current)
             if currengAge {
-                cell.ageStringLabelView.text = "MAIN_AGE".localized
-                cell.ageLabelView.text = DateFunctions.getAgeString(age: contact.getCurrentAge())
+                cell.ageStringLabel.text = "MAIN_AGE".localized
+                cell.ageLabel.text = DateFunctions.getAgeString(age: contact.getCurrentAge())
             }else{
-                cell.ageStringLabelView.text = "MAIN_TURNS".localized
-                cell.ageLabelView.text = DateFunctions.getAgeString(age: futureAge)
+                cell.ageStringLabel.text = "MAIN_TURNS".localized
+                cell.ageLabel.text = DateFunctions.getAgeString(age: futureAge)
             }
             
             if (futureAge <= 0) {
-                cell.ageStringLabelView.text = ""
+                cell.ageStringLabel.text = ""
             } else if (contact.daysToBirthday == 0) {
-                cell.ageStringLabelView.text = "MAIN_AGE".localized
+                cell.ageStringLabel.text = "MAIN_AGE".localized
             }
             
             
         }else{
-            cell.ageLabelView.text = ""
-            cell.ageStringLabelView.text = ""
+            cell.ageLabel.text = ""
+            cell.ageStringLabel.text = ""
         }
         
-        cell.photoImageView.image = contact.photo
+        cell.photoImage.image = contact.photo
         
         return cell
     }

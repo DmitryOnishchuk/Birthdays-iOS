@@ -62,7 +62,7 @@
                                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="daysTobirthday" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dlJ-um-sbb">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="daysTobirthday" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dlJ-um-sbb" customClass="PaddingLabel" customModule="Birthdays" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="49" width="98.5" height="17"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -99,12 +99,12 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="ageLabelView" destination="ud1-lY-e6c" id="ECQ-0a-rqP"/>
-                                            <outlet property="ageStringLabelView" destination="8zy-O4-Pja" id="Bgl-hD-5vZ"/>
-                                            <outlet property="birthdayLabelView" destination="EyL-oh-gg1" id="eqf-iX-bk6"/>
-                                            <outlet property="daysToBirthdayLabelView" destination="dlJ-um-sbb" id="fXQ-pM-XzO"/>
-                                            <outlet property="nameLabelView" destination="JgA-AM-C4m" id="UQV-gC-4B1"/>
-                                            <outlet property="photoImageView" destination="I1w-hV-iRZ" id="wQv-Zr-c7G"/>
+                                            <outlet property="ageLabel" destination="ud1-lY-e6c" id="ECQ-0a-rqP"/>
+                                            <outlet property="ageStringLabel" destination="8zy-O4-Pja" id="Bgl-hD-5vZ"/>
+                                            <outlet property="birthdayLabel" destination="EyL-oh-gg1" id="eqf-iX-bk6"/>
+                                            <outlet property="daysToBirthdayLabel" destination="dlJ-um-sbb" id="oWZ-cd-n9T"/>
+                                            <outlet property="nameLabel" destination="JgA-AM-C4m" id="UQV-gC-4B1"/>
+                                            <outlet property="photoImage" destination="I1w-hV-iRZ" id="wQv-Zr-c7G"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -253,6 +253,11 @@
             <point key="canvasLocation" x="140.57971014492756" y="128.57142857142856"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="dlJ-um-sbb">
+            <size key="intrinsicContentSize" width="98.5" height="17"/>
+        </designable>
+    </designables>
     <resources>
         <image name="ic_add" width="22" height="22"/>
         <image name="settings" width="24" height="24"/>

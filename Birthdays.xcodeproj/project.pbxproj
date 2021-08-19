@@ -59,6 +59,7 @@
 		327B41A22675EA6A00A42967 /* MainSettings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 327B41A12675EA6A00A42967 /* MainSettings.storyboard */; };
 		327B41A42675EB7400A42967 /* MainSettingsModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327B41A32675EB7400A42967 /* MainSettingsModuleBuilder.swift */; };
 		327B9E8D259CB68C00E95196 /* ContactMainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327B9E8C259CB68C00E95196 /* ContactMainTableViewCell.swift */; };
+		328739A926CE9273007FE1E7 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 328739A826CE9273007FE1E7 /* PaddingLabel.swift */; };
 		3288F1102695DF8300BB176C /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3288F10F2695DF8300BB176C /* Colors.xcassets */; };
 		3288F1122695E20200BB176C /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3288F1112695E20200BB176C /* Colors.swift */; };
 		328C8352267640AD004F7E9C /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 328C8351267640AD004F7E9C /* Key.swift */; };
@@ -136,6 +137,7 @@
 		327B41A12675EA6A00A42967 /* MainSettings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainSettings.storyboard; sourceTree = "<group>"; };
 		327B41A32675EB7400A42967 /* MainSettingsModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSettingsModuleBuilder.swift; sourceTree = "<group>"; };
 		327B9E8C259CB68C00E95196 /* ContactMainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactMainTableViewCell.swift; sourceTree = "<group>"; };
+		328739A826CE9273007FE1E7 /* PaddingLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		3288F10F2695DF8300BB176C /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		3288F1112695E20200BB176C /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		328C8351267640AD004F7E9C /* Key.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 				3279776C26CE3558003E13E0 /* VisualEffectView.swift */,
 				3279776A26CE3505003E13E0 /* UIViewEffectViewiOS14.swift */,
 				3210552E26CE6E9E00392368 /* ErrorView.swift */,
+				328739A826CE9273007FE1E7 /* PaddingLabel.swift */,
 			);
 			path = UILayer;
 			sourceTree = "<group>";
@@ -655,6 +658,7 @@
 				3279347C268DEB4D001C8EF1 /* LanguageSettingsModuleBuilder.swift in Sources */,
 				323FEC2025A5EDD400397E29 /* GlobalConstants.swift in Sources */,
 				3242189825B45431008BA4DA /* AnyLanguageBundle.swift in Sources */,
+				328739A926CE9273007FE1E7 /* PaddingLabel.swift in Sources */,
 				3279776426CE3231003E13E0 /* NiblessViewController.swift in Sources */,
 				3279777126CE360A003E13E0 /* UIView+Extension.swift in Sources */,
 				3279775A26CE3119003E13E0 /* AboutModuleBuilder.swift in Sources */,
