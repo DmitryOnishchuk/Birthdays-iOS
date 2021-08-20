@@ -29,6 +29,7 @@
 
 // MARK: - Edit Screen
 
+"EDIT_TITLE" = "Birthdays Editor";
 "EDIT_ADDED" = "Added";
 "EDIT_NAME" = "Name";
 
@@ -104,6 +105,11 @@
 "ABOUT_VERSION" = "Version";
 "ABOUT_SHARE" = "SHARE";
 "ABOUT_CLOSE" = "CLOSE";
+
+// MARK: - Request Contact Access Alert
+
+"ACCESS_ALERT_MESSAGE" = "This app requires access to Contacts to proceed. Go to Settings to grant access.";
+"ACCESS_OPEN_SETTINGS" = "Settings";
 
 // MARK: - Languages
 

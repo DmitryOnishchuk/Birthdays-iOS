@@ -29,6 +29,7 @@
 
 // MARK: - Edit Screen
 
+"EDIT_TITLE" = "Редактор";
 "EDIT_ADDED" = "Добавлено";
 "EDIT_NAME" = "Имя";
 
@@ -105,6 +106,11 @@
 "ABOUT_VERSION" = "Версия";
 "ABOUT_SHARE" = "ПОДЕЛИТЬСЯ";
 "ABOUT_CLOSE" = "ЗАКРЫТЬ";
+
+// MARK: - Request Contact Access Alert
+
+"ACCESS_ALERT_MESSAGE" = "Это приложение требует доступа к контактам. Зайдите в Настройки, чтобы предоставить доступ.";
+"ACCESS_OPEN_SETTINGS" = "Настройки";
 
 // MARK: - Languages
 

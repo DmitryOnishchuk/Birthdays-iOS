@@ -120,38 +120,35 @@ class ContactFunctions {
             completionHandler(false)
         case .restricted, .notDetermined:
             CNContactStore().requestAccess(for: .contacts) { granted, error in
-                if granted {
-                    completionHandler(true)
-                } else {
-                    completionHandler(false)
-                }
+                completionHandler(granted)
             }
         }
     }
     
     static func showSettingsAlert() {
-        let alert = UIAlertController(title: nil, message: "This app requires access to Contacts to proceed. Go to Settings to grant access.", preferredStyle: .alert)
+        let alert = UIAlertController(title: nil, message: "ACCESS_ALERT_MESSAGE".localized, preferredStyle: .alert)
         if
             let settings = URL(string: UIApplication.openSettingsURLString),
             UIApplication.shared.canOpenURL(settings) {
-            alert.addAction(UIAlertAction(title: "Open Settings", style: .default) { action in
+            alert.addAction(UIAlertAction(title: "ACCESS_OPEN_SETTINGS".localized, style: .default) { action in
                 //completionHandler(false)
                 UIApplication.shared.open(settings)
             })
         }
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel) { action in
+        alert.addAction(UIAlertAction(title: "CANCEL".localized, style: .cancel) { action in
             //completionHandler(false)
         })
         
-//        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
-//        let keyWindow = UIApplication.shared.connectedScenes
-//            .filter({$0.activationState == .foregroundActive})
-//            .map({$0 as? UIWindowScene})
-//            .compactMap({$0})
-//            .first?.windows
-//            .filter({$0.isKeyWindow}).first
-//        keyWindow?.rootViewController?.present(alert, animated: true)
-        
+        DispatchQueue.main.async {
+            
+            if var topController = UIApplication.shared.keyWindow?.rootViewController {
+                while let presentedViewController = topController.presentedViewController {
+                    topController = presentedViewController
+                }
+                
+                topController.present(alert, animated: true)
+            }
+        }
     }
     
     static func getContactFromID(_ contactID: String) -> CNContact? {

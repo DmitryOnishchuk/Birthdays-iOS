@@ -28,13 +28,11 @@ class MainVC: UIViewController, CNContactViewControllerDelegate, UITableViewDele
     }
     
     
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         //createActivityIndicator()
         self.updateTable()
-        
-
-        
     }
     
     func onLoad(){
@@ -59,12 +57,46 @@ class MainVC: UIViewController, CNContactViewControllerDelegate, UITableViewDele
         search = UISearchController(searchResultsController: nil)
         search.searchResultsUpdater = self
         search.obscuresBackgroundDuringPresentation = false
-        self.navigationItem.searchController=search
+        self.navigationItem.searchController = search
         //self.navigationItem.titleView?.isHidden = true
         //self.navigationItem.hidesSearchBarWhenScrolling = true
         tableView.refreshControl = refreshControl
         refreshControl.addTarget(self, action: #selector(updateTable), for: .valueChanged)
         
+    }
+    
+
+    
+    @objc func updateTable(){
+        //if !refreshControl.isRefreshing {
+        //   activityIndicator.startAnimating()
+        //ModelContactMain.shared.clearAll()
+        //self.tableView.reloadData()
+        //}
+        
+         let queue = DispatchQueue.global(qos: .userInteractive)
+        queue.async {
+        ContactFunctions.requestAccess(completionHandler: self.start(accessGranted:))
+        }
+    }
+    
+    
+    func start(accessGranted:Bool){
+        if accessGranted {
+            ContactFunctions.updateModelContactMain()
+            updateNotifyPool()
+            
+            DispatchQueue.main.async {                
+                self.tableView.reloadData()
+                self.refreshControl.endRefreshing()
+                self.activityIndicator.stopAnimating()
+            }
+        }else{
+            ContactFunctions.showSettingsAlert()
+        }
+    }
+    
+    func updateNotifyPool(){
         if userDefaultsManager.isFirstStart{
             userDefaultsManager.isFirstStart = false
             NotificationsFunctions.updateNotificationPool()
@@ -75,38 +107,6 @@ class MainVC: UIViewController, CNContactViewControllerDelegate, UITableViewDele
             if DateFunctions.getDifferenceDays(firstDate: last, secondDate: Date()) >= 364 {
                 NotificationsFunctions.updateNotificationPool()
             }
-        }
-    }
-    
-    @IBAction func appNameBarButtonItenTapAction(_ sender: UIBarButtonItem) {
-        share()
-    }
-    
-    
-    @objc func updateTable(){
-        //if !refreshControl.isRefreshing {
-        //   activityIndicator.startAnimating()
-        //ModelContactMain.shared.clearAll()
-        //self.tableView.reloadData()
-        //}
-        
-        let queue = DispatchQueue.global(qos: .userInteractive)
-        queue.async {           
-            ContactFunctions.requestAccess(completionHandler: self.start(accessGranted:))
-        }
-    }
-    
-    func start(accessGranted:Bool){
-        if accessGranted {
-            ContactFunctions.updateModelContactMain()
-            
-            DispatchQueue.main.async {                
-                self.tableView.reloadData()
-                self.refreshControl.endRefreshing()
-                self.activityIndicator.stopAnimating()
-            }
-        }else{
-            ContactFunctions.showSettingsAlert()
         }
     }
     
