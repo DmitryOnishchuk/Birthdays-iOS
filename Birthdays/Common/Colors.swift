@@ -10,5 +10,6 @@ import UIKit
 
 struct Colors {
     static let orangeMain = UIColor(named: "OrangeMain")
-    static let myAccentColor = UIColor(named: "MyAccentColor")
+    static let accentColor = UIColor(named: "AccentColor")
+    static let navBarColor = UIColor(named: "NavBarColor")
 }

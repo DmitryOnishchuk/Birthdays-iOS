@@ -2,6 +2,7 @@ import UIKit
 
 class MainSettingsTableVC: UITableViewController {
     
+    @IBOutlet weak var navItem: UINavigationItem!
     @IBOutlet var settingsTabelView: UITableView!
     @IBOutlet weak var languageLabel: UILabel!
     @IBOutlet weak var themeLabel: UILabel!

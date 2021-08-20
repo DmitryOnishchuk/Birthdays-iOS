@@ -2,8 +2,7 @@ import UIKit
 import ContactsUI
 
 class MainVC: UIViewController, CNContactViewControllerDelegate, UITableViewDelegate{
-    
-    
+
     @IBOutlet weak var tableView: UITableView!
     
     let cellID = "ContactMainTableViewCell"
@@ -24,16 +23,38 @@ class MainVC: UIViewController, CNContactViewControllerDelegate, UITableViewDele
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        onLoad()
+        
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        //createActivityIndicator()
+        self.updateTable()
+        
+
+        
+    }
+    
+    func onLoad(){
+            
         if #available(iOS 13.0, *) {
             SettingsFunctions.changeThemeByUserDefaults()
         }
+        
+        configureNavigationBar(largeTitleColor: UIColor.white,
+                               backgroundColor: Colors.navBarColor!,
+                               tintColor: UIColor.white,
+                               title: Utils.getAppName(),
+                               preferredLargeTitle: false)
+        
         //self.tableView.contentInset = UIEdgeInsets(top: -35, left: 0, bottom: 0, right: 0)
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
         self.tableView.tableFooterView = UIView(frame: CGRect.zero)
         self.tableView.sectionFooterHeight = 0.0
-        
         
         search = UISearchController(searchResultsController: nil)
         search.searchResultsUpdater = self
@@ -55,21 +76,18 @@ class MainVC: UIViewController, CNContactViewControllerDelegate, UITableViewDele
                 NotificationsFunctions.updateNotificationPool()
             }
         }
-        
     }
     
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        //createActivityIndicator()
-        self.updateTable()
+    @IBAction func appNameBarButtonItenTapAction(_ sender: UIBarButtonItem) {
+        share()
     }
+    
     
     @objc func updateTable(){
         //if !refreshControl.isRefreshing {
-         //   activityIndicator.startAnimating()
-            //ModelContactMain.shared.clearAll()
-            //self.tableView.reloadData()
+        //   activityIndicator.startAnimating()
+        //ModelContactMain.shared.clearAll()
+        //self.tableView.reloadData()
         //}
         
         let queue = DispatchQueue.global(qos: .userInteractive)
@@ -98,11 +116,27 @@ class MainVC: UIViewController, CNContactViewControllerDelegate, UITableViewDele
         //activityIndicator.style = .large
         view.addSubview(activityIndicator)
     }
+    
+    func share(){
+        let textToShare = [ Utils.getAppName() + " " + URLs.appStoreURL]
+        
+        let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
+        
+        //avoiding to crash on iPad
+        if let popoverController = activityViewController.popoverPresentationController {
+            popoverController.sourceRect = CGRect(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height / 2, width: 0, height: 0)
+            popoverController.sourceView = self.view
+            popoverController.permittedArrowDirections = UIPopoverArrowDirection(rawValue: 0)
+        }
+        
+        self.present(activityViewController, animated: true, completion: nil)
+    }
+    
 }
 
 
 extension MainVC: UITabBarDelegate, UITableViewDataSource{
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isSearch() {
             return ModelContactMain.shared.contactsFiltered.count
@@ -138,10 +172,10 @@ extension MainVC: UITabBarDelegate, UITableViewDataSource{
             cell.daysToBirthdayLabel.textColor = UIColor.lightGray
             cell.daysToBirthdayLabel.layer.backgroundColor = UIColor.clear.cgColor
         }else{
-            cell.daysToBirthdayLabel.leftInset = 8
-            cell.daysToBirthdayLabel.rightInset = 8
+            cell.daysToBirthdayLabel.leftInset = 6
+            cell.daysToBirthdayLabel.rightInset = 6
             cell.daysToBirthdayLabel.textColor = UIColor.white
-            cell.daysToBirthdayLabel.layer.backgroundColor = Colors.myAccentColor?.cgColor
+            cell.daysToBirthdayLabel.layer.backgroundColor = Colors.accentColor?.cgColor
         }
         
         if let futureAge = contact.futureAge{
@@ -200,7 +234,7 @@ extension MainVC: UITabBarDelegate, UITableViewDataSource{
     
     
     @IBAction func buttonAction(_ sender: Any) {
-       // AppDelegate.shared.sendNotifications(title: "Title", body: "Body")
+        // AppDelegate.shared.sendNotifications(title: "Title", body: "Body")
     }
     
 }
