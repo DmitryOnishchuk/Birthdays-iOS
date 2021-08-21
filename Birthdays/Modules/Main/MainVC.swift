@@ -10,6 +10,9 @@ class MainVC: UIViewController, CNContactViewControllerDelegate, UITableViewDele
     var refreshControl = UIRefreshControl()
     var search = UISearchController()
     
+    var contacts = [Contact]()
+    var contactsFiltered = [Contact]()
+    
     let userDefaultsManager = UserDefaultsManager.shared
     
     @IBAction func buttonAct(_ sender: UIButton) {
@@ -83,7 +86,7 @@ class MainVC: UIViewController, CNContactViewControllerDelegate, UITableViewDele
     
     func start(accessGranted:Bool){
         if accessGranted {
-            ContactFunctions.updateModelContactMain()
+            updateModelContactMain()
             updateNotifyPool()
             
             DispatchQueue.main.async {                
@@ -94,6 +97,29 @@ class MainVC: UIViewController, CNContactViewControllerDelegate, UITableViewDele
         }else{
             ContactFunctions.showSettingsAlert()
         }
+    }
+    
+    func updateModelContactMain(){
+        addAll(items: ContactFunctions.getListOfContactsWithBirthday())
+        sortByBirthday()
+    }
+    
+    func addAll(items: [Contact]){
+        contacts.removeAll()
+        contacts.append(contentsOf: items)
+    }
+    
+    func sortByBirthday(){
+        if contacts.count > 1 {
+            contacts =   contacts.sorted(by: { $0.daysToBirthday < $1.daysToBirthday })
+        }
+    }
+    
+    func filterContacts(text:String){
+        contactsFiltered.removeAll()
+        contactsFiltered = contacts.filter({ (contact) -> Bool in
+            return contact.name.lowercased().contains(text.lowercased())
+        })
     }
     
     func updateNotifyPool(){
@@ -139,9 +165,9 @@ extension MainVC: UITabBarDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isSearch() {
-            return ModelContactMain.shared.contactsFiltered.count
+            return contactsFiltered.count
         }
-        return ModelContactMain.shared.contacts.count
+        return contacts.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -154,9 +180,9 @@ extension MainVC: UITabBarDelegate, UITableViewDataSource{
         //var contact = Contact(id: "", name: "", birthday: Date(), birthdayNear: nil, daysToBirthday: -1, futureAge: -1, photo: UIImage())
         var contact:Contact
         if isSearch(){
-            contact = ModelContactMain.shared.contactsFiltered[indexPath.row]
+            contact = contactsFiltered[indexPath.row]
         }else{
-            contact = ModelContactMain.shared.contacts[indexPath.row]
+            contact = contacts[indexPath.row]
         }
         
         cell.nameLabel.text = contact.name
@@ -211,9 +237,9 @@ extension MainVC: UITabBarDelegate, UITableViewDataSource{
         
         var contact:Contact
         if isSearch(){
-            contact = ModelContactMain.shared.contactsFiltered[indexPath.row]
+            contact = contactsFiltered[indexPath.row]
         }else{
-            contact = ModelContactMain.shared.contacts[indexPath.row]
+            contact = contacts[indexPath.row]
         }
         
         let vc = CNContactViewController(for: ContactFunctions.getContactFromIDfirEditing(contact.id)!)
@@ -228,7 +254,7 @@ extension MainVC: UITabBarDelegate, UITableViewDataSource{
     }
     
     func filterSearchContacts(_ text:String){
-        ModelContactMain.shared.filterContacts(text: text)
+        filterContacts(text: text)
         tableView.reloadData()
     }
     

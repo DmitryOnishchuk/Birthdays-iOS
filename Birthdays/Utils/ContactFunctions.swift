@@ -103,17 +103,6 @@ class ContactFunctions {
         return res
     }
     
-    
-    class func updateModelContactMain(){
-        ModelContactMain.shared.addAll(items: getListOfContactsWithBirthday())
-        ModelContactMain.shared.sortByBirthday()
-    }
-    
-    class func updateModelContactEdit(){
-        ModelContactEdit.shared.addAll(items: getListOfContactsEdit())
-        ModelContactEdit.shared.sortByName()
-    }
-    
     static func requestAccess(completionHandler: @escaping (_ accessGranted: Bool) -> Void) {
         switch CNContactStore.authorizationStatus(for: .contacts) {
         case .authorized:

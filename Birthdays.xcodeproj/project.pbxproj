@@ -25,7 +25,6 @@
 		32536C4725A4701F00B75EB3 /* MainSettingsTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32536C4625A4701F00B75EB3 /* MainSettingsTableVC.swift */; };
 		32536C4C25A4A0BF00B75EB3 /* LanguageSettingsTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32536C4B25A4A0BF00B75EB3 /* LanguageSettingsTableVC.swift */; };
 		325734EA25A3520F00993D61 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 325734EC25A3520F00993D61 /* Localizable.strings */; };
-		326F960F25B982E900A015F2 /* ModelContactEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326F960E25B982E900A015F2 /* ModelContactEdit.swift */; };
 		326F961225B9839D00A015F2 /* ContactEditTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326F961125B9839D00A015F2 /* ContactEditTableViewCell.swift */; };
 		326F961625B9852600A015F2 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326F961525B9852600A015F2 /* EditViewController.swift */; };
 		32793477268DE6C6001C8EF1 /* AgeTypeSettingsModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32793476268DE6C6001C8EF1 /* AgeTypeSettingsModuleBuilder.swift */; };
@@ -84,7 +83,6 @@
 		32D3067B259C7564000D7D9A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32D3067A259C7564000D7D9A /* Assets.xcassets */; };
 		32D3067E259C7565000D7D9A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32D3067C259C7565000D7D9A /* LaunchScreen.storyboard */; };
 		32D3068B259C794F000D7D9A /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D3068A259C794F000D7D9A /* MainVC.swift */; };
-		32D3068F259C7A2B000D7D9A /* ModelContactMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D3068E259C7A2B000D7D9A /* ModelContactMain.swift */; };
 		32D30692259C7A9C000D7D9A /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D30691259C7A9C000D7D9A /* Contact.swift */; };
 		C29AB4CD465553AE1F4EB0D0 /* Pods_Birthdays.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5693BF4BACDAA1E48886B6F3 /* Pods_Birthdays.framework */; };
 /* End PBXBuildFile section */
@@ -134,7 +132,6 @@
 		32536C4925A499DC00B75EB3 /* ru */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		32536C4B25A4A0BF00B75EB3 /* LanguageSettingsTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSettingsTableVC.swift; sourceTree = "<group>"; };
 		325734EE25A3521700993D61 /* en */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		326F960E25B982E900A015F2 /* ModelContactEdit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelContactEdit.swift; sourceTree = "<group>"; };
 		326F961125B9839D00A015F2 /* ContactEditTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactEditTableViewCell.swift; sourceTree = "<group>"; };
 		326F961525B9852600A015F2 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		32793476268DE6C6001C8EF1 /* AgeTypeSettingsModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeTypeSettingsModuleBuilder.swift; sourceTree = "<group>"; };
@@ -196,7 +193,6 @@
 		32D3067D259C7565000D7D9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		32D3067F259C7565000D7D9A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		32D3068A259C794F000D7D9A /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
-		32D3068E259C7A2B000D7D9A /* ModelContactMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelContactMain.swift; sourceTree = "<group>"; };
 		32D30691259C7A9C000D7D9A /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		44451B38AE5D27070E6840C6 /* Pods-Birthdays.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Birthdays.release.xcconfig"; path = "Target Support Files/Pods-Birthdays/Pods-Birthdays.release.xcconfig"; sourceTree = "<group>"; };
 		5693BF4BACDAA1E48886B6F3 /* Pods_Birthdays.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Birthdays.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -260,7 +256,6 @@
 		323367A32628316800F073F2 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				323367B42628340800F073F2 /* Models */,
 				323367A6262831A000F073F2 /* Cells */,
 				327A40832695D83A008334FC /* MainModuleBuilder.swift */,
 				32D3068A259C794F000D7D9A /* MainVC.swift */,
@@ -273,7 +268,6 @@
 			isa = PBXGroup;
 			children = (
 				3279348A268DF02A001C8EF1 /* PickerViews */,
-				323367B52628341700F073F2 /* Models */,
 				323367A52628319500F073F2 /* Cells */,
 				326F961525B9852600A015F2 /* EditViewController.swift */,
 			);
@@ -319,22 +313,6 @@
 				3279774F26CE30FB003E13E0 /* About */,
 			);
 			path = Modules;
-			sourceTree = "<group>";
-		};
-		323367B42628340800F073F2 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				32D3068E259C7A2B000D7D9A /* ModelContactMain.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		323367B52628341700F073F2 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				326F960E25B982E900A015F2 /* ModelContactEdit.swift */,
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		3242D9A225A09C23003BC5EE /* Utils */ = {
@@ -778,12 +756,10 @@
 				3242D9A425A09C41003BC5EE /* ContactFunctions.swift in Sources */,
 				3279776326CE3231003E13E0 /* NiblessView.swift in Sources */,
 				3279775926CE3119003E13E0 /* AboutNC.swift in Sources */,
-				32D3068F259C7A2B000D7D9A /* ModelContactMain.swift in Sources */,
 				32793486268DEE29001C8EF1 /* NotificationSettingsModuleBuilder.swift in Sources */,
 				32536C4725A4701F00B75EB3 /* MainSettingsTableVC.swift in Sources */,
 				3279775B26CE3119003E13E0 /* AboutVC.swift in Sources */,
 				32793481268DED0A001C8EF1 /* ThemeSettingsModuleBuilder.swift in Sources */,
-				326F960F25B982E900A015F2 /* ModelContactEdit.swift in Sources */,
 				32B0F99325DD15FC002C0461 /* NotificationPickerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
