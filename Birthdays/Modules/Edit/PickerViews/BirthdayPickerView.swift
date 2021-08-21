@@ -126,7 +126,7 @@ class BirthdayPickerView: UIPickerView, UIPickerViewDataSource, UIPickerViewDele
             currentDay = days.last!
         }
         
-        let dateStr2 = String(currentYear) + "-" + String(format: "%02d", currentMonth) + "-" + String(format: "%02d", currentDay) + "T00:00:00+0000"
+        let dateStr2 = String(format: "%04d", currentYear) + "-" + String(format: "%02d", currentMonth) + "-" + String(format: "%02d", currentDay) + "T00:00:00+0000"
 
         date = dateStr2.toDate()!
         setText()
