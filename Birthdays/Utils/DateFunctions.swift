@@ -25,24 +25,43 @@ class DateFunctions {
         return res
     }
     
-    static func getBirthdayNear(date: Date) -> Date{
+    static func getBirthdayNearNew(dateComponent: DateComponents) -> Date {
         let currentYear = Calendar.current.component(.year, from: Date())
         
-        let gregorianCalendar = Calendar(identifier: .gregorian)
-        var component = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
-        component.year = currentYear
-        var birthdayNear = Calendar.current.date(from: component)!
+        var birthdayNearDateComponent = dateComponent
+        birthdayNearDateComponent.setValue(currentYear, for: .year)
+
+        var birthdayNear = birthdayNearDateComponent.date
 
         let GMT = TimeZone.current.secondsFromGMT() / 3600
         let currentDate = Calendar.current.date(bySettingHour: GMT, minute: 0, second: 0, of: Date())
 
-        if currentDate! > birthdayNear {
+        if currentDate! > birthdayNear! {
             var dateComponent = DateComponents()
             dateComponent.year = 1
-            birthdayNear = Calendar.current.date(byAdding: dateComponent, to: birthdayNear)!
+            birthdayNear = Calendar.current.date(byAdding: dateComponent, to: birthdayNear!)!
         }
-        return birthdayNear
+        return birthdayNear!
     }
+    
+//    static func getBirthdayNearOLD(date: Date) -> Date {
+//        let currentYear = Calendar.current.component(.year, from: Date())
+//        
+//        //let gregorianCalendar = Calendar(identifier: .gregorian)
+//        var component = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
+//        component.year = currentYear
+//        var birthdayNear = Calendar.current.date(from: component)!
+//
+//        let GMT = TimeZone.current.secondsFromGMT() / 3600
+//        let currentDate = Calendar.current.date(bySettingHour: GMT, minute: 0, second: 0, of: Date())
+//
+//        if currentDate! > birthdayNear {
+//            var dateComponent = DateComponents()
+//            dateComponent.year = 1
+//            birthdayNear = Calendar.current.date(byAdding: dateComponent, to: birthdayNear)!
+//        }
+//        return birthdayNear
+//    }
 
     static func getAge(birthdayDate: Date, birthdayNear: Date) -> Int{
         var age = -1

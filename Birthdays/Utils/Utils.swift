@@ -30,7 +30,7 @@ class Utils {
     }
     
     static func getAppName() -> String{
-        return (Bundle.main.infoDictionary?["CFBundleName"] as? String)!
+        return "APPNAME".localized
     }
     
     static func getAppVersion() -> String {

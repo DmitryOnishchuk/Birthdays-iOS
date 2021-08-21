@@ -3,7 +3,7 @@ import ContactsUI
 
 class EditViewController: UIViewController, UITableViewDelegate, UITextFieldDelegate {
     
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var editTableView: UITableView!
     let cellID = "ContactEditTableViewCell"
     var activityIndicator = UIActivityIndicatorView()
     var refreshControl = UIRefreshControl()
@@ -19,6 +19,9 @@ class EditViewController: UIViewController, UITableViewDelegate, UITextFieldDele
     var nextActionName: UIAlertAction!
     var nextActionBirthday: UIAlertAction!
     
+    var contacts = [Contact]()
+    var contactsFiltered = [Contact]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //self.tableView.contentInset = UIEdgeInsets(top: -35, left: 0, bottom: 0, right: 0)
@@ -31,10 +34,9 @@ class EditViewController: UIViewController, UITableViewDelegate, UITextFieldDele
         self.navigationItem.searchController=search
         //self.navigationItem.titleView?.isHidden = true
         //self.navigationItem.hidesSearchBarWhenScrolling = true
-        tableView.refreshControl = refreshControl
+        editTableView.refreshControl = refreshControl
         refreshControl.addTarget(self, action: #selector(updateTable), for: .valueChanged)
     }
-    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -57,21 +59,43 @@ class EditViewController: UIViewController, UITableViewDelegate, UITextFieldDele
     
     func start(accessGranted:Bool){
         if accessGranted {
-            ContactFunctions.updateModelContactEdit()
+            updateModelContactEdit()
             
             DispatchQueue.main.async {
-                
                 if self.isSearch(){
-                    ModelContactEdit.shared.filterContacts(text: self.search.searchBar.text!)
+                    self.filterContacts(text: self.search.searchBar.text!)
                 }
                 
-                self.tableView.reloadData()
+                self.editTableView.reloadData()
                 self.refreshControl.endRefreshing()
                 self.activityIndicator.stopAnimating()
             }
         }else{
             ContactFunctions.showSettingsAlert()
         }
+    }
+    
+    func updateModelContactEdit(){
+        addAll(items: ContactFunctions.getListOfContactsEdit())
+        sortByName()
+    }
+    
+    func addAll(items: [Contact]){
+        contacts.removeAll()
+        contacts.append(contentsOf: items)
+    }
+    
+    func sortByName(){
+        if contacts.count > 1 {
+            contacts = contacts.sorted(by: { $0.name < $1.name  })
+        }
+    }
+    
+    func filterContacts(text:String){
+        contactsFiltered.removeAll()
+        contactsFiltered = contacts.filter({ (contact) -> Bool in
+            return contact.name.lowercased().contains(text.lowercased())
+        })
     }
     
     func createActivityIndicator(){
@@ -85,7 +109,6 @@ class EditViewController: UIViewController, UITableViewDelegate, UITextFieldDele
         newContact = Contact(id: "new", name: "nil", birthday: nil, birthdayNear: nil, daysToBirthday: -1, futureAge: -1, photo: UIImage())
         setNameDialog()
     }
-    
     
     func setNameDialog(){
         let alert = UIAlertController(title:"EDIT_NEW_CONTACT_TITLE".localized, message: "", preferredStyle: .alert)
@@ -124,11 +147,11 @@ class EditViewController: UIViewController, UITableViewDelegate, UITextFieldDele
         newContactAlertBirthday = UIAlertController(title:"EDIT_SELECT_BIRTHDAY".localized, message: "", preferredStyle: .alert)
         
         
-        let cons:NSLayoutConstraint = NSLayoutConstraint(item: newContactAlertBirthday.view, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.greaterThanOrEqual, toItem: newContactBirthdayPickerView, attribute: NSLayoutConstraint.Attribute.height, multiplier: 1.00, constant: 130)
+        let cons:NSLayoutConstraint = NSLayoutConstraint(item: newContactAlertBirthday.view, attribute: .height, relatedBy: .greaterThanOrEqual, toItem: newContactBirthdayPickerView, attribute: .height, multiplier: 1.00, constant: 130)
         
         newContactAlertBirthday.view.addConstraint(cons)
         
-        let cons2:NSLayoutConstraint = NSLayoutConstraint(item: newContactAlertBirthday.view, attribute: NSLayoutConstraint.Attribute.width, relatedBy: NSLayoutConstraint.Relation.greaterThanOrEqual, toItem: newContactBirthdayPickerView, attribute: NSLayoutConstraint.Attribute.width, multiplier: 1.00, constant: 20)
+        let cons2:NSLayoutConstraint = NSLayoutConstraint(item: newContactAlertBirthday.view, attribute: .width, relatedBy: .greaterThanOrEqual, toItem: newContactBirthdayPickerView, attribute: .width, multiplier: 1.00, constant: 20)
         
         newContactAlertBirthday.view.addConstraint(cons2)
         
@@ -176,6 +199,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITextFieldDele
     @objc func textFieldDidChangeName(_ textField: UITextField) {
         nextActionName.isEnabled = textField.text?.count ?? 0 > 0
     }
+    
     //@objc func textFieldDidChangeBirthday(_ textField: UITextField) {
     //    nextActionBirthday.isEnabled = textField.text?.count ?? 0 > 0
     //}
@@ -192,9 +216,9 @@ extension EditViewController: UITabBarDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isSearch() {
-            return ModelContactEdit.shared.contactsFiltered.count
+            return contactsFiltered.count
         }
-        return ModelContactEdit.shared.contacts.count
+        return contacts.count
     }
     
     //func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -206,9 +230,9 @@ extension EditViewController: UITabBarDelegate, UITableViewDataSource{
         
         var contact:Contact
         if isSearch(){
-            contact = ModelContactEdit.shared.contactsFiltered[indexPath.row]
+            contact = contactsFiltered[indexPath.row]
         }else{
-            contact = ModelContactEdit.shared.contacts[indexPath.row]
+            contact = contacts[indexPath.row]
         }
         
         cell.nameLabel.text = contact.name
@@ -223,20 +247,17 @@ extension EditViewController: UITabBarDelegate, UITableViewDataSource{
         
         return cell
     }
-    
-    
-    
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //let cell = tableView.cellForRow(at: indexPath)
         
         var contact:Contact
         if isSearch(){
-            contact = ModelContactEdit.shared.contactsFiltered[indexPath.row]
+            contact = contactsFiltered[indexPath.row]
         }else{
-            contact = ModelContactEdit.shared.contacts[indexPath.row]
+            contact = contacts[indexPath.row]
         }
-
+        
         currentContact = contact
         dummyTextField = UITextField()
         birthdayPickerView = BirthdayPickerView()
@@ -318,8 +339,8 @@ extension EditViewController: UITabBarDelegate, UITableViewDataSource{
     }
     
     func filterSearchContacts(_ text:String){
-        ModelContactEdit.shared.filterContacts(text: text)
-        tableView.reloadData()
+        filterContacts(text: text)
+        editTableView.reloadData()
     }
 }
 

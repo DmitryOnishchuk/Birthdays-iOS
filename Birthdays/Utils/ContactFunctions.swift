@@ -25,8 +25,9 @@ class ContactFunctions {
                         //print(DateFunctions.dateToHumanString(date: birthdayDate))
                         
                         let id = contact.identifier
-                        let fullName =  contact.givenName.trimmingCharacters(in: .whitespacesAndNewlines) + " " + contact.familyName.trimmingCharacters(in: .whitespacesAndNewlines)
-                        let birthdayNear = DateFunctions.getBirthdayNear(date: birthdayDate)
+                        let fullName = CNContactFormatter.string(from: contact, style: .fullName) ?? "UNKNOWN"
+                        
+                        let birthdayNear = DateFunctions.getBirthdayNearNew(dateComponent: birthday)
                         let daysToBirthday = DateFunctions.getDifferenceDays(firstDate: Date(), secondDate: birthdayNear)
                         let futureAge = DateFunctions.getAge(birthdayDate: birthdayDate, birthdayNear: birthdayNear)
                         
@@ -34,6 +35,7 @@ class ContactFunctions {
                         if contact.imageDataAvailable {
                             photo = UIImage(data: contact.thumbnailImageData!)!
                         }
+                        
                         let contact = Contact(id: id,
                                               name: fullName.trimmingCharacters(in: .whitespacesAndNewlines),
                                               birthday: birthdayDate,
@@ -76,7 +78,7 @@ class ContactFunctions {
                 //print(DateFunctions.dateToHumanString(date: birthdayDate))
                 
                 let id = contact.identifier
-                let fullName =  contact.givenName.trimmingCharacters(in: .whitespacesAndNewlines) + " " + contact.familyName.trimmingCharacters(in: .whitespacesAndNewlines)
+                let fullName = CNContactFormatter.string(from: contact, style: .fullName) ?? "UNKNOWN"
                 
                 var photo = UIImage(named: "avatar")
                 if contact.imageDataAvailable {
@@ -195,6 +197,7 @@ class ContactFunctions {
         }
         return nil
     }
+    
     static func updateBirthdayByContactID(_ contactID: String, _ newBirthday: Date) -> Bool{
         do {
             let store = CNContactStore()
