@@ -2,7 +2,7 @@ import UIKit
 import ContactsUI
 
 class MainVC: UIViewController, CNContactViewControllerDelegate, UITableViewDelegate{
-
+    
     @IBOutlet weak var tableView: UITableView!
     
     let cellID = "ContactMainTableViewCell"
@@ -25,21 +25,16 @@ class MainVC: UIViewController, CNContactViewControllerDelegate, UITableViewDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         onLoad()
-        
     }
-    
-    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        //createActivityIndicator()
-        self.updateTable()
+        self.updateBirthdays()
     }
     
     func onLoad(){
-            
+        
         if #available(iOS 13.0, *) {
             SettingsFunctions.changeThemeByUserDefaults()
         }
@@ -64,32 +59,22 @@ class MainVC: UIViewController, CNContactViewControllerDelegate, UITableViewDele
         //self.navigationItem.titleView?.isHidden = true
         //self.navigationItem.hidesSearchBarWhenScrolling = true
         tableView.refreshControl = refreshControl
-        refreshControl.addTarget(self, action: #selector(updateTable), for: .valueChanged)
-        
+        refreshControl.addTarget(self, action: #selector(updateBirthdays), for: .valueChanged)
     }
     
-
-    
-    @objc func updateTable(){
-        //if !refreshControl.isRefreshing {
-        //   activityIndicator.startAnimating()
-        //ModelContactMain.shared.clearAll()
-        //self.tableView.reloadData()
-        //}
-        
-         let queue = DispatchQueue.global(qos: .userInteractive)
+    @objc func updateBirthdays(){
+        let queue = DispatchQueue.global(qos: .userInteractive)
         queue.async {
-        ContactFunctions.requestAccess(completionHandler: self.start(accessGranted:))
+            ContactFunctions.requestAccess(completionHandler: self.start(accessGranted:))
         }
     }
-    
     
     func start(accessGranted:Bool){
         if accessGranted {
             updateModelContactMain()
             updateNotifyPool()
             
-            DispatchQueue.main.async {                
+            DispatchQueue.main.async {
                 self.tableView.reloadData()
                 self.refreshControl.endRefreshing()
                 self.activityIndicator.stopAnimating()

@@ -9,7 +9,7 @@
 import UIKit
 
 protocol NoNetworkViewProtocol: AnyObject {
-    func  showAboutView()
+    func showAboutView()
     func hideAboutView()
 }
 
