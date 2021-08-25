@@ -3,16 +3,17 @@ import ContactsUI
 
 class MainVC: UIViewController, CNContactViewControllerDelegate, UITableViewDelegate{
     
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var mainTableView: UITableView!
     
     let cellID = "ContactMainTableViewCell"
     var activityIndicator = UIActivityIndicatorView()
     var refreshControl = UIRefreshControl()
     var search = UISearchController()
+    var emptyListMainLabel: UILabel!
     
     var contacts = [Contact]()
     var contactsFiltered = [Contact]()
-    
+
     let userDefaultsManager = UserDefaultsManager.shared
     
     @IBAction func buttonAct(_ sender: UIButton) {
@@ -46,23 +47,41 @@ class MainVC: UIViewController, CNContactViewControllerDelegate, UITableViewDele
                                preferredLargeTitle: false)
         
         //self.tableView.contentInset = UIEdgeInsets(top: -35, left: 0, bottom: 0, right: 0)
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
-        
-        self.tableView.tableFooterView = UIView(frame: CGRect.zero)
-        self.tableView.sectionFooterHeight = 0.0
+        mainTableView.refreshControl = refreshControl
+        mainTableView.tableFooterView = UIView(frame: CGRect.zero)
+        mainTableView.sectionFooterHeight = 0.0
         
         search = UISearchController(searchResultsController: nil)
         search.searchResultsUpdater = self
         search.obscuresBackgroundDuringPresentation = false
-        self.navigationItem.searchController = search
-        //self.navigationItem.titleView?.isHidden = true
-        //self.navigationItem.hidesSearchBarWhenScrolling = true
-        tableView.refreshControl = refreshControl
+        navigationItem.searchController = search
         refreshControl.addTarget(self, action: #selector(updateBirthdays), for: .valueChanged)
+        
+        emptyListMainLabel = UILabel(frame: CGRect(x: 0,
+                                                   y: -100,
+                                                   width: self.mainTableView.bounds.size.width,
+                                                   height: self.mainTableView.bounds.size.height))
+        emptyListMainLabel.text = "MAIN_IS_EMPTY_MESSAGE".localized
+        emptyListMainLabel.textAlignment = .center
+        emptyListMainLabel.numberOfLines = 0
+        emptyListMainLabel.font = .systemFont(ofSize: 16)
+        emptyListMainLabel.textColor = UIColor(red: 50/255, green: 54/255, blue: 67/255, alpha: 1)
+        
+        
+        if #available(iOS 13.0, *) {
+            NotificationCenter.default.addObserver(self, selector: #selector(resumeFromBackgroundMain), name: UIScene.willEnterForegroundNotification, object: nil)
+        } else {
+            NotificationCenter.default.addObserver(self, selector: #selector(resumeFromBackgroundMain), name:UIApplication.didBecomeActiveNotification, object: nil)
+        }
+        
+    }
+    
+    @objc func resumeFromBackgroundMain(_ notification: Notification) {
+        self.updateBirthdays()
     }
     
     @objc func updateBirthdays(){
+        print("updateBirthdays")
         let queue = DispatchQueue.global(qos: .userInteractive)
         queue.async {
             ContactFunctions.requestAccess(completionHandler: self.start(accessGranted:))
@@ -75,9 +94,10 @@ class MainVC: UIViewController, CNContactViewControllerDelegate, UITableViewDele
             updateNotifyPool()
             
             DispatchQueue.main.async {
-                self.tableView.reloadData()
+                self.mainTableView.reloadData()
                 self.refreshControl.endRefreshing()
                 self.activityIndicator.stopAnimating()
+                self.checkEmptyLabel()
             }
         }else{
             ContactFunctions.showSettingsAlert()
@@ -96,7 +116,7 @@ class MainVC: UIViewController, CNContactViewControllerDelegate, UITableViewDele
     
     func sortByBirthday(){
         if contacts.count > 1 {
-            contacts =   contacts.sorted(by: { $0.daysToBirthday < $1.daysToBirthday })
+            contacts = contacts.sorted(by: { $0.daysToBirthday < $1.daysToBirthday })
         }
     }
     
@@ -126,6 +146,10 @@ class MainVC: UIViewController, CNContactViewControllerDelegate, UITableViewDele
         activityIndicator.hidesWhenStopped = true
         //activityIndicator.style = .large
         view.addSubview(activityIndicator)
+    }
+    
+    func checkEmptyLabel(){
+        mainTableView.backgroundView = contacts.isEmpty ? emptyListMainLabel : nil
     }
     
     func share(){
@@ -240,7 +264,7 @@ extension MainVC: UITabBarDelegate, UITableViewDataSource{
     
     func filterSearchContacts(_ text:String){
         filterContacts(text: text)
-        tableView.reloadData()
+        mainTableView.reloadData()
     }
     
     

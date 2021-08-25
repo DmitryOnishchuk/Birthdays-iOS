@@ -27,6 +27,7 @@
 
 "MAIN_AGE" = "Age";
 "MAIN_TURNS" = "Turns";
+"MAIN_IS_EMPTY_MESSAGE" = "Please, add Birthdays by \'+\'";
 
 // MARK: - Edit Screen
 
@@ -37,6 +38,7 @@
 "EDIT_DELETE_BIRTHDAY" = "Delete Birthday?";
 "EDIT_SELECT_BIRTHDAY" = "Select Birthday";
 "EDIT_NEW_CONTACT_TITLE" = "New contact";
+"EDIT_IS_EMPTY_MESSAGE" = "Please, add contact by \'+\'";
 
 // MARK: - Settings Main
 

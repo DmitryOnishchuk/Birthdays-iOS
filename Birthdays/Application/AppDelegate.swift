@@ -48,6 +48,7 @@ extension AppDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = MainModuleBuilder().create()
         window?.makeKeyAndVisible()
+        window?.tintColor = Colors.accentColor
     }
 }
 

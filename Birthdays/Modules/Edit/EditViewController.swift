@@ -12,6 +12,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITextFieldDele
     var dummyTextField: UITextField?
     var currentContact:Contact?
     var birthdayPickerView: BirthdayPickerView!
+    var emptyListEditLabel: UILabel!
     
     var newContact:Contact?
     var newContactBirthdayPickerView: BirthdayPickerView!
@@ -24,27 +25,52 @@ class EditViewController: UIViewController, UITableViewDelegate, UITextFieldDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //self.tableView.contentInset = UIEdgeInsets(top: -35, left: 0, bottom: 0, right: 0)
-        
-        self.title = "EDIT_TITLE".localized
-        
-        search = UISearchController(searchResultsController: nil)
-        search.searchResultsUpdater = self
-        search.obscuresBackgroundDuringPresentation = false
-        self.navigationItem.searchController=search
-        //self.navigationItem.titleView?.isHidden = true
-        //self.navigationItem.hidesSearchBarWhenScrolling = true
-        editTableView.refreshControl = refreshControl
-        refreshControl.addTarget(self, action: #selector(updateTable), for: .valueChanged)
+        onLoad()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        //createActivityIndicator()
-        self.updateTable()
+        self.updateBirthdaysEdit()
     }
     
-    @objc func updateTable(){
+    func onLoad(){
+        self.title = "EDIT_TITLE".localized
+        
+        //self.tableView.contentInset = UIEdgeInsets(top: -35, left: 0, bottom: 0, right: 0)
+        editTableView.refreshControl = refreshControl
+        editTableView.tableFooterView = UIView(frame: CGRect.zero)
+        editTableView.sectionFooterHeight = 0.0
+        
+        search = UISearchController(searchResultsController: nil)
+        search.searchResultsUpdater = self
+        search.obscuresBackgroundDuringPresentation = false
+        navigationItem.searchController=search
+        refreshControl.addTarget(self, action: #selector(updateBirthdaysEdit), for: .valueChanged)
+        
+        emptyListEditLabel = UILabel(frame: CGRect(x: 0,
+                                                   y: -100,
+                                                   width: self.editTableView.bounds.size.width,
+                                                   height: self.editTableView.bounds.size.height))
+        emptyListEditLabel.text = "EDIT_IS_EMPTY_MESSAGE".localized
+        emptyListEditLabel.textAlignment = .center
+        emptyListEditLabel.numberOfLines = 0
+        emptyListEditLabel.font = .systemFont(ofSize: 16)
+        emptyListEditLabel.textColor = UIColor(red: 50/255, green: 54/255, blue: 67/255, alpha: 1)
+        
+        
+        if #available(iOS 13.0, *) {
+            NotificationCenter.default.addObserver(self, selector: #selector(resumeFromBackgroundEdit), name: UIScene.willEnterForegroundNotification, object: nil)
+        } else {
+            NotificationCenter.default.addObserver(self, selector: #selector(resumeFromBackgroundEdit), name:UIApplication.didBecomeActiveNotification, object: nil)
+        }
+    }
+    
+    @objc func resumeFromBackgroundEdit(_ notification: Notification) {
+        self.updateBirthdaysEdit()
+    }
+    
+    @objc func updateBirthdaysEdit(){
+        print("updateBirthdaysEdit")
         //if !refreshControl.isRefreshing {
         //    activityIndicator.startAnimating()
         //    ModelContactEdit.shared.clearAll()
@@ -69,6 +95,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITextFieldDele
                 self.editTableView.reloadData()
                 self.refreshControl.endRefreshing()
                 self.activityIndicator.stopAnimating()
+                self.checkEmptyLabel()
             }
         }else{
             ContactFunctions.showSettingsAlert()
@@ -103,6 +130,10 @@ class EditViewController: UIViewController, UITableViewDelegate, UITextFieldDele
         activityIndicator.hidesWhenStopped = true
         //activityIndicator.style = .large
         view.addSubview(activityIndicator)
+    }
+    
+    func checkEmptyLabel(){
+        editTableView.backgroundView = contacts.isEmpty ? emptyListEditLabel : nil
     }
     
     @IBAction func addContact(_ sender: Any) {
@@ -182,7 +213,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITextFieldDele
             self.showToast(message: msg)
             
             
-            self.updateTable()
+            self.updateBirthdaysEdit()
         })
         //nextActionBirthday.isEnabled = false
         let cancel = UIAlertAction(title: "CANCEL".localized, style: .cancel, handler: {
@@ -247,7 +278,7 @@ extension EditViewController: UITabBarDelegate, UITableViewDataSource{
         
         return cell
     }
-
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //let cell = tableView.cellForRow(at: indexPath)
         
@@ -293,7 +324,7 @@ extension EditViewController: UITabBarDelegate, UITableViewDataSource{
         if birthdayPickerView.date != currentContact?.birthday {
             if ContactFunctions.updateBirthdayByContactID(currentContact!.id, birthdayPickerView.date) {
                 self.showToast(message: "UPDATED".localized)
-                updateTable()
+                updateBirthdaysEdit()
                 NotificationsFunctions.updateNotificationPool()
             }else{
                 self.showToast(message: "FAIL".localized)
@@ -320,7 +351,7 @@ extension EditViewController: UITabBarDelegate, UITableViewDataSource{
     func deleteCurrentContactBirthday(){
         if ContactFunctions.deleteBirthdayByContactID(currentContact!.id) {
             self.showToast(message: "DELETED".localized)
-            updateTable()
+            updateBirthdaysEdit()
         }else{
             self.showToast(message: "FAIL".localized)
         }
@@ -333,6 +364,7 @@ extension EditViewController: UITabBarDelegate, UITableViewDataSource{
     func searchBarIsEmpty() -> Bool{
         return search.searchBar.text?.isEmpty ?? true
     }
+    
     func isSearch() -> Bool {
         return search.isActive && !searchBarIsEmpty()
         

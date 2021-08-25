@@ -27,6 +27,7 @@
 
 "MAIN_AGE" = "Возраст";
 "MAIN_TURNS" = "Будет";
+"MAIN_IS_EMPTY_MESSAGE" = "Добавьте Дни Рождения кнопкой \'+\'";
 
 // MARK: - Edit Screen
 
@@ -37,6 +38,7 @@
 "EDIT_DELETE_BIRTHDAY" = "Удалить День Рождения?";
 "EDIT_SELECT_BIRTHDAY" = "Выберите День Рождения";
 "EDIT_NEW_CONTACT_TITLE" = "Новый контакт";
+"EDIT_IS_EMPTY_MESSAGE" = "Добавьте контакты кнопкой \'+\'";
 
 // MARK: - Settings Main
 
