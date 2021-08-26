@@ -1,7 +1,6 @@
-import Foundation
 import UIKit
 
-class Contact: NSObject{
+class Contact: Identifiable{
     
     var id: String
     var name: String

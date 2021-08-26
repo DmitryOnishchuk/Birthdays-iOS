@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		32062E6526D793070077FB53 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D30691259C7A9C000D7D9A /* Contact.swift */; };
 		3210552F26CE6E9E00392368 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3210552E26CE6E9E00392368 /* ErrorView.swift */; };
 		32306FC126C67640004C4773 /* UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32306FC026C6763F004C4773 /* UITableViewCell.swift */; };
 		323367AA2628329A00F073F2 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323367A92628329A00F073F2 /* UIViewController.swift */; };
@@ -219,6 +220,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		32062E6426D792FD0077FB53 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				32D30691259C7A9C000D7D9A /* Contact.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		3210553026CE6EA100392368 /* UILayer */ = {
 			isa = PBXGroup;
 			children = (
@@ -473,8 +482,8 @@
 		328C834C26763FFD004F7E9C /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				32062E6426D792FD0077FB53 /* Models */,
 				3210553026CE6EA100392368 /* UILayer */,
-				32D30691259C7A9C000D7D9A /* Contact.swift */,
 				3242189725B45431008BA4DA /* AnyLanguageBundle.swift */,
 				32B0F99525DD2985002C0461 /* TimeEvent.swift */,
 				3288F1112695E20200BB176C /* Colors.swift */,
@@ -527,10 +536,10 @@
 			children = (
 				323367A1262830C700F073F2 /* Application */,
 				323367A2262830EB00F073F2 /* Resources */,
-				328C834C26763FFD004F7E9C /* Common */,
-				3242D9A225A09C23003BC5EE /* Utils */,
 				323367A82628327C00F073F2 /* Extensions */,
 				328C834D26764014004F7E9C /* Services */,
+				328C834C26763FFD004F7E9C /* Common */,
+				3242D9A225A09C23003BC5EE /* Utils */,
 				323367B3262833C900F073F2 /* Modules */,
 			);
 			path = Birthdays;
@@ -693,6 +702,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32062E6526D793070077FB53 /* Contact.swift in Sources */,
 				327AA08526CF9FD800C224D2 /* BirthdayWidget.swift in Sources */,
 				327AA08A26CF9FD900C224D2 /* BirthdayWidget.intentdefinition in Sources */,
 			);
