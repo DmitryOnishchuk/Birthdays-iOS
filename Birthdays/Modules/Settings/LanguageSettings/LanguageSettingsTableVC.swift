@@ -56,7 +56,7 @@ class LanguageSettingsTableVC: UITableViewController {
     
     func changeLanguage(language: String){
         if UserDefaultsManager.shared.currentLanguage != language {
-            SettingsFunctions.changeLanguageOfApp(language: "en")
+            SettingsFunctions.changeLanguageOfApp(language: language)
         }else{
             if let navController = self.navigationController {
                 navController.popViewController(animated: true)
