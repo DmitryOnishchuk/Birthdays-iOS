@@ -14,8 +14,11 @@ class LanguageSettingsTableVC: UITableViewController {
         setLanguageCheckmark()
     }
     
+    deinit {
+        print("LanguageSettingsTableVC deinit")
+    }
+    
     func setLanguageCheckmark(){
-        
         switch UserDefaultsManager.shared.currentLanguage {
         case "en":
             englishTableViewCell.accessoryType = .checkmark
@@ -38,17 +41,11 @@ class LanguageSettingsTableVC: UITableViewController {
         
         switch indexPath.row {
         case 0:
-            SettingsFunctions.changeLanguageOfApp(language: "en")
-            if let navController = self.navigationController {
-                navController.popViewController(animated: true)
-            }
+            changeLanguage(language: "en")
         case 1:
             break
         case 2:
-            SettingsFunctions.changeLanguageOfApp(language: "ru")
-            if let navController = self.navigationController {
-                navController.popViewController(animated: true)
-            }
+            changeLanguage(language: "ru")
         case 3:
             break
         case 4:
@@ -56,4 +53,15 @@ class LanguageSettingsTableVC: UITableViewController {
         default: break
         }
     }
+    
+    func changeLanguage(language: String){
+        if UserDefaultsManager.shared.currentLanguage != language {
+            SettingsFunctions.changeLanguageOfApp(language: "en")
+        }else{
+            if let navController = self.navigationController {
+                navController.popViewController(animated: true)
+            }
+        }
+    }
+    
 }

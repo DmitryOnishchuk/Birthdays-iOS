@@ -1,27 +1,27 @@
 import UIKit
 import ContactsUI
 
-class EditViewController: UIViewController, UITableViewDelegate, UITextFieldDelegate {
+class EditVC: UIViewController, UITableViewDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var editTableView: UITableView!
-    let cellID = "ContactEditTableViewCell"
-    var activityIndicator = UIActivityIndicatorView()
-    var refreshControl = UIRefreshControl()
-    var search = UISearchController()
-    var datePickerBirthday: UIDatePicker?
-    var dummyTextField: UITextField?
-    var currentContact:Contact?
-    var birthdayPickerView: BirthdayPickerView!
-    var emptyListEditLabel: UILabel!
+    private let cellID = "ContactEditTableViewCell"
+    private var activityIndicator = UIActivityIndicatorView()
+    private var refreshControl = UIRefreshControl()
+    private var search = UISearchController()
+    private var datePickerBirthday: UIDatePicker?
+    private var dummyTextField: UITextField?
+    private var currentContact:Contact?
+    private var birthdayPickerView: BirthdayPickerView!
+    private var emptyListEditLabel: UILabel!
     
-    var newContact:Contact?
-    var newContactBirthdayPickerView: BirthdayPickerView!
-    var newContactAlertBirthday: UIAlertController!
-    var nextActionName: UIAlertAction!
-    var nextActionBirthday: UIAlertAction!
+    private var newContact:Contact?
+    private var newContactBirthdayPickerView: BirthdayPickerView!
+    private var newContactAlertBirthday: UIAlertController!
+    private var nextActionName: UIAlertAction!
+    private var nextActionBirthday: UIAlertAction!
     
-    var contacts = [Contact]()
-    var contactsFiltered = [Contact]()
+    private var contacts = [Contact]()
+    private var contactsFiltered = [Contact]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,6 +63,11 @@ class EditViewController: UIViewController, UITableViewDelegate, UITextFieldDele
         } else {
             NotificationCenter.default.addObserver(self, selector: #selector(resumeFromBackgroundEdit), name:UIApplication.didBecomeActiveNotification, object: nil)
         }
+    }
+    
+    deinit {
+        print("EditVC deinit")
+        NotificationCenter.default.removeObserver(self)
     }
     
     @objc func resumeFromBackgroundEdit(_ notification: Notification) {
@@ -243,7 +248,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITextFieldDele
     
 }
 
-extension EditViewController: UITabBarDelegate, UITableViewDataSource{
+extension EditVC: UITabBarDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isSearch() {
@@ -376,7 +381,7 @@ extension EditViewController: UITabBarDelegate, UITableViewDataSource{
     }
 }
 
-extension EditViewController:UISearchResultsUpdating{
+extension EditVC:UISearchResultsUpdating{
     func updateSearchResults(for searchController: UISearchController) {
         filterSearchContacts(searchController.searchBar.text!)
     }

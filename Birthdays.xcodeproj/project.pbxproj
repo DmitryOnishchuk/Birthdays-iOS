@@ -27,7 +27,7 @@
 		32536C4C25A4A0BF00B75EB3 /* LanguageSettingsTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32536C4B25A4A0BF00B75EB3 /* LanguageSettingsTableVC.swift */; };
 		325734EA25A3520F00993D61 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 325734EC25A3520F00993D61 /* Localizable.strings */; };
 		326F961225B9839D00A015F2 /* ContactEditTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326F961125B9839D00A015F2 /* ContactEditTableViewCell.swift */; };
-		326F961625B9852600A015F2 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326F961525B9852600A015F2 /* EditViewController.swift */; };
+		326F961625B9852600A015F2 /* EditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326F961525B9852600A015F2 /* EditVC.swift */; };
 		32793477268DE6C6001C8EF1 /* AgeTypeSettingsModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32793476268DE6C6001C8EF1 /* AgeTypeSettingsModuleBuilder.swift */; };
 		32793479268DE6EB001C8EF1 /* AgeTypeSettings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32793478268DE6EB001C8EF1 /* AgeTypeSettings.storyboard */; };
 		3279347C268DEB4D001C8EF1 /* LanguageSettingsModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3279347B268DEB4D001C8EF1 /* LanguageSettingsModuleBuilder.swift */; };
@@ -134,7 +134,7 @@
 		32536C4B25A4A0BF00B75EB3 /* LanguageSettingsTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSettingsTableVC.swift; sourceTree = "<group>"; };
 		325734EE25A3521700993D61 /* en */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		326F961125B9839D00A015F2 /* ContactEditTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactEditTableViewCell.swift; sourceTree = "<group>"; };
-		326F961525B9852600A015F2 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
+		326F961525B9852600A015F2 /* EditVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditVC.swift; sourceTree = "<group>"; };
 		32793476268DE6C6001C8EF1 /* AgeTypeSettingsModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeTypeSettingsModuleBuilder.swift; sourceTree = "<group>"; };
 		32793478268DE6EB001C8EF1 /* AgeTypeSettings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AgeTypeSettings.storyboard; sourceTree = "<group>"; };
 		3279347B268DEB4D001C8EF1 /* LanguageSettingsModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSettingsModuleBuilder.swift; sourceTree = "<group>"; };
@@ -278,7 +278,7 @@
 			children = (
 				3279348A268DF02A001C8EF1 /* PickerViews */,
 				323367A52628319500F073F2 /* Cells */,
-				326F961525B9852600A015F2 /* EditViewController.swift */,
+				326F961525B9852600A015F2 /* EditVC.swift */,
 			);
 			path = Edit;
 			sourceTree = "<group>";
@@ -713,7 +713,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3279777726CE3B3A003E13E0 /* UILabel+Localized.swift in Sources */,
-				326F961625B9852600A015F2 /* EditViewController.swift in Sources */,
+				326F961625B9852600A015F2 /* EditVC.swift in Sources */,
 				323C1A4825C5751A009BD9DE /* BirthdayPickerView.swift in Sources */,
 				323367AA2628329A00F073F2 /* UIViewController.swift in Sources */,
 				32D30672259C7564000D7D9A /* AppDelegate.swift in Sources */,

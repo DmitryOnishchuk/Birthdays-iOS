@@ -2,12 +2,10 @@ import UIKit
 
 class MainSettingsTableVC: UITableViewController {
     
-    @IBOutlet weak var navItem: UINavigationItem!
     @IBOutlet var settingsTabelView: UITableView!
     @IBOutlet weak var languageLabel: UILabel!
     @IBOutlet weak var themeLabel: UILabel!
     @IBOutlet weak var ageLabel: UILabel!
-    //  @IBOutlet weak var notificationTimeLabel: UILabel!
     @IBOutlet weak var notificationEnableLabel: UILabel!
     @IBOutlet weak var remindersLabel: UILabel!
     @IBOutlet weak var helpTranslateLabel: UILabel!
@@ -22,9 +20,9 @@ class MainSettingsTableVC: UITableViewController {
     @IBOutlet weak var notificationEnableSwitch: UISwitch!
     
     @IBOutlet weak var remindersTableViewCell: UITableViewCell!
-    let userDefaultsManager = UserDefaultsManager.shared
+    private let userDefaultsManager = UserDefaultsManager.shared
     
-    let infoView = ErrorView()
+    private let infoView = ErrorView()
     
     //  @IBOutlet weak var currentNotificationTimeLabel: UILabel!
     
@@ -40,6 +38,10 @@ class MainSettingsTableVC: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+    }
+    
+    deinit {
+        print("MainSettingsTableVC deinit")
     }
     
     func onLoad(){

@@ -4,25 +4,16 @@ import ContactsUI
 class MainVC: UIViewController, CNContactViewControllerDelegate, UITableViewDelegate{
     
     @IBOutlet weak var mainTableView: UITableView!
+    private let cellID = "ContactMainTableViewCell"
+    private var activityIndicator = UIActivityIndicatorView()
+    private var refreshControl = UIRefreshControl()
+    private var search = UISearchController()
+    private var emptyListMainLabel: UILabel!
     
-    let cellID = "ContactMainTableViewCell"
-    var activityIndicator = UIActivityIndicatorView()
-    var refreshControl = UIRefreshControl()
-    var search = UISearchController()
-    var emptyListMainLabel: UILabel!
-    
-    var contacts = [Contact]()
-    var contactsFiltered = [Contact]()
+    private var contacts = [Contact]()
+    private var contactsFiltered = [Contact]()
 
-    let userDefaultsManager = UserDefaultsManager.shared
-    
-    @IBAction func buttonAct(_ sender: UIButton) {
-        NotificationsFunctions.updateNotificationPool()
-    }
-    @IBAction func settingsButtonAction(_ sender: UIBarButtonItem) {
-        let mainSettingsVC = MainSettingsModuleBuilder().create()
-        self.navigationController?.pushViewController(mainSettingsVC, animated: true)
-    }
+    private let userDefaultsManager = UserDefaultsManager.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,10 +23,6 @@ class MainVC: UIViewController, CNContactViewControllerDelegate, UITableViewDele
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.updateBirthdays()
-    }
-    
-    deinit {
-        print("MainVC deinit")
     }
     
     func onLoad(){
@@ -60,7 +47,7 @@ class MainVC: UIViewController, CNContactViewControllerDelegate, UITableViewDele
         search.obscuresBackgroundDuringPresentation = false
         navigationItem.searchController = search
         refreshControl.addTarget(self, action: #selector(updateBirthdays), for: .valueChanged)
-        
+
         emptyListMainLabel = UILabel(frame: CGRect(x: 0,
                                                    y: -100,
                                                    width: self.mainTableView.bounds.size.width,
@@ -76,11 +63,20 @@ class MainVC: UIViewController, CNContactViewControllerDelegate, UITableViewDele
         } else {
             NotificationCenter.default.addObserver(self, selector: #selector(resumeFromBackgroundMain), name:UIApplication.didBecomeActiveNotification, object: nil)
         }
-        
+    }
+    
+    deinit {
+        print("MainVC deinit")
+        NotificationCenter.default.removeObserver(self)
     }
     
     @objc func resumeFromBackgroundMain(_ notification: Notification) {
         self.updateBirthdays()
+    }
+    
+    @IBAction func settingsButtonAction(_ sender: UIBarButtonItem) {
+        let mainSettingsVC = MainSettingsModuleBuilder().create()
+        self.navigationController?.pushViewController(mainSettingsVC, animated: true)
     }
     
     @objc func updateBirthdays(){
