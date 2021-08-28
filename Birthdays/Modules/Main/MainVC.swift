@@ -34,6 +34,10 @@ class MainVC: UIViewController, CNContactViewControllerDelegate, UITableViewDele
         self.updateBirthdays()
     }
     
+    deinit {
+        print("MainVC deinit")
+    }
+    
     func onLoad(){
         
         if #available(iOS 13.0, *) {
@@ -66,7 +70,6 @@ class MainVC: UIViewController, CNContactViewControllerDelegate, UITableViewDele
         emptyListMainLabel.numberOfLines = 0
         emptyListMainLabel.font = .systemFont(ofSize: 16)
         emptyListMainLabel.textColor = UIColor(red: 50/255, green: 54/255, blue: 67/255, alpha: 1)
-        
         
         if #available(iOS 13.0, *) {
             NotificationCenter.default.addObserver(self, selector: #selector(resumeFromBackgroundMain), name: UIScene.willEnterForegroundNotification, object: nil)

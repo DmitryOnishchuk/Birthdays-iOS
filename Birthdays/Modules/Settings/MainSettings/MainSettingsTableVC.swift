@@ -64,7 +64,6 @@ class MainSettingsTableVC: UITableViewController {
         //setCurrentNotificationTimeLabel()
         setVersionInfo()
         
-        
         infoView.alpha = 0
         self.view.addSubview(infoView)
         infoView.translatesAutoresizingMaskIntoConstraints = false
