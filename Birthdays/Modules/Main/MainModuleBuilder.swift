@@ -12,7 +12,7 @@ struct MainModuleBuilder {
     
     func create() -> UINavigationController {
         let mainNC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainNC") as! UINavigationController
-        let mainVC = mainNC.topViewController as! MainVC
+        // let mainVC = mainNC.topViewController as! MainVC
         return mainNC
     }
     

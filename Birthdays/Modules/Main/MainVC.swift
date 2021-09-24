@@ -1,11 +1,14 @@
 import UIKit
 import ContactsUI
+import NVActivityIndicatorView
 
 class MainVC: UIViewController, CNContactViewControllerDelegate, UITableViewDelegate{
     
     @IBOutlet weak var mainTableView: UITableView!
+    @IBOutlet weak var activityIndicatorMain: NVActivityIndicatorView!
+    
     private let cellID = "ContactMainTableViewCell"
-    private var activityIndicator = UIActivityIndicatorView()
+    //private var activityIndicator = UIActivityIndicatorView()
     private var refreshControl = UIRefreshControl()
     private var search = UISearchController()
     private var emptyListMainLabel: UILabel!
@@ -58,6 +61,9 @@ class MainVC: UIViewController, CNContactViewControllerDelegate, UITableViewDele
         emptyListMainLabel.font = .systemFont(ofSize: 16)
         emptyListMainLabel.textColor = UIColor(red: 50/255, green: 54/255, blue: 67/255, alpha: 1)
         
+        //createActivityIndicator()
+        activityIndicatorMain.type = .circleStrokeSpin
+        
         if #available(iOS 13.0, *) {
             NotificationCenter.default.addObserver(self, selector: #selector(resumeFromBackgroundMain), name: UIScene.willEnterForegroundNotification, object: nil)
         } else {
@@ -81,6 +87,7 @@ class MainVC: UIViewController, CNContactViewControllerDelegate, UITableViewDele
     
     @objc func updateBirthdays(){
         print("updateBirthdays")
+        
         let queue = DispatchQueue.global(qos: .userInteractive)
         queue.async {
             ContactFunctions.requestAccess(completionHandler: self.start(accessGranted:))
@@ -89,13 +96,17 @@ class MainVC: UIViewController, CNContactViewControllerDelegate, UITableViewDele
     
     func start(accessGranted:Bool){
         if accessGranted {
+            DispatchQueue.main.sync {
+                self.activityIndicatorMain.startAnimating()
+            }
+            
             updateModelContactMain()
             updateNotifyPool()
             
             DispatchQueue.main.async {
                 self.mainTableView.reloadData()
                 self.refreshControl.endRefreshing()
-                self.activityIndicator.stopAnimating()
+                self.activityIndicatorMain.stopAnimating()
                 self.checkEmptyLabel()
             }
         }else{
@@ -140,12 +151,12 @@ class MainVC: UIViewController, CNContactViewControllerDelegate, UITableViewDele
         }
     }
     
-    func createActivityIndicator(){
-        activityIndicator.center = view.center
-        activityIndicator.hidesWhenStopped = true
-        //activityIndicator.style = .large
-        view.addSubview(activityIndicator)
-    }
+//    func createActivityIndicator(){
+//        activityIndicator.center = view.center
+//        activityIndicator.hidesWhenStopped = true
+//        //activityIndicator.style = .large
+//        view.addSubview(activityIndicator)
+//    }
     
     func checkEmptyLabel(){
         mainTableView.backgroundView = contacts.isEmpty ? emptyListMainLabel : nil

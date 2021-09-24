@@ -36,10 +36,6 @@ class MainSettingsTableVC: UITableViewController {
         //self.settingsTabelView.contentInset = UIEdgeInsets(top: -18, left: 0, bottom: 0, right: 0);
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-    
     deinit {
         print("MainSettingsTableVC deinit")
     }

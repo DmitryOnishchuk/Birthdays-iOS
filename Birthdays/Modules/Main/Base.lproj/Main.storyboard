@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LTf-2Q-3PF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LTf-2Q-3PF">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -12,17 +15,17 @@
             <objects>
                 <viewController storyboardIdentifier="MainVC" automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="MainVC" customModule="Birthdays" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="77" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Hp2-U9-PHk">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ContactMainTableViewCell" rowHeight="84" id="6q4-2b-i3i" customClass="ContactMainTableViewCell" customModule="Birthdays" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="24.5" width="600" height="84"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="84"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6q4-2b-i3i" id="25p-AW-HYW">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="84"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="84"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="I1w-hV-iRZ">
@@ -38,7 +41,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="GaO-H9-Ae1">
-                                                    <rect key="frame" x="92" y="9" width="98.5" height="66"/>
+                                                    <rect key="frame" x="92" y="8" width="114.5" height="68"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JgA-AM-C4m">
                                                             <rect key="frame" x="0.0" y="0.0" width="52" height="24"/>
@@ -53,7 +56,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="daysTobirthday" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dlJ-um-sbb" customClass="PaddingLabel" customModule="Birthdays" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="49" width="98.5" height="17"/>
+                                                            <rect key="frame" x="0.0" y="49" width="114.5" height="19"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -61,7 +64,7 @@
                                                     </subviews>
                                                 </stackView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="e08-0e-Pxz">
-                                                    <rect key="frame" x="517.5" y="7" width="62.5" height="63"/>
+                                                    <rect key="frame" x="331.5" y="7" width="62.5" height="63"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ageString" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8zy-O4-Pja">
                                                             <rect key="frame" x="0.0" y="0.0" width="62.5" height="17"/>
@@ -103,6 +106,19 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="e74-Fr-TvF"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oAN-4M-03b" customClass="NVActivityIndicatorView" customModule="NVActivityIndicatorView">
+                                <rect key="frame" x="175" y="399" width="64" height="64"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="64" id="BuY-St-Uc8"/>
+                                    <constraint firstAttribute="height" constant="64" id="LO6-wh-azu"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                        <color key="value" name="AccentColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -111,6 +127,8 @@
                             <constraint firstItem="Hp2-U9-PHk" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Him-hl-vZ4"/>
                             <constraint firstItem="Hp2-U9-PHk" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="IGZ-J4-UFf"/>
                             <constraint firstItem="Hp2-U9-PHk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="TUD-5P-4II"/>
+                            <constraint firstItem="oAN-4M-03b" firstAttribute="centerY" secondItem="Hp2-U9-PHk" secondAttribute="centerY" id="qlk-6J-YTz"/>
+                            <constraint firstItem="oAN-4M-03b" firstAttribute="centerX" secondItem="Hp2-U9-PHk" secondAttribute="centerX" id="rwN-BQ-a42"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="3ZV-rD-9yj">
@@ -128,6 +146,7 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicatorMain" destination="oAN-4M-03b" id="WcI-gH-ght"/>
                         <outlet property="mainTableView" destination="Hp2-U9-PHk" id="FFl-K6-lJE"/>
                     </connections>
                 </viewController>
@@ -140,17 +159,17 @@
             <objects>
                 <viewController storyboardIdentifier="EditViewController" automaticallyAdjustsScrollViewInsets="NO" id="hca-o6-YaC" customClass="EditVC" customModule="Birthdays" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kfR-1z-G7r">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="77" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wb1-o8-r2A">
-                                <rect key="frame" x="0.0" y="44" width="600" height="556"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ContactEditTableViewCell" rowHeight="84" id="Gux-TP-sD5" customClass="ContactEditTableViewCell" customModule="Birthdays" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="24.5" width="600" height="84"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="84"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Gux-TP-sD5" id="OzE-aj-fBQ">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="84"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="84"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="haH-os-Aj8">
@@ -199,13 +218,28 @@
                                     <outlet property="delegate" destination="hca-o6-YaC" id="U2P-0I-XZm"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ccn-jF-4eD" customClass="NVActivityIndicatorView" customModule="NVActivityIndicatorView">
+                                <rect key="frame" x="175" y="443" width="64" height="64"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="64" id="eG8-go-Yh5"/>
+                                    <constraint firstAttribute="height" constant="64" id="y08-gc-Hhp"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                        <color key="value" name="AccentColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Rq4-Hx-omm"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Ccn-jF-4eD" firstAttribute="centerX" secondItem="wb1-o8-r2A" secondAttribute="centerX" id="Dp6-MI-Ljn"/>
                             <constraint firstItem="Rq4-Hx-omm" firstAttribute="bottom" secondItem="wb1-o8-r2A" secondAttribute="bottom" id="Krl-Wt-xn2"/>
                             <constraint firstItem="Rq4-Hx-omm" firstAttribute="trailing" secondItem="wb1-o8-r2A" secondAttribute="trailing" id="Le1-u2-Z3t"/>
                             <constraint firstItem="wb1-o8-r2A" firstAttribute="leading" secondItem="Rq4-Hx-omm" secondAttribute="leading" id="UA6-iZ-TFc"/>
+                            <constraint firstItem="Ccn-jF-4eD" firstAttribute="centerY" secondItem="wb1-o8-r2A" secondAttribute="centerY" id="ngg-X2-Td5"/>
                             <constraint firstItem="wb1-o8-r2A" firstAttribute="top" secondItem="Rq4-Hx-omm" secondAttribute="top" id="y6A-s9-7Im"/>
                         </constraints>
                     </view>
@@ -217,6 +251,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicatorEdit" destination="Ccn-jF-4eD" id="J5n-8p-KVx"/>
                         <outlet property="editTableView" destination="wb1-o8-r2A" id="KO2-gM-yk2"/>
                     </connections>
                 </viewController>
@@ -243,9 +278,17 @@
             <point key="canvasLocation" x="140.57971014492756" y="128.57142857142856"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="dlJ-um-sbb">
+            <size key="intrinsicContentSize" width="114.5" height="19"/>
+        </designable>
+    </designables>
     <resources>
         <image name="ic_add" width="22" height="22"/>
         <image name="settings" width="24" height="24"/>
+        <namedColor name="AccentColor">
+            <color red="1" green="0.63529411764705879" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

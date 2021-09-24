@@ -6,5 +6,6 @@ target 'Birthdays' do
   use_frameworks!
 
   # Pods for Birthdays
+  pod 'NVActivityIndicatorView'
 
 end

@@ -77,6 +77,8 @@
 		32B0F98F25DD11C5002C0461 /* NotificationSettingsTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B0F98E25DD11C5002C0461 /* NotificationSettingsTableVC.swift */; };
 		32B0F99325DD15FC002C0461 /* NotificationPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B0F99225DD15FC002C0461 /* NotificationPickerView.swift */; };
 		32B0F99625DD2985002C0461 /* TimeEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B0F99525DD2985002C0461 /* TimeEvent.swift */; };
+		32B3AB4B26FC841300D2485A /* BirthdaysIntents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 32B3AB4A26FC841300D2485A /* BirthdaysIntents.intentdefinition */; };
+		32B3AB4C26FC841300D2485A /* BirthdaysIntents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 32B3AB4A26FC841300D2485A /* BirthdaysIntents.intentdefinition */; };
 		32B5164A26C5578900CFE545 /* URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B5164926C5578900CFE545 /* URLs.swift */; };
 		32B5164C26C5581700CFE545 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B5164B26C5581700CFE545 /* Utils.swift */; };
 		32D30672259C7564000D7D9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D30671259C7564000D7D9A /* AppDelegate.swift */; };
@@ -185,6 +187,7 @@
 		32B0F98E25DD11C5002C0461 /* NotificationSettingsTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingsTableVC.swift; sourceTree = "<group>"; };
 		32B0F99225DD15FC002C0461 /* NotificationPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationPickerView.swift; sourceTree = "<group>"; };
 		32B0F99525DD2985002C0461 /* TimeEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeEvent.swift; sourceTree = "<group>"; };
+		32B3AB4A26FC841300D2485A /* BirthdaysIntents.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = BirthdaysIntents.intentdefinition; sourceTree = "<group>"; };
 		32B5164926C5578900CFE545 /* URLs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLs.swift; sourceTree = "<group>"; };
 		32B5164B26C5581700CFE545 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		32D3066E259C7564000D7D9A /* Birthdays.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Birthdays.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -457,6 +460,7 @@
 				327AA08626CF9FD800C224D2 /* BirthdayWidget.intentdefinition */,
 				327AA08726CF9FD900C224D2 /* Assets.xcassets */,
 				327AA08926CF9FD900C224D2 /* Info.plist */,
+				32B3AB4A26FC841300D2485A /* BirthdaysIntents.intentdefinition */,
 			);
 			path = BirthdayWidget;
 			sourceTree = "<group>";
@@ -593,6 +597,7 @@
 				32D3066B259C7564000D7D9A /* Frameworks */,
 				32D3066C259C7564000D7D9A /* Resources */,
 				327AA02326CF97BC00C224D2 /* Embed App Extensions */,
+				783973F26BC2B9B514DE1484 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -673,6 +678,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		783973F26BC2B9B514DE1484 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Birthdays/Pods-Birthdays-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Birthdays/Pods-Birthdays-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Birthdays/Pods-Birthdays-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		E6FE0D8A2B57AE71D9246A01 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -705,6 +727,7 @@
 				32062E6526D793070077FB53 /* Contact.swift in Sources */,
 				327AA08526CF9FD800C224D2 /* BirthdayWidget.swift in Sources */,
 				327AA08A26CF9FD900C224D2 /* BirthdayWidget.intentdefinition in Sources */,
+				32B3AB4C26FC841300D2485A /* BirthdaysIntents.intentdefinition in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -723,6 +746,7 @@
 				3279776D26CE3558003E13E0 /* VisualEffectView.swift in Sources */,
 				32793477268DE6C6001C8EF1 /* AgeTypeSettingsModuleBuilder.swift in Sources */,
 				323367B12628330A00F073F2 /* Date.swift in Sources */,
+				32B3AB4B26FC841300D2485A /* BirthdaysIntents.intentdefinition in Sources */,
 				323BEDC325DAB2520054E7D4 /* NotificationsFunctions.swift in Sources */,
 				32B0F98F25DD11C5002C0461 /* NotificationSettingsTableVC.swift in Sources */,
 				32396DC525DD4061005176A8 /* ToolBarTitleItem.swift in Sources */,

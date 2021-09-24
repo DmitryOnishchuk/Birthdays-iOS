@@ -1,9 +1,11 @@
 import UIKit
 import ContactsUI
+import NVActivityIndicatorView
 
 class EditVC: UIViewController, UITableViewDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var editTableView: UITableView!
+    @IBOutlet weak var activityIndicatorEdit: NVActivityIndicatorView!
     private let cellID = "ContactEditTableViewCell"
     private var activityIndicator = UIActivityIndicatorView()
     private var refreshControl = UIRefreshControl()
@@ -57,6 +59,7 @@ class EditVC: UIViewController, UITableViewDelegate, UITextFieldDelegate {
         emptyListEditLabel.font = .systemFont(ofSize: 16)
         emptyListEditLabel.textColor = UIColor(red: 50/255, green: 54/255, blue: 67/255, alpha: 1)
         
+        activityIndicatorEdit.type = .circleStrokeSpin
         
         if #available(iOS 13.0, *) {
             NotificationCenter.default.addObserver(self, selector: #selector(resumeFromBackgroundEdit), name: UIScene.willEnterForegroundNotification, object: nil)
@@ -90,6 +93,11 @@ class EditVC: UIViewController, UITableViewDelegate, UITextFieldDelegate {
     
     func start(accessGranted:Bool){
         if accessGranted {
+            
+            DispatchQueue.main.sync {
+                self.activityIndicatorEdit.startAnimating()
+            }
+            
             updateModelContactEdit()
             
             DispatchQueue.main.async {
@@ -99,6 +107,7 @@ class EditVC: UIViewController, UITableViewDelegate, UITextFieldDelegate {
                 
                 self.editTableView.reloadData()
                 self.refreshControl.endRefreshing()
+                self.activityIndicatorEdit.stopAnimating()
                 self.activityIndicator.stopAnimating()
                 self.checkEmptyLabel()
             }
