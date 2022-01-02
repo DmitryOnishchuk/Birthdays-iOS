@@ -3,6 +3,8 @@ import Foundation
 
 class DateFunctions {
     
+    @Inject static private var userDefaultsManager: UserDefaultsManager
+    
     static func dateToString(date:Date)->String {
         let formatter = DateFormatter()
         formatter.dateFormat = "dd.MM.yyyy"
@@ -169,7 +171,7 @@ class DateFunctions {
     
     static func getMonthName(_ month: Int)-> String{
         let formatter = DateFormatter()
-        formatter.locale = Locale(identifier: UserDefaultsManager.shared.currentLanguage)
+        formatter.locale = Locale(identifier: userDefaultsManager.currentLanguage)
         return formatter.monthSymbols[month - 1]
     }
     
@@ -181,7 +183,7 @@ class DateFunctions {
         
         
         
-        let currentLanguage = UserDefaultsManager.shared.currentLanguage
+        let currentLanguage = userDefaultsManager.currentLanguage
         var res = "";
         if currentLanguage == "ru" ||
             currentLanguage == "uk" ||

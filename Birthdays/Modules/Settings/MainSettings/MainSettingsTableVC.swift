@@ -1,34 +1,36 @@
 import UIKit
 
-class MainSettingsTableVC: UITableViewController {
+final class MainSettingsTableVC: BaseViewController {
     
-    @IBOutlet var settingsTabelView: UITableView!
-    @IBOutlet weak var languageLabel: UILabel!
-    @IBOutlet weak var themeLabel: UILabel!
-    @IBOutlet weak var ageLabel: UILabel!
-    @IBOutlet weak var notificationEnableLabel: UILabel!
-    @IBOutlet weak var remindersLabel: UILabel!
-    @IBOutlet weak var helpTranslateLabel: UILabel!
-    @IBOutlet weak var feedbackLabel: UILabel!
-    @IBOutlet weak var shareLabel: UILabel!
-    @IBOutlet weak var aboutLabel: UILabel!
-    @IBOutlet weak var versionLabel: UILabel!
+    // MARK: - Outlets
+    @IBOutlet private weak var settingsTabelView: UITableView!
+    @IBOutlet private weak var languageLabel: UILabel!
+    @IBOutlet private weak var themeLabel: UILabel!
+    @IBOutlet private weak var ageLabel: UILabel!
+    @IBOutlet private weak var notificationEnableLabel: UILabel!
+    @IBOutlet private weak var remindersLabel: UILabel!
+    @IBOutlet private weak var helpTranslateLabel: UILabel!
+    @IBOutlet private weak var feedbackLabel: UILabel!
+    @IBOutlet private weak var shareLabel: UILabel!
+    @IBOutlet private weak var aboutLabel: UILabel!
+    @IBOutlet private weak var versionLabel: UILabel!
     
-    @IBOutlet weak var currentLanguageLabel: UILabel!
-    @IBOutlet weak var currentThemeLabel: UILabel!
-    @IBOutlet weak var currentAgeLabel: UILabel!
-    @IBOutlet weak var notificationEnableSwitch: UISwitch!
+    @IBOutlet private weak var currentLanguageLabel: UILabel!
+    @IBOutlet private weak var currentThemeLabel: UILabel!
+    @IBOutlet private weak var currentAgeLabel: UILabel!
+    @IBOutlet private weak var notificationEnableSwitch: UISwitch!
     
-    @IBOutlet weak var remindersTableViewCell: UITableViewCell!
-    private let userDefaultsManager = UserDefaultsManager.shared
+    @IBOutlet private weak var remindersTableViewCell: UITableViewCell!
     
-    private let infoView = ErrorView()
+    // MARK: - Variables
+    @Inject private var userDefaultsManager: UserDefaultsManager
     
     //  @IBOutlet weak var currentNotificationTimeLabel: UILabel!
     
     // private var datePickerNotificationTime: UIDatePicker?
     // private var dummyTextField: UITextField?
     
+    // MARK: - View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         onLoad()
@@ -61,18 +63,12 @@ class MainSettingsTableVC: UITableViewController {
         setStatusNotificationEnableSwitch()
         //setCurrentNotificationTimeLabel()
         setVersionInfo()
-        
-        infoView.alpha = 0
-        self.view.addSubview(infoView)
-        infoView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([infoView.widthAnchor.constraint(equalToConstant: 310),
-                                     infoView.heightAnchor.constraint(equalToConstant: 41),
-                                     infoView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)])
-        
-        NSLayoutConstraint.activate([infoView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -80)])
-        
     }
-    
+}
+
+// MARK: - Methods
+extension MainSettingsTableVC {
+
     func setVersionInfo(){
         versionLabel.text = "SETTINGS_ABOUT_VERSION".localized + " " + Utils.getAppVersion()
     }
@@ -133,12 +129,14 @@ class MainSettingsTableVC: UITableViewController {
     }
     
     func openEmail(){
-        infoView.show(with:  URLs.feedbackEmail + " " + "SETTINGS_ABOUT_COPIED".localized)
+        showToast(msg: URLs.feedbackEmail + " " + "SETTINGS_ABOUT_COPIED".localized)
         UIPasteboard.general.string = URLs.feedbackEmail
         Utils.openEmail(email: URLs.feedbackEmail)
     }
     
     func share(){
+        showLoadingIndicator()
+        
         let textToShare = [ Utils.getAppName() + " " + URLs.appStoreURL]
         
         let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
@@ -149,7 +147,7 @@ class MainSettingsTableVC: UITableViewController {
             popoverController.sourceView = self.view
             popoverController.permittedArrowDirections = UIPopoverArrowDirection(rawValue: 0)
         }
-        
+        hideLoadingIndicator()
         self.present(activityViewController, animated: true, completion: nil)
     }
     

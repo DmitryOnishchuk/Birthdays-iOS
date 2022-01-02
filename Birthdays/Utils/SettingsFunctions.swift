@@ -11,16 +11,21 @@ class SettingsFunctions {
     
     class func changeLanguageOfApp(language:String){
         
-        if UserDefaultsManager.shared.currentLanguage != language {
-            UserDefaultsManager.shared.currentLanguage = language
+        @Inject var userDefaultsManager: UserDefaultsManager
+        
+        if userDefaultsManager.currentLanguage != language {
+            userDefaultsManager.currentLanguage = language
             AppDelegate.shared.loadView()
         }
     }
 
     @available(iOS 13.0, *)
     class func changeThemeByUserDefaults(){
+        
+        @Inject var userDefaultsManager: UserDefaultsManager
+        
         var theme:UIUserInterfaceStyle
-        switch UserDefaultsManager.shared.currentThemeID {
+        switch userDefaultsManager.currentThemeID {
         case 0:
             theme = .unspecified
         case 1:
@@ -38,6 +43,8 @@ class SettingsFunctions {
     
     @available(iOS 12.0, *)
     class func setThemeByUserDefaults(_ theme: UIUserInterfaceStyle){
+        @Inject var userDefaultsManager: UserDefaultsManager
+        
         var save:Int = 0
         switch theme {
         case .unspecified:
@@ -49,22 +56,22 @@ class SettingsFunctions {
         default:
             save = 0
         }
-        
-        UserDefaultsManager.shared.currentThemeID = save
+    
+        userDefaultsManager.currentThemeID = save
     }
     
     class func getNotificationTimeEventByUserDefaults(id: Int) -> TimeEvent {
         
         var value = "0,10:00"
-        let userDefaults = UserDefaultsManager.shared
+        @Inject var userDefaultsManager: UserDefaultsManager
         
         switch id {
         case 0:
-            value = userDefaults.notificationTimeEvent0
+            value = userDefaultsManager.notificationTimeEvent0
         case 1:
-            value = userDefaults.notificationTimeEvent1
+            value = userDefaultsManager.notificationTimeEvent1
         case 2:
-            value = userDefaults.notificationTimeEvent2
+            value = userDefaultsManager.notificationTimeEvent2
         default:
             break
         }
@@ -80,16 +87,16 @@ class SettingsFunctions {
     
     class func setNotificationTimeEventByUserDefaults(id: Int, timeEvent: TimeEvent){
         
-        let userDefaults = UserDefaultsManager.shared
+        @Inject var userDefaultsManager: UserDefaultsManager
         let save = String(timeEvent.day) + "," + timeEvent.time
         
         switch id {
         case 0:
-            userDefaults.notificationTimeEvent0 = save
+            userDefaultsManager.notificationTimeEvent0 = save
         case 1:
-            userDefaults.notificationTimeEvent1 = save
+            userDefaultsManager.notificationTimeEvent1 = save
         case 2:
-            userDefaults.notificationTimeEvent2 = save
+            userDefaultsManager.notificationTimeEvent2 = save
         default:
             break
         }

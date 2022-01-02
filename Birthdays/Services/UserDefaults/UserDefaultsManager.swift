@@ -8,50 +8,40 @@
 
 import Foundation
 
-class UserDefaultsManager {
+final class UserDefaultsManager {
     
-    static var shared = UserDefaultsManager()
+    @UserDefault("IS_FIRST_START", defaultValue: true) var isFirstStart: Bool!
     
-    private init() {}
+    @UserDefault("CURRENT_LANGUAGE", defaultValue: getDefaultLanguage()) var currentLanguage: String!
     
-    @UserDefault(.isFirstStart, defaultValue: true)
-    var isFirstStart: Bool
+    @UserDefault("AGE_TYPE_KEY", defaultValue: AgeSettingsEnum.upcoming.rawValue) var ageType: String!
     
-    @UserDefault(.currentLanguage, defaultValue: getDefaultLanguage())
-    var currentLanguage: String
-    
-    @UserDefault(.ageType, defaultValue: AgeSettingsEnum.upcoming.rawValue)
-    var ageType: String
-    
-    @UserDefault(.currentThemeID, defaultValue: 0)
-    var currentThemeID: Int
+    @UserDefault("THEME_KEY", defaultValue: 0) var currentThemeID: Int!
 
-    @UserDefault(.notificationEnabled, defaultValue: true)
-    var notificationEnabled: Bool
+    @UserDefault("NOTIFICATION_ENABLED", defaultValue: true) var notificationEnabled: Bool!
     
-    @UserDefault(.notificationTimeEvent0, defaultValue: "0,10:00")
-    var notificationTimeEvent0: String
+    @UserDefault("NOTIFICATION_TIME_EVENT_KEY_0", defaultValue: "0,10:00") var notificationTimeEvent0: String!
     
-    @UserDefault(.notificationTimeEvent1, defaultValue: "3,10:00")
-    var notificationTimeEvent1: String
+    @UserDefault("NOTIFICATION_TIME_EVENT_KEY_1", defaultValue: "3,10:00") var notificationTimeEvent1: String!
     
-    @UserDefault(.notificationTimeEvent2, defaultValue: "-1,10:00")
-    var notificationTimeEvent2: String
+    @UserDefault("NOTIFICATION_TIME_EVENT_KEY_2", defaultValue: "-1,10:00") var notificationTimeEvent2: String!
     
-    @UserDefault(.lastNotificationPoolUpdateDateTime, defaultValue: Date())
-    var lastNotificationPoolUpdateDateTime: Date
+    @UserDefault("NOTIFICATION_POOL_UPDATE_TIME", defaultValue: Date()) var lastNotificationPoolUpdateDateTime: Date!
+    
 }
 
-private func getDefaultLanguage() -> String{
+extension UserDefaultsManager {
     
-    var resDefault = "en"
-    
-    let currentLanguageOfSystem = Locale.current.languageCode
-    
-    if currentLanguageOfSystem == "en" ||
-        currentLanguageOfSystem == "ru" {
-        resDefault = currentLanguageOfSystem ?? resDefault
+    static private func getDefaultLanguage() -> String{
+        
+        var resDefault = "en"
+        let currentLanguageOfSystem = Locale.current.languageCode
+        
+        if currentLanguageOfSystem == "en" || currentLanguageOfSystem == "ru" {
+            resDefault = currentLanguageOfSystem ?? resDefault
+        }
+        return resDefault
+        
     }
-    return resDefault
     
 }

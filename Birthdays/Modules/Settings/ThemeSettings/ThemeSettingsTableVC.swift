@@ -3,6 +3,8 @@ import UIKit
 @available(iOS 13.0, *)
 class ThemeSettingsTableVC: UITableViewController {
     
+    @Inject private var userDefaultsManager: UserDefaultsManager
+    
     @IBOutlet var themeTableView: UITableView!
     @IBOutlet weak var systemTableViewCell: UITableViewCell!
     @IBOutlet weak var lightTableViewCell: UITableViewCell!
@@ -57,7 +59,7 @@ class ThemeSettingsTableVC: UITableViewController {
         lightTableViewCell.accessoryType = .none
         darkTableViewCell.accessoryType = .none
         
-        let ud = UserDefaultsManager.shared.currentThemeID
+        let ud = userDefaultsManager.currentThemeID
         switch ud {
         case 0:
             systemTableViewCell.accessoryType = .checkmark

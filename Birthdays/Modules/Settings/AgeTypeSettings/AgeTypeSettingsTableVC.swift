@@ -9,12 +9,17 @@ import UIKit
 
 class AgeTypeSettingsTableVC: UITableViewController {
 
-    @IBOutlet var ageTabelView: UITableView!
-    @IBOutlet weak var upcomingLabel: UILabel!
-    @IBOutlet weak var currentLabel: UILabel!
-    @IBOutlet weak var upcomingTableViewCell: UITableViewCell!
-    @IBOutlet weak var currentTableViewCell: UITableViewCell!
+    // MARK: - Outlets
+    @IBOutlet private weak var ageTabelView: UITableView!
+    @IBOutlet private weak var upcomingLabel: UILabel!
+    @IBOutlet private weak var currentLabel: UILabel!
+    @IBOutlet private weak var upcomingTableViewCell: UITableViewCell!
+    @IBOutlet private weak var currentTableViewCell: UITableViewCell!
+
+    // MARK: - Variables
+    @Inject private var userDefaultsManager: UserDefaultsManager
     
+    // MARK: - View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = NSLocalizedString("SETTINGS_CONTACT_AGE_TYPE", comment: "")
@@ -28,14 +33,14 @@ class AgeTypeSettingsTableVC: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath {
         case [0,0]:
-            UserDefaultsManager.shared.ageType = AgeSettingsEnum.upcoming.rawValue
+            userDefaultsManager.ageType = AgeSettingsEnum.upcoming.rawValue
             setAgeCheckmark()
             if let navController = self.navigationController {
                 navController.popViewController(animated: true)
             }
             break
         case [0,1]:
-            UserDefaultsManager.shared.ageType = AgeSettingsEnum.current.rawValue
+            userDefaultsManager.ageType = AgeSettingsEnum.current.rawValue
             setAgeCheckmark()
             if let navController = self.navigationController {
                 navController.popViewController(animated: true)
@@ -52,7 +57,7 @@ class AgeTypeSettingsTableVC: UITableViewController {
         currentTableViewCell.accessoryType = .none
         
        // let ud = SettingsFunctions.getAgeTypeByUserDefaults()
-        let ud = AgeSettingsEnum(rawValue: UserDefaultsManager.shared.ageType) ?? .upcoming
+        let ud = AgeSettingsEnum(rawValue: userDefaultsManager.ageType) ?? .upcoming
         switch ud {
         case AgeSettingsEnum.upcoming:
             upcomingTableViewCell.accessoryType = .checkmark

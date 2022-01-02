@@ -7,5 +7,7 @@ target 'Birthdays' do
 
   # Pods for Birthdays
   pod 'NVActivityIndicatorView'
+  pod 'Toast-Swift', '~> 5.0.1'
+  pod 'MBProgressHUD', '~> 1.2.0'
 
 end

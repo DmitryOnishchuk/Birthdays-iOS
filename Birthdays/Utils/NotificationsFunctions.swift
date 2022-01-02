@@ -8,11 +8,11 @@ class NotificationsFunctions {
         
         print("updateNotificationPool")
         
-        let userDefaults = UserDefaultsManager.shared
+        @Inject var userDefaultsManager: UserDefaultsManager
         
         removeAllNotifications()
         
-        if userDefaults.notificationEnabled {
+        if userDefaultsManager.notificationEnabled {
             let contacts = ContactFunctions.getListOfContactsWithBirthday()
             let events = SettingsFunctions.getAllTimeEvents()
             
@@ -54,7 +54,7 @@ class NotificationsFunctions {
                         let text = "COMMON_BIRTHDAY".localized + " " + DateFunctions.formatDaysToBirthdayNotification(timeEvent: timeEvent) + ageString
                         
                         createNotification(notificationId: notificationId, title: title, body: text, time: date)
-                        userDefaults.lastNotificationPoolUpdateDateTime = Date()
+                        userDefaultsManager.lastNotificationPoolUpdateDateTime = Date()
                     }
                 }
             }

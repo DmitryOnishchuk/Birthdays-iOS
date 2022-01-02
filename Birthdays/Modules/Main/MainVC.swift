@@ -2,10 +2,14 @@ import UIKit
 import ContactsUI
 import NVActivityIndicatorView
 
-class MainVC: UIViewController, CNContactViewControllerDelegate, UITableViewDelegate{
+final class MainVC: UIViewController, CNContactViewControllerDelegate, UITableViewDelegate{
     
-    @IBOutlet weak var mainTableView: UITableView!
-    @IBOutlet weak var activityIndicatorMain: NVActivityIndicatorView!
+    // MARK: - Outlets
+    @IBOutlet private weak var mainTableView: UITableView!
+    @IBOutlet private weak var activityIndicatorMain: NVActivityIndicatorView!
+    
+    // MARK: - Variables
+    @Inject private var userDefaultsManager: UserDefaultsManager
     
     private let cellID = "ContactMainTableViewCell"
     //private var activityIndicator = UIActivityIndicatorView()
@@ -15,9 +19,8 @@ class MainVC: UIViewController, CNContactViewControllerDelegate, UITableViewDele
     
     private var contacts = [Contact]()
     private var contactsFiltered = [Contact]()
-
-    private let userDefaultsManager = UserDefaultsManager.shared
     
+    // MARK: - View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         onLoad()
@@ -50,7 +53,7 @@ class MainVC: UIViewController, CNContactViewControllerDelegate, UITableViewDele
         search.obscuresBackgroundDuringPresentation = false
         navigationItem.searchController = search
         refreshControl.addTarget(self, action: #selector(updateBirthdays), for: .valueChanged)
-
+        
         emptyListMainLabel = UILabel(frame: CGRect(x: 0,
                                                    y: -100,
                                                    width: self.mainTableView.bounds.size.width,
@@ -76,6 +79,10 @@ class MainVC: UIViewController, CNContactViewControllerDelegate, UITableViewDele
         NotificationCenter.default.removeObserver(self)
     }
     
+}
+
+// MARK: - Actions
+extension MainVC {
     @objc func resumeFromBackgroundMain(_ notification: Notification) {
         self.updateBirthdays()
     }
@@ -93,6 +100,10 @@ class MainVC: UIViewController, CNContactViewControllerDelegate, UITableViewDele
             ContactFunctions.requestAccess(completionHandler: self.start(accessGranted:))
         }
     }
+}
+
+// MARK: - Methods
+extension MainVC {
     
     func start(accessGranted:Bool){
         if accessGranted {
@@ -145,18 +156,18 @@ class MainVC: UIViewController, CNContactViewControllerDelegate, UITableViewDele
             let last = userDefaultsManager.lastNotificationPoolUpdateDateTime
             
             // Обновляем пул уведомления каждый год
-            if DateFunctions.getDifferenceDays(firstDate: last, secondDate: Date()) >= 364 {
+            if DateFunctions.getDifferenceDays(firstDate: last!, secondDate: Date()) >= 364 {
                 NotificationsFunctions.updateNotificationPool()
             }
         }
     }
     
-//    func createActivityIndicator(){
-//        activityIndicator.center = view.center
-//        activityIndicator.hidesWhenStopped = true
-//        //activityIndicator.style = .large
-//        view.addSubview(activityIndicator)
-//    }
+    //    func createActivityIndicator(){
+    //        activityIndicator.center = view.center
+    //        activityIndicator.hidesWhenStopped = true
+    //        //activityIndicator.style = .large
+    //        view.addSubview(activityIndicator)
+    //    }
     
     func checkEmptyLabel(){
         mainTableView.backgroundView = contacts.isEmpty ? emptyListMainLabel : nil
@@ -167,7 +178,7 @@ class MainVC: UIViewController, CNContactViewControllerDelegate, UITableViewDele
         
         let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
         
-        //avoiding to crash on iPad
+        // avoiding to crash on iPad
         if let popoverController = activityViewController.popoverPresentationController {
             popoverController.sourceRect = CGRect(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height / 2, width: 0, height: 0)
             popoverController.sourceView = self.view
@@ -176,9 +187,7 @@ class MainVC: UIViewController, CNContactViewControllerDelegate, UITableViewDele
         
         self.present(activityViewController, animated: true, completion: nil)
     }
-    
 }
-
 
 extension MainVC: UITabBarDelegate, UITableViewDataSource{
     
@@ -225,7 +234,7 @@ extension MainVC: UITabBarDelegate, UITableViewDataSource{
         
         if let futureAge = contact.futureAge{
             
-            let cs = AgeSettingsEnum(rawValue: UserDefaultsManager.shared.ageType) ?? .upcoming
+            let cs = AgeSettingsEnum(rawValue: userDefaultsManager.ageType) ?? .upcoming
             let currengAge = (cs == AgeSettingsEnum.current)
             if currengAge {
                 cell.ageStringLabel.text = "MAIN_AGE".localized
@@ -283,7 +292,8 @@ extension MainVC: UITabBarDelegate, UITableViewDataSource{
     }
     
 }
-extension MainVC:UISearchResultsUpdating{
+
+extension MainVC: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         filterSearchContacts(searchController.searchBar.text!)
     }

@@ -3,10 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A16E7422781DB0C0073DE72 /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A16E7412781DB0C0073DE72 /* UserDefault.swift */; };
+		0A16E7442781DCC90073DE72 /* DependencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A16E7432781DCC90073DE72 /* DependencyManager.swift */; };
+		0A16E7472781E07D0073DE72 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A16E7462781E07D0073DE72 /* BaseViewController.swift */; };
+		0A16E7492781E0B40073DE72 /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A16E7482781E0B40073DE72 /* Loader.swift */; };
 		32062E6526D793070077FB53 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D30691259C7A9C000D7D9A /* Contact.swift */; };
 		3210552F26CE6E9E00392368 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3210552E26CE6E9E00392368 /* ErrorView.swift */; };
 		32306FC126C67640004C4773 /* UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32306FC026C6763F004C4773 /* UITableViewCell.swift */; };
@@ -69,9 +73,6 @@
 		328739A926CE9273007FE1E7 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 328739A826CE9273007FE1E7 /* PaddingLabel.swift */; };
 		3288F1102695DF8300BB176C /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3288F10F2695DF8300BB176C /* Colors.xcassets */; };
 		3288F1122695E20200BB176C /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3288F1112695E20200BB176C /* Colors.swift */; };
-		328C8352267640AD004F7E9C /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 328C8351267640AD004F7E9C /* Key.swift */; };
-		328C8354267640D8004F7E9C /* PropertyListValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 328C8353267640D8004F7E9C /* PropertyListValue.swift */; };
-		328C8356267640F7004F7E9C /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 328C8355267640F7004F7E9C /* UserDefault.swift */; };
 		328C835826764113004F7E9C /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 328C835726764113004F7E9C /* UserDefaultsManager.swift */; };
 		32A9F47926C3BD4500EC8E8A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 32A9F47B26C3BD4500EC8E8A /* InfoPlist.strings */; };
 		32B0F98F25DD11C5002C0461 /* NotificationSettingsTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B0F98E25DD11C5002C0461 /* NotificationSettingsTableVC.swift */; };
@@ -115,6 +116,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0A16E7412781DB0C0073DE72 /* UserDefault.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefault.swift; sourceTree = "<group>"; };
+		0A16E7432781DCC90073DE72 /* DependencyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DependencyManager.swift; sourceTree = "<group>"; };
+		0A16E7462781E07D0073DE72 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		0A16E7482781E0B40073DE72 /* Loader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 		2F42EBF9ACDDBE9AC659BEB1 /* Pods-Birthdays.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Birthdays.debug.xcconfig"; path = "Target Support Files/Pods-Birthdays/Pods-Birthdays.debug.xcconfig"; sourceTree = "<group>"; };
 		3210552E26CE6E9E00392368 /* ErrorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		32306FC026C6763F004C4773 /* UITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCell.swift; sourceTree = "<group>"; };
@@ -178,9 +183,6 @@
 		328739A826CE9273007FE1E7 /* PaddingLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		3288F10F2695DF8300BB176C /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		3288F1112695E20200BB176C /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
-		328C8351267640AD004F7E9C /* Key.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
-		328C8353267640D8004F7E9C /* PropertyListValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyListValue.swift; sourceTree = "<group>"; };
-		328C8355267640F7004F7E9C /* UserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefault.swift; sourceTree = "<group>"; };
 		328C835726764113004F7E9C /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		32A9F47A26C3BD4500EC8E8A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		32A9F47C26C3BD4A00EC8E8A /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -223,6 +225,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A16E7452781E0750073DE72 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				0A16E7462781E07D0073DE72 /* BaseViewController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
 		32062E6426D792FD0077FB53 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -269,9 +279,9 @@
 			isa = PBXGroup;
 			children = (
 				323367A6262831A000F073F2 /* Cells */,
-				327A40832695D83A008334FC /* MainModuleBuilder.swift */,
-				32D3068A259C794F000D7D9A /* MainVC.swift */,
 				32D30677259C7564000D7D9A /* Main.storyboard */,
+				32D3068A259C794F000D7D9A /* MainVC.swift */,
+				327A40832695D83A008334FC /* MainModuleBuilder.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -319,6 +329,7 @@
 		323367B3262833C900F073F2 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				0A16E7452781E0750073DE72 /* Base */,
 				323367A32628316800F073F2 /* Main */,
 				323367A42628317B00F073F2 /* Edit */,
 				3255B2EB25C9469D00555237 /* Settings */,
@@ -330,6 +341,7 @@
 		3242D9A225A09C23003BC5EE /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				0A16E7482781E0B40073DE72 /* Loader.swift */,
 				3239CD5625B8194D00B022F8 /* SettingsFunctions.swift */,
 				323FEC1F25A5EDD400397E29 /* GlobalConstants.swift */,
 				32413C8A259DC311002B93C5 /* DateFunctions.swift */,
@@ -499,6 +511,7 @@
 		328C834D26764014004F7E9C /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				0A16E7432781DCC90073DE72 /* DependencyManager.swift */,
 				328C834E26764056004F7E9C /* UserDefaults */,
 			);
 			path = Services;
@@ -507,10 +520,8 @@
 		328C834E26764056004F7E9C /* UserDefaults */ = {
 			isa = PBXGroup;
 			children = (
+				0A16E7412781DB0C0073DE72 /* UserDefault.swift */,
 				328C835726764113004F7E9C /* UserDefaultsManager.swift */,
-				328C8355267640F7004F7E9C /* UserDefault.swift */,
-				328C8351267640AD004F7E9C /* Key.swift */,
-				328C8353267640D8004F7E9C /* PropertyListValue.swift */,
 			);
 			path = UserDefaults;
 			sourceTree = "<group>";
@@ -740,6 +751,7 @@
 				323C1A4825C5751A009BD9DE /* BirthdayPickerView.swift in Sources */,
 				323367AA2628329A00F073F2 /* UIViewController.swift in Sources */,
 				32D30672259C7564000D7D9A /* AppDelegate.swift in Sources */,
+				0A16E7472781E07D0073DE72 /* BaseViewController.swift in Sources */,
 				3279775826CE3119003E13E0 /* AboutRouter.swift in Sources */,
 				327B41A42675EB7400A42967 /* MainSettingsModuleBuilder.swift in Sources */,
 				32B5164C26C5581700CFE545 /* Utils.swift in Sources */,
@@ -752,22 +764,22 @@
 				32396DC525DD4061005176A8 /* ToolBarTitleItem.swift in Sources */,
 				3279776926CE326F003E13E0 /* DismissAnimationController.swift in Sources */,
 				32B0F99625DD2985002C0461 /* TimeEvent.swift in Sources */,
-				328C8352267640AD004F7E9C /* Key.swift in Sources */,
 				3279776B26CE3505003E13E0 /* UIViewEffectViewiOS14.swift in Sources */,
 				3239CD5725B8194D00B022F8 /* SettingsFunctions.swift in Sources */,
 				3279777826CE3B3A003E13E0 /* UIButton+Localized.swift in Sources */,
 				3279777626CE3B3A003E13E0 /* String+Localized.swift in Sources */,
+				0A16E7492781E0B40073DE72 /* Loader.swift in Sources */,
 				326F961225B9839D00A015F2 /* ContactEditTableViewCell.swift in Sources */,
 				3279776F26CE35A4003E13E0 /* UIView+AutoLayout.swift in Sources */,
 				32D30692259C7A9C000D7D9A /* Contact.swift in Sources */,
 				3210552F26CE6E9E00392368 /* ErrorView.swift in Sources */,
-				328C8356267640F7004F7E9C /* UserDefault.swift in Sources */,
 				327A40842695D83A008334FC /* MainModuleBuilder.swift in Sources */,
 				32B5164A26C5578900CFE545 /* URLs.swift in Sources */,
 				3279776826CE326F003E13E0 /* PresentAnimationController.swift in Sources */,
 				327B9E8D259CB68C00E95196 /* ContactMainTableViewCell.swift in Sources */,
+				0A16E7442781DCC90073DE72 /* DependencyManager.swift in Sources */,
 				3279775726CE3119003E13E0 /* AboutView.swift in Sources */,
-				328C8354267640D8004F7E9C /* PropertyListValue.swift in Sources */,
+				0A16E7422781DB0C0073DE72 /* UserDefault.swift in Sources */,
 				323BB08D25A9B78A00E43588 /* AgeTypeSettingsTableVC.swift in Sources */,
 				3279347C268DEB4D001C8EF1 /* LanguageSettingsModuleBuilder.swift in Sources */,
 				323FEC2025A5EDD400397E29 /* GlobalConstants.swift in Sources */,
@@ -853,7 +865,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 69RSWLFW38;
+				DEVELOPMENT_TEAM = 62LVWRRHM6;
 				INFOPLIST_FILE = BirthdayWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -876,7 +888,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 69RSWLFW38;
+				DEVELOPMENT_TEAM = 62LVWRRHM6;
 				INFOPLIST_FILE = BirthdayWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1020,7 +1032,7 @@
 				CODE_SIGN_ENTITLEMENTS = Birthdays/Birthdays.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 69RSWLFW38;
+				DEVELOPMENT_TEAM = 62LVWRRHM6;
 				INFOPLIST_FILE = Birthdays/Application/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1044,7 +1056,7 @@
 				CODE_SIGN_ENTITLEMENTS = Birthdays/Birthdays.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 69RSWLFW38;
+				DEVELOPMENT_TEAM = 62LVWRRHM6;
 				INFOPLIST_FILE = Birthdays/Application/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
