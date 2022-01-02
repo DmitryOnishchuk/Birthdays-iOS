@@ -1,5 +1,6 @@
 import UIKit
 import UserNotifications
+import Toast_Swift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -13,6 +14,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         DependencyManager {
             Module { self.userDefaultsManager }
         }.build()
+        
+        configureToastUI()
         
         loadView()
         
@@ -49,6 +52,13 @@ extension AppDelegate {
         return window!.rootViewController as! MainVC
     }
     
+    private func configureToastUI() {
+        var style = ToastManager.shared.style
+        style.titleAlignment = .center
+        style.messageAlignment = .center
+        ToastManager.shared.style = style
+    }
+    
     func loadView() {
         Bundle.setLanguage(userDefaultsManager.currentLanguage)
         window = UIWindow(frame: UIScreen.main.bounds)
@@ -58,6 +68,7 @@ extension AppDelegate {
     }
 }
 
+// выводим print только для разработчиков
 func print(_ items: Any...) {
     #if DEBUG
     Swift.print(items[0])
