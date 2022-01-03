@@ -1,7 +1,7 @@
 import UIKit
 
 @available(iOS 13.0, *)
-class ThemeSettingsTableVC: UITableViewController {
+final class ThemeSettingsTableVC: UITableViewController {
     
     @Inject private var userDefaultsManager: UserDefaultsManager
     

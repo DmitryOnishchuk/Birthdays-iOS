@@ -1,6 +1,6 @@
 import UIKit
 
-class NotificationSettingsTableVC: UITableViewController {
+final class NotificationSettingsTableVC: UITableViewController {
     
     
     var notificationPickerView: NotificationPickerView!

@@ -2,7 +2,7 @@ import UIKit
 import ContactsUI
 import NVActivityIndicatorView
 
-class EditVC: UIViewController, UITableViewDelegate, UITextFieldDelegate {
+final class EditVC: UIViewController, UITableViewDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var editTableView: UITableView!
     @IBOutlet weak var activityIndicatorEdit: NVActivityIndicatorView!

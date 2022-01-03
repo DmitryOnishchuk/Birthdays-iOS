@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AgeTypeSettingsTableVC: UITableViewController {
+final class AgeTypeSettingsTableVC: UITableViewController {
 
     // MARK: - Outlets
     @IBOutlet private weak var ageTabelView: UITableView!

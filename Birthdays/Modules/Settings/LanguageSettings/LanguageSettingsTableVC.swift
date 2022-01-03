@@ -1,6 +1,6 @@
 import UIKit
 
-class LanguageSettingsTableVC: UITableViewController {
+final class LanguageSettingsTableVC: UITableViewController {
     
     @Inject private var userDefaultsManager: UserDefaultsManager
     
