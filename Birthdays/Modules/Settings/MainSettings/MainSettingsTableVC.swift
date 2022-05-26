@@ -137,7 +137,7 @@ extension MainSettingsTableVC {
     func share(){
         showLoadingIndicator()
         
-        let textToShare = [ Utils.getAppName() + " " + URLs.appStoreURL]
+        let textToShare = [ Utils.getAppName() + " " + URLs.appStoreURL ]
         
         let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
         
@@ -148,7 +148,9 @@ extension MainSettingsTableVC {
             popoverController.permittedArrowDirections = UIPopoverArrowDirection(rawValue: 0)
         }
         hideLoadingIndicator()
-        self.present(activityViewController, animated: true, completion: nil)
+        self.present(activityViewController, animated: true){
+            print("TEST")
+        }
     }
     
     func about(){
