@@ -30,6 +30,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     
     // Receive displayed notifications for iOS 10 devices.
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        
         completionHandler([UNNotificationPresentationOptions.alert,UNNotificationPresentationOptions.sound,UNNotificationPresentationOptions.badge])
     }
     
@@ -71,6 +72,6 @@ extension AppDelegate {
 // выводим print только для разработчиков
 func print(_ items: Any...) {
     #if DEBUG
-    Swift.print(items[0])
+    Swift.print(items.first)
     #endif
 }
