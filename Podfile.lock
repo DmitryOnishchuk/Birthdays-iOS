@@ -1,0 +1,26 @@
+PODS:
+  - MBProgressHUD (1.2.0)
+  - NVActivityIndicatorView (5.1.1):
+    - NVActivityIndicatorView/Base (= 5.1.1)
+  - NVActivityIndicatorView/Base (5.1.1)
+  - Toast-Swift (5.0.1)
+
+DEPENDENCIES:
+  - MBProgressHUD (~> 1.2.0)
+  - NVActivityIndicatorView
+  - Toast-Swift (~> 5.0.1)
+
+SPEC REPOS:
+  trunk:
+    - MBProgressHUD
+    - NVActivityIndicatorView
+    - Toast-Swift
+
+SPEC CHECKSUMS:
+  MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
+  NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667
+  Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
+
+PODFILE CHECKSUM: 1db81a025aa7969d59fbc50affbd402dcf94ff11
+
+COCOAPODS: 1.11.3
